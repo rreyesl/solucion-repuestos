@@ -1,0 +1,1216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Repuestos2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityType Name="Auto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="patente" Type="varchar" MaxLength="50" />
+          <Property Name="km" Type="int" />
+          <Property Name="nro_motor" Type="varchar" MaxLength="50" />
+          <Property Name="id_modelo" Type="int" />
+          <Property Name="nro_chasis" Type="varchar" MaxLength="50" />
+          <Property Name="id_cliente" Type="int" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rut" Type="varchar" MaxLength="10" />
+          <Property Name="dv" Type="char" MaxLength="1" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Detalle_Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_repuesto" Type="int" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="total" Type="int" />
+        </EntityType>
+        <EntityType Name="Estado_Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="img_reporte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_reporte" Type="int" />
+          <Property Name="img_url" Type="varchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="anio" Type="int" />
+          <Property Name="id_marca" Type="int" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Reporte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_servicio" Type="int" />
+          <Property Name="observacion" Type="text" />
+        </EntityType>
+        <EntityType Name="Repuesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sku" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="id_modelo" Type="int" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="valor_neto" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Repuesto_Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_repuesto" Type="int" />
+          <Property Name="id_modelo" Type="int" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="fecha_ingreso" Type="datetime" />
+          <Property Name="fecha_entrega" Type="date" Nullable="false" />
+          <Property Name="valor_neto" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="valor_iva" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="valor_total" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="cancelado" Type="bit" />
+          <Property Name="id_sucursal" Type="int" />
+          <Property Name="id_usuario" Type="int" />
+          <Property Name="id_auto" Type="int" />
+          <Property Name="mano_obra" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="repuesto" Type="varchar" MaxLength="50" />
+          <Property Name="id_estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="id_sucursal" Type="int" />
+          <Property Name="id_repuesto" Type="int" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="rut" Type="int" />
+          <Property Name="dv" Type="char" MaxLength="1" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="id_perfil" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="50" />
+          <Property Name="pass" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Auto_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Servicio_Detalle_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Detalle_Servicio" Type="Self.Detalle_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detalle_Servicio">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Servicio_Repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Detalle_Servicio" Type="Self.Detalle_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detalle_Servicio">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_img_reporte_reporte">
+          <End Role="Reporte" Type="Self.Reporte" Multiplicity="0..1" />
+          <End Role="img_reporte" Type="Self.img_reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reporte">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="img_reporte">
+              <PropertyRef Name="id_reporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logs_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modelo_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reporte_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Reporte" Type="Self.Reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reporte">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_Modelo_Modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Repuesto_Modelo" Type="Self.Repuesto_Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto_Modelo">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_Modelo_Repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Repuesto_Modelo" Type="Self.Repuesto_Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto_Modelo">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_tipo">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_auto">
+          <End Role="Auto" Type="Self.Auto" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_auto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Estado">
+          <End Role="Estado_Servicio" Type="Self.Estado_Servicio" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Repuestos2ModelStoreContainer">
+          <EntitySet Name="Auto" EntityType="Self.Auto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalle_Servicio" EntityType="Self.Detalle_Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado_Servicio" EntityType="Self.Estado_Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="img_reporte" EntityType="Self.img_reporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reporte" EntityType="Self.Reporte" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repuesto" EntityType="Self.Repuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repuesto_Modelo" EntityType="Self.Repuesto_Modelo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Auto_Cliente" Association="Self.FK_Auto_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_modelo" Association="Self.FK_Auto_modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Servicio_Detalle_Servicio" Association="Self.FK_Detalle_Servicio_Detalle_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Detalle_Servicio" EntitySet="Detalle_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Servicio_Repuesto" Association="Self.FK_Detalle_Servicio_Repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Detalle_Servicio" EntitySet="Detalle_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_img_reporte_reporte" Association="Self.FK_img_reporte_reporte">
+            <End Role="Reporte" EntitySet="Reporte" />
+            <End Role="img_reporte" EntitySet="img_reporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logs_usuario" Association="Self.FK_Logs_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modelo_Marca" Association="Self.FK_Modelo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reporte_Servicio" Association="Self.FK_Reporte_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Reporte" EntitySet="Reporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_Modelo_Modelo" Association="Self.FK_Repuesto_Modelo_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Repuesto_Modelo" EntitySet="Repuesto_Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_Modelo_Repuesto" Association="Self.FK_Repuesto_Modelo_Repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Repuesto_Modelo" EntitySet="Repuesto_Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_tipo" Association="Self.FK_Repuesto_tipo">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Repuesto" EntitySet="Repuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_auto" Association="Self.FK_Servicio_auto">
+            <End Role="Auto" EntitySet="Auto" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Estado" Association="Self.FK_Servicio_Estado">
+            <End Role="Estado_Servicio" EntitySet="Estado_Servicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_sucursal" Association="Self.FK_Servicio_sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_usuario" Association="Self.FK_Servicio_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_repuesto" Association="Self.FK_Stock_repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_sucursal" Association="Self.FK_Stock_sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_perfil" Association="Self.FK_Usuario_perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Repuestos2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityType Name="Auto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="patente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="km" Type="Int32" />
+          <Property Name="nro_motor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_modelo" Type="Int32" />
+          <Property Name="nro_chasis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_cliente" Type="Int32" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Auto_Cliente" FromRole="Auto" ToRole="Cliente" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK_Auto_modelo" FromRole="Auto" ToRole="Modelo" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_auto" FromRole="Auto" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="dv" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_Cliente" FromRole="Cliente" ToRole="Auto" />
+        </EntityType>
+        <EntityType Name="Detalle_Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_repuesto" Type="Int32" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="total" Type="Int32" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Detalle_Servicio_Detalle_Servicio" FromRole="Detalle_Servicio" ToRole="Servicio" />
+          <NavigationProperty Name="Repuesto" Relationship="Self.FK_Detalle_Servicio_Repuesto" FromRole="Detalle_Servicio" ToRole="Repuesto" />
+        </EntityType>
+        <EntityType Name="Estado_Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_Estado" FromRole="Estado_Servicio" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="img_reporte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_reporte" Type="Int32" />
+          <Property Name="img_url" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reporte" Relationship="Self.FK_img_reporte_reporte" FromRole="img_reporte" ToRole="Reporte" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Logs_usuario" FromRole="Logs" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK_Modelo_Marca" FromRole="Marca" ToRole="Modelo" />
+        </EntityType>
+        <EntityType Name="Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="anio" Type="Int32" />
+          <Property Name="id_marca" Type="Int32" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Auto_modelo" FromRole="Modelo" ToRole="Auto" />
+          <NavigationProperty Name="Marca" Relationship="Self.FK_Modelo_Marca" FromRole="Modelo" ToRole="Marca" />
+          <NavigationProperty Name="Repuesto_Modelo" Relationship="Self.FK_Repuesto_Modelo_Modelo" FromRole="Modelo" ToRole="Repuesto_Modelo" />
+        </EntityType>
+        <EntityType Name="Perfil">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_perfil" FromRole="Perfil" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Reporte">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_servicio" Type="Int32" />
+          <Property Name="observacion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="img_reporte" Relationship="Self.FK_img_reporte_reporte" FromRole="Reporte" ToRole="img_reporte" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Reporte_Servicio" FromRole="Reporte" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Repuesto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sku" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="id_modelo" Type="Int32" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="valor_neto" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Detalle_Servicio" Relationship="Self.FK_Detalle_Servicio_Repuesto" FromRole="Repuesto" ToRole="Detalle_Servicio" />
+          <NavigationProperty Name="Repuesto_Modelo" Relationship="Self.FK_Repuesto_Modelo_Repuesto" FromRole="Repuesto" ToRole="Repuesto_Modelo" />
+          <NavigationProperty Name="Tipo" Relationship="Self.FK_Repuesto_tipo" FromRole="Repuesto" ToRole="Tipo" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_Stock_repuesto" FromRole="Repuesto" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Repuesto_Modelo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_repuesto" Type="Int32" />
+          <Property Name="id_modelo" Type="Int32" />
+          <NavigationProperty Name="Modelo" Relationship="Self.FK_Repuesto_Modelo_Modelo" FromRole="Repuesto_Modelo" ToRole="Modelo" />
+          <NavigationProperty Name="Repuesto" Relationship="Self.FK_Repuesto_Modelo_Repuesto" FromRole="Repuesto_Modelo" ToRole="Repuesto" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_ingreso" Type="DateTime" Precision="3" />
+          <Property Name="fecha_entrega" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="valor_neto" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="valor_iva" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="valor_total" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="cancelado" Type="Boolean" />
+          <Property Name="id_sucursal" Type="Int32" />
+          <Property Name="id_usuario" Type="Int32" />
+          <Property Name="id_auto" Type="Int32" />
+          <Property Name="mano_obra" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="repuesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estado" Type="Int32" />
+          <NavigationProperty Name="Auto" Relationship="Self.FK_Servicio_auto" FromRole="Servicio" ToRole="Auto" />
+          <NavigationProperty Name="Detalle_Servicio" Relationship="Self.FK_Detalle_Servicio_Detalle_Servicio" FromRole="Servicio" ToRole="Detalle_Servicio" />
+          <NavigationProperty Name="Estado_Servicio" Relationship="Self.FK_Servicio_Estado" FromRole="Servicio" ToRole="Estado_Servicio" />
+          <NavigationProperty Name="Reporte" Relationship="Self.FK_Reporte_Servicio" FromRole="Servicio" ToRole="Reporte" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_Servicio_sucursal" FromRole="Servicio" ToRole="Sucursal" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Servicio_usuario" FromRole="Servicio" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="id_sucursal" Type="Int32" />
+          <Property Name="id_repuesto" Type="Int32" />
+          <NavigationProperty Name="Repuesto" Relationship="Self.FK_Stock_repuesto" FromRole="Stock" ToRole="Repuesto" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_Stock_sucursal" FromRole="Stock" ToRole="Sucursal" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_sucursal" FromRole="Sucursal" ToRole="Servicio" />
+          <NavigationProperty Name="Stock" Relationship="Self.FK_Stock_sucursal" FromRole="Sucursal" ToRole="Stock" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Repuesto" Relationship="Self.FK_Repuesto_tipo" FromRole="Tipo" ToRole="Repuesto" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rut" Type="Int32" />
+          <Property Name="dv" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="id_perfil" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Logs" Relationship="Self.FK_Logs_usuario" FromRole="Usuario" ToRole="Logs" />
+          <NavigationProperty Name="Perfil" Relationship="Self.FK_Usuario_perfil" FromRole="Usuario" ToRole="Perfil" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_usuario" FromRole="Usuario" ToRole="Servicio" />
+        </EntityType>
+        <Association Name="FK_Auto_Cliente">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="id_cliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Auto_modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Auto" Type="Self.Auto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Auto">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_auto">
+          <End Role="Auto" Type="Self.Auto" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Auto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_auto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Servicio_Detalle_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Detalle_Servicio" Type="Self.Detalle_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detalle_Servicio">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Detalle_Servicio_Repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Detalle_Servicio" Type="Self.Detalle_Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Detalle_Servicio">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Estado">
+          <End Role="Estado_Servicio" Type="Self.Estado_Servicio" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado_Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_img_reporte_reporte">
+          <End Role="Reporte" Type="Self.Reporte" Multiplicity="0..1" />
+          <End Role="img_reporte" Type="Self.img_reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reporte">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="img_reporte">
+              <PropertyRef Name="id_reporte" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Logs_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Logs" Type="Self.Logs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Logs">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modelo_Marca">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Modelo">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_Modelo_Modelo">
+          <End Role="Modelo" Type="Self.Modelo" Multiplicity="0..1" />
+          <End Role="Repuesto_Modelo" Type="Self.Repuesto_Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modelo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto_Modelo">
+              <PropertyRef Name="id_modelo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_perfil">
+          <End Role="Perfil" Type="Self.Perfil" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfil">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="id_perfil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Reporte_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Reporte" Type="Self.Reporte" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Reporte">
+              <PropertyRef Name="id_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_Modelo_Repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Repuesto_Modelo" Type="Self.Repuesto_Modelo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto_Modelo">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Repuesto_tipo">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Repuesto">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_repuesto">
+          <End Role="Repuesto" Type="Self.Repuesto" Multiplicity="0..1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Repuesto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="id_repuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Stock_sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="0..1" />
+          <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Stock">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Repuestos2Entities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Auto" EntityType="Self.Auto" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Detalle_Servicio" EntityType="Self.Detalle_Servicio" />
+          <EntitySet Name="Estado_Servicio" EntityType="Self.Estado_Servicio" />
+          <EntitySet Name="img_reporte" EntityType="Self.img_reporte" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" />
+          <EntitySet Name="Modelo" EntityType="Self.Modelo" />
+          <EntitySet Name="Perfil" EntityType="Self.Perfil" />
+          <EntitySet Name="Reporte" EntityType="Self.Reporte" />
+          <EntitySet Name="Repuesto" EntityType="Self.Repuesto" />
+          <EntitySet Name="Repuesto_Modelo" EntityType="Self.Repuesto_Modelo" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="Stock" EntityType="Self.Stock" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="Tipo" EntityType="Self.Tipo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK_Auto_Cliente" Association="Self.FK_Auto_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Auto_modelo" Association="Self.FK_Auto_modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Auto" EntitySet="Auto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_auto" Association="Self.FK_Servicio_auto">
+            <End Role="Auto" EntitySet="Auto" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Servicio_Detalle_Servicio" Association="Self.FK_Detalle_Servicio_Detalle_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Detalle_Servicio" EntitySet="Detalle_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Servicio_Repuesto" Association="Self.FK_Detalle_Servicio_Repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Detalle_Servicio" EntitySet="Detalle_Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Estado" Association="Self.FK_Servicio_Estado">
+            <End Role="Estado_Servicio" EntitySet="Estado_Servicio" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_img_reporte_reporte" Association="Self.FK_img_reporte_reporte">
+            <End Role="Reporte" EntitySet="Reporte" />
+            <End Role="img_reporte" EntitySet="img_reporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Logs_usuario" Association="Self.FK_Logs_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Logs" EntitySet="Logs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modelo_Marca" Association="Self.FK_Modelo_Marca">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Modelo" EntitySet="Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_Modelo_Modelo" Association="Self.FK_Repuesto_Modelo_Modelo">
+            <End Role="Modelo" EntitySet="Modelo" />
+            <End Role="Repuesto_Modelo" EntitySet="Repuesto_Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_perfil" Association="Self.FK_Usuario_perfil">
+            <End Role="Perfil" EntitySet="Perfil" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Reporte_Servicio" Association="Self.FK_Reporte_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Reporte" EntitySet="Reporte" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_Modelo_Repuesto" Association="Self.FK_Repuesto_Modelo_Repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Repuesto_Modelo" EntitySet="Repuesto_Modelo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Repuesto_tipo" Association="Self.FK_Repuesto_tipo">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Repuesto" EntitySet="Repuesto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_repuesto" Association="Self.FK_Stock_repuesto">
+            <End Role="Repuesto" EntitySet="Repuesto" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_sucursal" Association="Self.FK_Servicio_sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_usuario" Association="Self.FK_Servicio_usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Stock_sucursal" Association="Self.FK_Stock_sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Stock" EntitySet="Stock" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Repuestos2ModelStoreContainer" CdmEntityContainer="Repuestos2Entities4">
+          <EntitySetMapping Name="Auto">
+            <EntityTypeMapping TypeName="Repuestos2Model.Auto">
+              <MappingFragment StoreEntitySet="Auto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="patente" ColumnName="patente" />
+                <ScalarProperty Name="km" ColumnName="km" />
+                <ScalarProperty Name="nro_motor" ColumnName="nro_motor" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+                <ScalarProperty Name="nro_chasis" ColumnName="nro_chasis" />
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="Repuestos2Model.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="dv" ColumnName="dv" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_Servicio">
+            <EntityTypeMapping TypeName="Repuestos2Model.Detalle_Servicio">
+              <MappingFragment StoreEntitySet="Detalle_Servicio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="total" ColumnName="total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado_Servicio">
+            <EntityTypeMapping TypeName="Repuestos2Model.Estado_Servicio">
+              <MappingFragment StoreEntitySet="Estado_Servicio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="img_reporte">
+            <EntityTypeMapping TypeName="Repuestos2Model.img_reporte">
+              <MappingFragment StoreEntitySet="img_reporte">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_reporte" ColumnName="id_reporte" />
+                <ScalarProperty Name="img_url" ColumnName="img_url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="Repuestos2Model.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="Repuestos2Model.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modelo">
+            <EntityTypeMapping TypeName="Repuestos2Model.Modelo">
+              <MappingFragment StoreEntitySet="Modelo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfil">
+            <EntityTypeMapping TypeName="Repuestos2Model.Perfil">
+              <MappingFragment StoreEntitySet="Perfil">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reporte">
+            <EntityTypeMapping TypeName="Repuestos2Model.Reporte">
+              <MappingFragment StoreEntitySet="Reporte">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repuesto">
+            <EntityTypeMapping TypeName="Repuestos2Model.Repuesto">
+              <MappingFragment StoreEntitySet="Repuesto">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="valor_neto" ColumnName="valor_neto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repuesto_Modelo">
+            <EntityTypeMapping TypeName="Repuestos2Model.Repuesto_Modelo">
+              <MappingFragment StoreEntitySet="Repuesto_Modelo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
+                <ScalarProperty Name="id_modelo" ColumnName="id_modelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="Repuestos2Model.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fecha_ingreso" ColumnName="fecha_ingreso" />
+                <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+                <ScalarProperty Name="valor_neto" ColumnName="valor_neto" />
+                <ScalarProperty Name="valor_iva" ColumnName="valor_iva" />
+                <ScalarProperty Name="valor_total" ColumnName="valor_total" />
+                <ScalarProperty Name="cancelado" ColumnName="cancelado" />
+                <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_auto" ColumnName="id_auto" />
+                <ScalarProperty Name="mano_obra" ColumnName="mano_obra" />
+                <ScalarProperty Name="repuesto" ColumnName="repuesto" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stock">
+            <EntityTypeMapping TypeName="Repuestos2Model.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+                <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="Repuestos2Model.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo">
+            <EntityTypeMapping TypeName="Repuestos2Model.Tipo">
+              <MappingFragment StoreEntitySet="Tipo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="Repuestos2Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="dv" ColumnName="dv" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="id_perfil" ColumnName="id_perfil" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

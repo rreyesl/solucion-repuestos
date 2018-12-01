@@ -1,0 +1,66 @@
+﻿html {
+    height: 100%;
+}
+body {
+    background-image: url('../img/bg_1.jpg');
+    height: 100%;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.panel-login > table {
+    margin: 0 auto;
+}
+
+.panel-login {
+    padding-bottom: 20px;
+    background-color: #f1f1f1;
+    border-radius: 35px;
+}
+
+.login-title {
+    display:none;
+}
+
+.login-icon > li{
+    font-size: 80px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+}
+
+.btn-submit {
+    margin-top: 10px;
+    color: #fff;
+    background-color: #ff8900;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border: none;
+}
+
+.menu-bar {
+    margin-top: 12px;
+}
+
+.menu-bar > ul > li > a {
+    margin-top: 4px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.navbar {
+    border-radius: 0px;
+}
+
+.panel-g {
+    padding-top: 15px;
+    background-color: #f1f1f1;
+    padding-bottom: 50px;
+    border-radius: 25px;
+}

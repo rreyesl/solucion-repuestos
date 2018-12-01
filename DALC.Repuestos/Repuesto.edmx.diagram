@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c8cc625421434573bd0924f86fdbb05a" Name="Diagram1">
+        <EntityTypeShape EntityType="Repuestos2Model.Auto" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Cliente" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Detalle_Servicio" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Estado_Servicio" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.img_reporte" Width="1.5" PointX="7.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Logs" Width="1.5" PointX="3" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Marca" Width="1.5" PointX="1.5" PointY="23.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Modelo" Width="1.5" PointX="1.5" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Perfil" Width="1.5" PointX="1.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Reporte" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Repuesto" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Repuesto_Modelo" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Servicio" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Stock" Width="1.5" PointX="6" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Sucursal" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Tipo" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Repuestos2Model.Usuario" Width="1.5" PointX="0.75" PointY="27.125" IsExpanded="true" />
+        <AssociationConnector Association="Repuestos2Model.FK_Auto_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Auto_modelo" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Servicio_auto" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Detalle_Servicio_Detalle_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Detalle_Servicio_Repuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Servicio_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_img_reporte_reporte" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Logs_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Modelo_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Repuesto_Modelo_Modelo" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Usuario_perfil" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Reporte_Servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Repuesto_Modelo_Repuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Repuesto_tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Stock_repuesto" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Servicio_sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Servicio_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="Repuestos2Model.FK_Stock_sucursal" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
