@@ -90,6 +90,7 @@ namespace WebRepuestos.Mecanico
                 dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
 
                 Stock st = new Stock();
+
               
 
                 if (dt.Crear())
