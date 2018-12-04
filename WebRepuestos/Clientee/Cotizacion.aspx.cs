@@ -37,10 +37,41 @@ namespace WebRepuestos.Cliente
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
 
+         string id=   System.Web.HttpContext.Current.Session["idservicio2"] as String;
+            lbMensaje.Text = System.Web.HttpContext.Current.Session["idservicio2"] as String;
+            Negocio.Repuestos.Clases.Servicio s = new Servicio();
+
+            GridViewRow gr = gvServicios.SelectedRow;
+            //   lbCotizacion.Text = gr.Cells[2].Text;
+
+            int asd = int.Parse(gr.Cells[0].Text);
+
+            if (s.AceptarSolicitud(asd))
+            {
+                lbMensaje.Text = "servicio aprobado";
+            }
+
+
+
         }
 
         protected void btnRechazar_Click(object sender, EventArgs e)
         {
+
+            string id = System.Web.HttpContext.Current.Session["idservicio2"] as String;
+            lbMensaje.Text = System.Web.HttpContext.Current.Session["idservicio2"] as String;
+            Negocio.Repuestos.Clases.Servicio s = new Servicio();
+
+            GridViewRow gr = gvServicios.SelectedRow;
+            //   lbCotizacion.Text = gr.Cells[2].Text;
+
+            int asd = int.Parse(gr.Cells[0].Text);
+
+            if (s.AceptarSolicitud(asd))
+            {
+                lbMensaje.Text = "servicio rechazado";
+            }
+
 
         }
 
@@ -57,6 +88,7 @@ namespace WebRepuestos.Cliente
       
 
             System.Web.HttpContext.Current.Session["idservicio"] = gr.Cells[1].Text;
+            System.Web.HttpContext.Current.Session["idservici2"] = gr.Cells[0].Text;
 
 
 

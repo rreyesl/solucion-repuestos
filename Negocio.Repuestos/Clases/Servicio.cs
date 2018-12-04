@@ -420,7 +420,7 @@ namespace Negocio.Repuestos.Clases
             {
                 var aux = CommonBC.Modelo.Servicio.First
                     (valor => valor.descripcion == descripcion);
-
+                this.id = aux.id;
                 this.Fecha_ingreso = aux.fecha_ingreso;
                 this.fecha_entrega = aux.fecha_entrega;
                 this.valor_neto = aux.valor_neto;
@@ -591,6 +591,102 @@ namespace Negocio.Repuestos.Clases
             return listaServicios(servicios.ToList(),p);
         }
 
+
+        public bool AceptarSolicitud(int id)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Servicio.First
+                    (valor => valor.id == id);
+               
+                aux.id_estado = 2;
+
+
+
+
+                CommonBC.Modelo.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool RechazarSolicitud(int id)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Servicio.First
+                    (valor => valor.id == id);
+
+                aux.id_estado =3;
+
+
+
+
+                CommonBC.Modelo.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool EditarSolicitud(int id)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Servicio.First
+                    (valor => valor.id == id);
+
+                aux.id_estado = 4;
+
+
+
+
+                CommonBC.Modelo.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool BuscarSolicitud(int id)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Servicio.First
+                    (valor => valor.id == id);
+
+                this.id_estado = aux.id_estado;
+
+
+
+
+                CommonBC.Modelo.SaveChanges();
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
 
     }

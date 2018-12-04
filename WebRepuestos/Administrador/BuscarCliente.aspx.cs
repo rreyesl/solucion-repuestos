@@ -107,6 +107,14 @@ namespace WebRepuestos.Administrador
             if (c.Eliminar())
             {
                 lbMensaje.Text = "Cliente eliminado!!!";
+
+                txtDireccion.Text = string.Empty;
+                txtNombre.Text = string.Empty; 
+                txtApellido.Text = string.Empty; 
+                txtCorreo.Text =  string.Empty; 
+                txtTelefono.Text =  string.Empty;
+                txtRut.Text = string.Empty;
+
             }
             else
             {

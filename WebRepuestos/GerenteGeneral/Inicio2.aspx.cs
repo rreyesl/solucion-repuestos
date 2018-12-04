@@ -1,16 +1,15 @@
-﻿using DALC.Repuestos;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
 using System.Configuration;
 
-namespace WebRepuestos.Administrador
+namespace WebRepuestos.GerenteGeneral
 {
-    public partial class GenerarReporte : System.Web.UI.Page
+    public partial class InicioGerenteGeneral : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,43 +26,42 @@ namespace WebRepuestos.Administrador
             cmd.Connection = sqlcon;
 
             sqlcon.Open();
-          //  string[] datos;
+            //  string[] datos;
 
-//            List<string> listapulenta = new List<string>();
+            //            List<string> listapulenta = new List<string>();
             //ClassName[] allRecords = null;
             rd = cmd.ExecuteReader();
             int aux = 0;
             Negocio.Repuestos.Reporte1[] datos = null;
             string data = "{'repuestos': [";
-           
-            if (rd.HasRows){
+
+            if (rd.HasRows)
+            {
 
                 var list = new List<Negocio.Repuestos.Reporte1>();
 
                 while (rd.Read())
                 {
-                  
-                    list.Add(new Negocio.Repuestos.Reporte1  { Id = rd.GetInt32(0) });
-                    data += "{'id': '" + rd.GetInt32(0) + "', 'cantidad':'"+rd.GetInt32(1)+"','repuesto':'"+rd.GetString(2)+"','fecha':'"+rd.GetString(3)+"'},";
+
+                    list.Add(new Negocio.Repuestos.Reporte1 { Id = rd.GetInt32(0) });
+                    data += "{'id': '" + rd.GetInt32(0) + "', 'cantidad':'" + rd.GetInt32(1) + "','repuesto':'" + rd.GetString(2) + "','fecha':'" + rd.GetString(3) + "'},";
                 }
 
                 datos = list.ToArray();
             }
             data = data.Remove(data.Length - 1);
             data += "]}";
-           
+
 
             sqlcon.Close();
-            
-           // string[] data = listapulenta.ToArray();
+
+            // string[] data = listapulenta.ToArray();
             System.Web.HttpContext.Current.Session["repuestosMes"] = data;
             Session["repuestoMes"] = data;
 
 
             //System.Web.HttpContext.Current.Session["repuestosMes"] as String;
-           // txtArea.InnerText =  (datos[0].Id).ToString();
-
-
+            // txtArea.InnerText =  (datos[0].Id).ToString();
 
 
 
@@ -73,8 +71,8 @@ namespace WebRepuestos.Administrador
         {
             Response.Clear();
 
-            Response.AddHeader("content-disposition", "attachment;filename = Reportes-"+System.DateTime.Now.Date.ToString("dd/MM/yyyy")+".xls");
-        
+            Response.AddHeader("content-disposition", "attachment;filename = Reportes-" + System.DateTime.Now.Date.ToString("dd/MM/yyyy") + ".xls");
+
 
 
             Response.ContentType = "application/vnd.xls";
@@ -90,7 +88,6 @@ namespace WebRepuestos.Administrador
 
             Response.End();
         }
-
 
         public override void
    VerifyRenderingInServerForm(Control control)

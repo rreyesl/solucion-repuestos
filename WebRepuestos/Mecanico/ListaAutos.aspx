@@ -15,14 +15,15 @@
             <asp:BoundField DataField="patente" HeaderText="patente" SortExpression="patente" />
             <asp:BoundField DataField="km" HeaderText="km" SortExpression="km" />
             <asp:BoundField DataField="nro_motor" HeaderText="nro_motor" SortExpression="nro_motor" />
-            <asp:BoundField DataField="Modelo" HeaderText="Modelo" SortExpression="Modelo" />
             <asp:BoundField DataField="nro_chasis" HeaderText="nro_chasis" SortExpression="nro_chasis" />
-            <asp:BoundField DataField="Dueño" HeaderText="Dueño" ReadOnly="True" SortExpression="Dueño" />
+            <asp:BoundField DataField="Dueño" HeaderText="Dueño" SortExpression="Dueño" ReadOnly="True" />
         </Columns>
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString2 %>" SelectCommand="
-SELECT a.[id], a.[patente], a.[km], a.[nro_motor], m.nombre &quot;Modelo&quot;, a.[nro_chasis], c.nombre+' '+ c.apellido &quot;Dueño&quot;  FROM [Auto] a join cliente c on a.id_cliente = c.id
-join Modelo m on a.id_cliente = m.id;"></asp:SqlDataSource>
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString7 %>" SelectCommand="
+SELECT a.[id], a.[patente], a.[km], a.[nro_motor],
+ a.[nro_chasis], c.nombre+' '+ c.apellido &quot;Dueño&quot;  FROM [Auto] a 
+ join cliente c on a.id_cliente = c.id;
+"></asp:SqlDataSource>
 
             </div>
             <div class="col-sm-3"></div>

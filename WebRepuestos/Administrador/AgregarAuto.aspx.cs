@@ -55,6 +55,7 @@ namespace WebRepuestos.Mecanico
                     if (a.Crear())
                     {
                         lbMensaje.Text = "Auto creado";
+                        Response.Redirect("AgregarServicio.aspx");
                     }
                     else
                     {

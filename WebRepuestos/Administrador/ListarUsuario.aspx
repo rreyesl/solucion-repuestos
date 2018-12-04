@@ -17,14 +17,15 @@
                 <asp:BoundField DataField="rut" HeaderText="rut" SortExpression="rut" />
                 <asp:BoundField DataField="dv" HeaderText="dv" SortExpression="dv" />
                 <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />
-                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
-                <asp:BoundField DataField="apellido" HeaderText="apellido" SortExpression="apellido" />
+                <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" ReadOnly="True" />
                 <asp:BoundField DataField="telefono" HeaderText="telefono" SortExpression="telefono" />
                 <asp:BoundField DataField="direccion" HeaderText="direccion" SortExpression="direccion" />
                 <asp:BoundField DataField="Perfil" HeaderText="Perfil" SortExpression="Perfil" />
             </Columns>
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server"  ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString6 %>" DeleteCommand="DELETE FROM [Usuario] WHERE [id] = @id" InsertCommand="INSERT INTO [Usuario] ([rut], [dv], [correo], [nombre], [apellido], [telefono], [id_perfil], [direccion], [pass]) VALUES (@rut, @dv, @correo, @nombre, @apellido, @telefono, @id_perfil, @direccion, @pass)" SelectCommand="SELECT u.[id], u.[rut], u.[dv], u.[correo], u.[nombre], u.[apellido], u.[telefono], u.[direccion], p.nombre &quot;Perfil&quot; FROM [Usuario] u join Perfil p on u.id_perfil = p.id;" UpdateCommand="UPDATE [Usuario] SET [rut] = @rut, [dv] = @dv, [correo] = @correo, [nombre] = @nombre, [apellido] = @apellido, [telefono] = @telefono, [id_perfil] = @id_perfil, [direccion] = @direccion, [pass] = @pass WHERE [id] = @id">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server"  ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString6 %>" DeleteCommand="DELETE FROM [Usuario] WHERE [id] = @id" InsertCommand="INSERT INTO [Usuario] ([rut], [dv], [correo], [nombre], [apellido], [telefono], [id_perfil], [direccion], [pass]) VALUES (@rut, @dv, @correo, @nombre, @apellido, @telefono, @id_perfil, @direccion, @pass)" SelectCommand="SELECT u.[id], u.[rut], u.[dv], u.[correo], u.[nombre] + ' ' + u.[apellido] as nombre,
+ u.[telefono], u.[direccion], p.nombre &quot;Perfil&quot; FROM [Usuario] u 
+ join Perfil p on u.id_perfil = p.id;" UpdateCommand="UPDATE [Usuario] SET [rut] = @rut, [dv] = @dv, [correo] = @correo, [nombre] = @nombre, [apellido] = @apellido, [telefono] = @telefono, [id_perfil] = @id_perfil, [direccion] = @direccion, [pass] = @pass WHERE [id] = @id">
             <DeleteParameters>
                 <asp:Parameter Name="id" Type="Int32" />
             </DeleteParameters>

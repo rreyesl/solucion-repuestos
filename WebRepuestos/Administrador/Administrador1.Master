@@ -54,6 +54,7 @@
                 <asp:MenuItem NavigateUrl="BuscarUsuario.aspx" Text="Administrar Usuarios" Value="9"/>
                 <asp:MenuItem NavigateUrl="Editar.aspx" Text="Editar Servicios" Value="10"/>
                
+               
 </Items>
         </asp:Menu>
 

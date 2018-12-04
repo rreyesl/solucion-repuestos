@@ -15,6 +15,8 @@ namespace WebRepuestos.Clientee
         protected void Page_Load(object sender, EventArgs e)
         {
           
+         
+
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -67,6 +69,25 @@ namespace WebRepuestos.Clientee
 
             System.Web.HttpContext.Current.Session["idservicio"] = gr.Cells[1].Text;
 
+
+
+            int id = int.Parse(System.Web.HttpContext.Current.Session["idservicio"] as String);
+
+            Servicio s = new Servicio();
+            s.BuscarSolicitud(id);
+
+            int estado = s.Id_estado;
+
+            if (estado == 4)
+            {
+                btnAgregar.Enabled = false;
+                lbMensaje.Text = "Este servicio ya fue editado";
+            }
+            else
+            {
+                btnAgregar.Enabled = true;
+            }
+
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -77,7 +98,9 @@ namespace WebRepuestos.Clientee
 
             if (s.Modificar(decimal.Parse(txtTotal.Text), decimal.Parse(txtIVA.Text), decimal.Parse(txtNeto.Text), id))
             {
+                s.EditarSolicitud(id);
                 lbMensaje.Text = "modificado";
+
                 gvCotizaciones.DataBind();
             }
             else

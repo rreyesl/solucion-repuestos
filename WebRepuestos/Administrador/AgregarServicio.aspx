@@ -52,7 +52,18 @@
     .auto-style14 {
         height: 26px;
     }
-</style>
+        .auto-style15 {
+            width: 514px;
+            height: 22px;
+        }
+        .auto-style16 {
+            width: 369px;
+            height: 22px;
+        }
+        .auto-style17 {
+            height: 22px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <div class="container">
@@ -88,7 +99,7 @@
         <tr>
             <td class="auto-style3">Cantidad:</td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Cantidad Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -97,50 +108,40 @@
         <tr>
             <td class="auto-style3">Fecha Ingreso:</td>
             <td class="auto-style8">
-                <asp:Calendar ID="dpIngreso" runat="server"></asp:Calendar>
+                <asp:Calendar ID="dpIngreso" runat="server" OnSelectionChanged="dpIngreso_SelectionChanged"></asp:Calendar>
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style2">Fecha Entrega:</td>
             <td class="auto-style8">
-                <asp:Calendar ID="dpEntrega" runat="server"></asp:Calendar>
+                <asp:Calendar ID="dpEntrega" runat="server" OnSelectionChanged="dpEntrega_SelectionChanged"></asp:Calendar>
             </td>
             <td class="auto-style1"></td>
         </tr>
         <tr>
-            <td class="auto-style3">Valor Neto: </td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtNeto" runat="server"></asp:TextBox>
+            <td class="auto-style15">Valor Neto: </td>
+            <td class="auto-style16">
+                <asp:TextBox ID="txtNeto" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
-            <td>
-                <asp:RangeValidator ID="RangeNeto" runat="server" ControlToValidate="txtNeto" ErrorMessage="Ingrese Valor Valido!" MinimumValue="1" SetFocusOnError="True" Type="Double" MaximumValue="9999999999999999"></asp:RangeValidator>
-            </td>
+            <td class="auto-style17">
+                </td>
         </tr>
         <tr>
             <td class="auto-style3">Valor IVA:</td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtIVA" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtIVA" runat="server" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
-                <asp:RangeValidator ID="RangeIVA" runat="server" ControlToValidate="txtIVA" ErrorMessage="Ingrese Valor Valido!" MinimumValue="1" SetFocusOnError="True" Type="Double" MaximumValue="9999999999999999"></asp:RangeValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style3">Valor Total:</td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtTotal" runat="server" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtTotal" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
-                <asp:RangeValidator ID="RangeTotal" runat="server" ControlToValidate="txtTotal" ErrorMessage="Ingrese Valor Valido!" MinimumValue="1" SetFocusOnError="True" Type="Double" MaximumValue="9999999999999999"></asp:RangeValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Cenlado: </td>
-            <td class="auto-style8">
-                <asp:CheckBox ID="chbCancelado" runat="server" Text="Si" />
-            </td>
-            <td>&nbsp;</td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style13">Mano Obra %:</td>
@@ -168,7 +169,7 @@
             <td class="auto-style12"></td>
         </tr>
         <tr>
-            <td class="auto-style4">Dueño:</td>
+            <td class="auto-style4">Mecanico:</td>
             <td class="auto-style9">
                 <asp:DropDownList ID="ddlUsuario" runat="server">
                 </asp:DropDownList>

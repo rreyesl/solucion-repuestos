@@ -46,6 +46,17 @@
         .auto-style13 {
             height: 44px;
         }
+        .auto-style14 {
+            width: 473px;
+            height: 22px;
+        }
+        .auto-style15 {
+            width: 194px;
+            height: 22px;
+        }
+        .auto-style16 {
+            height: 22px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -73,11 +84,11 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">Descripcion:</td>
-            <td class="auto-style4">
+            <td class="auto-style14">Descripcion:</td>
+            <td class="auto-style15">
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
             </td>
-            <td>
+            <td class="auto-style16">
                 <asp:RequiredFieldValidator ID="RqDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Descripcion Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
             </td>
         </tr>

@@ -67,6 +67,13 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
+            <td class="auto-style1">
+                &nbsp;</td>
+            <td class="auto-style2">
+                &nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
                 <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
@@ -78,7 +85,8 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
-                &nbsp;</td>
+                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+            </td>
             <td>&nbsp;</td>
         </tr>
         </table>

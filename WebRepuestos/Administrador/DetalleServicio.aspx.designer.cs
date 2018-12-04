@@ -49,6 +49,24 @@ namespace WebRepuestos.Mecanico {
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
         
         /// <summary>
+        /// Control txtNeto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNeto;
+        
+        /// <summary>
+        /// Control txtIva.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIva;
+        
+        /// <summary>
         /// Control txtTotal.
         /// </summary>
         /// <remarks>
@@ -76,15 +94,6 @@ namespace WebRepuestos.Mecanico {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
-        /// Control btnRechazar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRechazar;
-        
-        /// <summary>
         /// Control lbMensaje.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,23 @@ namespace WebRepuestos.Mecanico {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbMensaje;
+        
+        /// <summary>
+        /// Control GridView1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
+        
+        /// <summary>
+        /// Control SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

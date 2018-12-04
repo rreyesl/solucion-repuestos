@@ -7,6 +7,10 @@
         .auto-style2 {
             width: 216px;
         }
+    .auto-style3 {
+        width: 216px;
+        height: 23px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -87,25 +91,23 @@
         </tr>
         <tr>
             <td class="auto-style1">Direccion:</td>
-            <td class="auto-style2">
+            <td class="auto-style3">
                 <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
             </td>
+            <td class="auto-style1">
+                </td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style2">
+                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style1">Pass:</td>
+            <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
-            </td>
-            <td>
                 &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Repita pass:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="txtPass2" runat="server" TextMode="Password"></asp:TextBox>
-            </td>
             <td>
                 &nbsp;</td>
         </tr>

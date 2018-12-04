@@ -16,9 +16,7 @@ namespace WebRepuestos.Mecanico
             if (!IsPostBack)
             {
 
-
-
-
+     
                 ServicioCollection sc = new ServicioCollection();
                 RepuestoCollection rc = new RepuestoCollection();
                 Servicio s = new Servicio();
@@ -37,9 +35,12 @@ namespace WebRepuestos.Mecanico
 
                 int indexOfLastItem = ddlServicio.Items.Count - 1;
 
-                txtTotal.Text = System.Web.HttpContext.Current.Session["sessionString"] as String;
-                 ddlRepuesto.SelectedIndex = (int)System.Web.HttpContext.Current.Session["sessionString2"];
-                 txtCantidad.Text = System.Web.HttpContext.Current.Session["sessionString3"] as String;
+                txtTotal.Text = System.Web.HttpContext.Current.Session["total"] as String;
+                txtIva.Text = System.Web.HttpContext.Current.Session["iva"] as String;
+                txtNeto.Text = System.Web.HttpContext.Current.Session["neto"] as String;
+
+                ddlRepuesto.SelectedIndex=1;
+                 txtCantidad.Text = "1";
                 ddlServicio.SelectedIndex = indexOfLastItem;
 
 
@@ -51,23 +52,23 @@ namespace WebRepuestos.Mecanico
 
 
             dt.Cantidad = int.Parse(txtCantidad.Text);
-            dt.Total = (int)int.Parse(txtTotal.Text);
+            dt.Total = int.Parse(txtTotal.Text);
             dt.Id_servicio = int.Parse(ddlServicio.SelectedValue);
             dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
 
 
 
-            if (dt.Crear())
-            {
-                lbMensaje.Text = "Detalle generado";
+            //if (dt.Crear())
+            //{
+            //    lbMensaje.Text = "Detalle generado";
 
                 
 
-            }
-            else
-            {
-                lbMensaje.Text = "Error";
-            }
+            //}
+            //else
+            //{
+            //    lbMensaje.Text = "Error";
+            //}
 
 
 
@@ -79,61 +80,144 @@ namespace WebRepuestos.Mecanico
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (Page.IsValid)
-            {
+           
 
-                Detalle_Servicio dt = new Detalle_Servicio();
 
-                dt.Cantidad = int.Parse(txtCantidad.Text);
-                dt.Total = int.Parse(txtTotal.Text);
-                dt.Id_servicio = int.Parse(ddlServicio.SelectedValue);
-                dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
+                
 
-                Stock st = new Stock();
+                Response.Redirect("Incio.aspx");
 
-              
 
-                if (dt.Crear())
-                {
-                    st.EliminarRepuestoStock(int.Parse(ddlRepuesto.SelectedValue));
-
-                    lbMensaje.Text = "Detalle generado";
-                }
-                else
-                {
-                    lbMensaje.Text = "Error";
-                }
-
-            }
+           
         }
 
         protected void btnMas_Click(object sender, EventArgs e)
         {
-            ddlRepuesto.Enabled = true;
-            txtCantidad.Enabled = true;
-        }
+           
 
-        protected void btnRechazar_Click(object sender, EventArgs e)
-        {
-            Servicio s = new Servicio();
+                Detalle_Servicio dt = new Detalle_Servicio();
 
-            string x = ddlServicio.SelectedItem.ToString();
+ 
+                dt.Cantidad = int.Parse(txtCantidad.Text);
+               
+                dt.Id_servicio = int.Parse(ddlServicio.SelectedValue);
+                dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
 
 
-            
-            if (s.Eliminar(ddlServicio.SelectedItem.ToString()))
+            Repuesto r = new Repuesto();
+
+            r.BuscarRepuestoByNombre(ddlRepuesto.SelectedItem.ToString());
+
+            decimal total = r.Valor_neto;
+
+            //int neto = int.Parse(System.Web.HttpContext.Current.Session["neto"] as String);
+
+            int cantidad = 1;
+
+            if (txtCantidad.Text != "" || txtCantidad.Text != "0")
             {
-                lbMensaje.Text = "Servicio eliminado";
+                cantidad = int.Parse(txtCantidad.Text);
+            }
+
+            decimal totalNeto = (total * cantidad);
+            dt.Total = int.Parse(totalNeto.ToString());
+
+
+
+
+            Stock st = new Stock();
+
+            if (dt.Crear())
+            {
+                st.EliminarRepuestoStock(int.Parse(ddlRepuesto.SelectedValue));
+
+                lbMensaje.Text = "Detalle generado";
+
+
+                GridView1.DataBind();
             }
             else
             {
-                lbMensaje.Text = "error";
+                lbMensaje.Text = "Error";
             }
+
+
+
+
+
         }
+
+        //protected void btnRechazar_Click(object sender, EventArgs e)
+        //{
+        //    Servicio s = new Servicio();
+
+        //    string x = ddlServicio.SelectedItem.ToString();
+
+
+
+        //    if (s.Eliminar(ddlServicio.SelectedItem.ToString()))
+        //    {
+        //        lbMensaje.Text = "Servicio eliminado";
+        //    }
+        //    else
+        //    {
+        //        lbMensaje.Text = "error";
+        //    }
+        //}
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Editar.aspx");
+        }
+
+        protected void ddlRepuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Repuesto r = new Repuesto();
+
+            r.BuscarRepuestoByNombre(ddlRepuesto.SelectedItem.ToString());
+
+            decimal total = r.Valor_neto;
+
+            int neto = int.Parse(System.Web.HttpContext.Current.Session["neto"] as String);
+
+            int cantidad = 1;
+
+            if (txtCantidad.Text != "" || txtCantidad.Text != "0")
+            {
+                cantidad = int.Parse(txtCantidad.Text);
+            }
+
+            decimal totalNeto = (total* cantidad) + neto;
+
+            txtNeto.Text = totalNeto.ToString();
+            txtIva.Text = Math.Round(int.Parse(totalNeto.ToString()) * 0.19).ToString();
+            txtTotal.Text = Math.Round(((int.Parse(totalNeto.ToString()) * 0.19)) + int.Parse(totalNeto.ToString())).ToString();
+
+        }
+
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            Repuesto r = new Repuesto();
+
+            r.BuscarRepuestoByNombre(ddlRepuesto.SelectedItem.ToString());
+
+            decimal total = r.Valor_neto;
+
+            int neto = int.Parse(System.Web.HttpContext.Current.Session["neto"] as String);
+
+            int cantidad = 1;
+
+            if (txtCantidad.Text != "" || txtCantidad.Text != "0")
+            {
+                cantidad = int.Parse(txtCantidad.Text);
+            }
+
+            decimal totalNeto = (total * cantidad) + neto;
+
+            txtNeto.Text = totalNeto.ToString();
+            txtIva.Text = Math.Round(int.Parse(totalNeto.ToString()) * 0.19).ToString();
+            txtTotal.Text = Math.Round(((int.Parse(totalNeto.ToString()) * 0.19)) + int.Parse(totalNeto.ToString())).ToString();
+
         }
     }
 }

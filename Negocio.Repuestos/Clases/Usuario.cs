@@ -435,12 +435,15 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
-        public bool Modificar( int telefono, int id_perfil, string correo, string nombre, string apellido, string direccion)
+        public bool Modificar(int rut, int telefono, int id_perfil, string correo, string nombre, string apellido, string direccion)
         {
             try
             {
                 var c = CommonBC.Modelo.Usuario.First
                     (valor => valor.rut == rut);
+
+
+                c.rut = rut;
                 c.correo = correo;
                 c.nombre = nombre;
                 c.apellido = apellido;

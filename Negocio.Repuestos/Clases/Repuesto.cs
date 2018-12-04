@@ -130,12 +130,30 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
-        public bool Existe()
+        public bool ExisteSku(string sku)
         {
             try
             {
                 var aux = CommonBC.Modelo.Repuesto.First
-                    (valor => valor.sku == this.Sku);
+                    (valor => valor.sku ==sku);
+
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public bool ExisteNombre(string nombre)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Repuesto.First
+                    (valor => valor.descripcion == nombre);
 
                 return true;
 
@@ -213,6 +231,31 @@ namespace Negocio.Repuestos.Clases
             {
 
                 return false;
+            }
+        }
+
+        public Repuesto BuscarRepuestoByNombre(string descripcion)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Repuesto.First
+                    (valor => valor.descripcion == descripcion);
+                this.id = aux.id;
+                this.descripcion = aux.descripcion;
+                this.Valor_neto = aux.valor_neto;
+
+
+
+
+
+                return this;
+
+
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
 

@@ -64,7 +64,7 @@ namespace WebRepuestos.Administrador
 
 
 
-            if (u.Modificar(int.Parse(txtTelefono.Text), ddlPerfil.SelectedIndex, txtCorreo.Text, txtNombre.Text, txtApellido.Text, txtDireccion.Text))
+            if (u.Modificar(int.Parse(txtRut.Text),int.Parse(txtTelefono.Text), int.Parse(ddlPerfil.SelectedValue), txtCorreo.Text, txtNombre.Text, txtApellido.Text, txtDireccion.Text))
             {
 
                 lbMensaje.Text = "Usuario modificado";
@@ -103,6 +103,15 @@ namespace WebRepuestos.Administrador
             if (c.Eliminar(int.Parse(txtRut.Text)))
             {
                 lbMensaje.Text = "Usuario eliminado!!!";
+                txtRut.Text = string.Empty;
+                txtCorreo.Text = string.Empty;
+                txtNombre.Text = string.Empty;
+                txtApellido.Text = string.Empty;
+                txtTelefono.Text = string.Empty;
+                ddlPerfil.SelectedIndex =1;
+                txtDireccion.Text = string.Empty;
+
+
             }
             else
             {

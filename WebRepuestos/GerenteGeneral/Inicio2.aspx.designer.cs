@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebRepuestos.Administrador {
+namespace WebRepuestos.GerenteGeneral {
     
     
-    public partial class GenerarReporte {
+    public partial class InicioGerenteGeneral {
         
         /// <summary>
         /// Control GridView1.
@@ -38,14 +38,5 @@ namespace WebRepuestos.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnExportar;
-        
-        /// <summary>
-        /// Control txtArea.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtArea;
     }
 }

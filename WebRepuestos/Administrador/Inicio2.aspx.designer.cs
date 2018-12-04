@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebRepuestos.GerenteGeneral {
+namespace WebRepuestos.Administrador {
     
     
-    public partial class InicioGerenteGeneral {
+    public partial class InicioAdministrador {
     }
 }

@@ -63,8 +63,8 @@
     <Content Include="Administrador\BuscarCliente.aspx" />
     <Content Include="Administrador\BuscarUsuario.aspx" />
     <Content Include="Administrador\EditarServicio.aspx" />
-    <Content Include="Administrador\GenerarReporte.aspx" />
     <Content Include="Administrador\Inicio.aspx" />
+    <Content Include="Administrador\Inicio2.aspx" />
     <Content Include="Administrador\ListarUsuario.aspx" />
     <Content Include="Administrador\WebForm1.aspx" />
     <Content Include="assets\css\bootstrap-theme.css" />
@@ -85,7 +85,7 @@
     <Content Include="Administrador\Editar.aspx" />
     <Content Include="Clientee\Inicio.aspx" />
     <Content Include="GerenteGeneral\AgregarSucursal.aspx" />
-    <Content Include="GerenteGeneral\Inicio.aspx" />
+    <Content Include="GerenteGeneral\Inicio2.aspx" />
     <Content Include="GerenteGeneral\ListarServicios.aspx" />
     <Content Include="Gerente\Inicio.aspx" />
     <Content Include="Gerente\ListarAutos.aspx" />
@@ -93,6 +93,7 @@
     <Content Include="Gerente\ListarModelos.aspx" />
     <Content Include="Gerente\ListarRepuestos.aspx" />
     <Content Include="Gerente\ListarServicios.aspx" />
+    <Content Include="GestorInventario\AdministrarRepuestos.aspx" />
     <Content Include="GestorInventario\AgregarMarca.aspx" />
     <Content Include="GestorInventario\AgregarModelo.aspx" />
     <Content Include="GestorInventario\AgregarRepuesto.aspx" />
@@ -153,19 +154,19 @@
     <Compile Include="Administrador\EditarServicio.aspx.designer.cs">
       <DependentUpon>EditarServicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\GenerarReporte.aspx.cs">
-      <DependentUpon>GenerarReporte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\GenerarReporte.aspx.designer.cs">
-      <DependentUpon>GenerarReporte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Administrador\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Administrador\Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\Inicio2.aspx.cs">
+      <DependentUpon>Inicio2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\Inicio2.aspx.designer.cs">
+      <DependentUpon>Inicio2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ListarUsuario.aspx.cs">
       <DependentUpon>ListarUsuario.aspx</DependentUpon>
@@ -223,12 +224,12 @@
     <Compile Include="GerenteGeneral\GerenteGeneral1.Master.designer.cs">
       <DependentUpon>GerenteGeneral1.Master</DependentUpon>
     </Compile>
-    <Compile Include="GerenteGeneral\Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="GerenteGeneral\Inicio2.aspx.cs">
+      <DependentUpon>Inicio2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GerenteGeneral\Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="GerenteGeneral\Inicio2.aspx.designer.cs">
+      <DependentUpon>Inicio2.aspx</DependentUpon>
     </Compile>
     <Compile Include="GerenteGeneral\ListarServicios.aspx.cs">
       <DependentUpon>ListarServicios.aspx</DependentUpon>
@@ -285,6 +286,13 @@
     </Compile>
     <Compile Include="Gerente\ListarServicios.aspx.designer.cs">
       <DependentUpon>ListarServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GestorInventario\AdministrarRepuestos.aspx.cs">
+      <DependentUpon>AdministrarRepuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestorInventario\AdministrarRepuestos.aspx.designer.cs">
+      <DependentUpon>AdministrarRepuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="GestorInventario\AgregarMarca.aspx.cs">
       <DependentUpon>AgregarMarca.aspx</DependentUpon>

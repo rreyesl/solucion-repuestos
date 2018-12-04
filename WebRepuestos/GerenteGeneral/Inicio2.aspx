@@ -1,13 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Administrador1.Master" AutoEventWireup="true" CodeBehind="GenerarReporte.aspx.cs" Inherits="WebRepuestos.Administrador.GenerarReporte" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/GerenteGeneral/GerenteGeneral1.Master" AutoEventWireup="true" CodeBehind="Inicio2.aspx.cs" Inherits="WebRepuestos.GerenteGeneral.InicioGerenteGeneral" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style type="text/css">
-        .auto-style1 {
-            height: 20px;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    Inicio Gerente General pinochet
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
@@ -43,10 +40,10 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
     <br />
-    <textarea id="txtArea" runat="server" cols="20" rows="2">
-      <%:Session["repuestoMes"] %>
+    <%--<textarea id="txtArea" runat="server" cols="20" rows="2">--%>
+    <%-- <%:Session["repuestoMes"] %>--%>
         
-    </textarea>
+   <%-- </textarea>--%>
 
     
 <script>
@@ -56,7 +53,7 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
     var data = jQuery.parseJSON(datos.replace(/\&#39;/g, "\""));
     
     $(document).ready(function () {
-        var dias = getDaysInMonth(11, 2018);
+        var dias = getDaysInMonth(12, 2018);
         createGrafico(dias, arrayValores)
     })
 

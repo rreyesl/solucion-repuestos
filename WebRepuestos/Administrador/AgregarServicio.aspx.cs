@@ -56,6 +56,8 @@ namespace WebRepuestos.Mecanico
                 ddlSucursal.DataTextField = "Nombre";
                 ddlSucursal.DataBind();
 
+
+                //usuario
                 ddlUsuario.DataSource = uc.ReadAll();
                 ddlUsuario.DataValueField = "Id";
                 ddlUsuario.DataTextField = "Rut";
@@ -106,7 +108,7 @@ namespace WebRepuestos.Mecanico
                 //s.Valor_neto = decimal.Parse(txtNeto.Text);
                 //s.Valor_iva = decimal.Parse(txtIVA.Text);
                 s.Valor_total = decimal.Parse(txtTotal.Text);
-                s.Cancelado = chbCancelado.Checked;
+                s.Cancelado = false;
                 s.Mano_obra = decimal.Parse(txtMano.Text);
                 s.Id_sucursal = int.Parse(ddlSucursal.SelectedValue);
                 s.Id_usuario = int.Parse(ddlUsuario.SelectedValue);
@@ -147,9 +149,9 @@ namespace WebRepuestos.Mecanico
             int estado = 1;
                 s.Id_estado = estado;
             /*.Id_repuesto = ;*/
-            System.Web.HttpContext.Current.Session["sessionString"] = txtTotal.Text;
-            System.Web.HttpContext.Current.Session["sessionString2"] = ddlRepuesto.SelectedIndex;
-            System.Web.HttpContext.Current.Session["sessionString3"] = txtCantidad.Text;
+            System.Web.HttpContext.Current.Session["total"] = txtTotal.Text;
+            System.Web.HttpContext.Current.Session["iva"] = txtIVA.Text;
+            System.Web.HttpContext.Current.Session["neto"] = txtNeto.Text;
 
 
             //Detalle Servicio
@@ -188,8 +190,29 @@ namespace WebRepuestos.Mecanico
                 //int i;
                 //i = s.Ultimo();
                 //System.Web.HttpContext.Current.Session["sessionString3"] = i;
-                // dt.Crear();
-                Response.Redirect("DetalleServicio.aspx");
+                Repuesto r = new Repuesto();
+                s.BuscarPatente(txtDescripcion.Text);
+
+
+                r.BuscarRepuestoByNombre(ddlRepuesto.SelectedItem.ToString());
+
+                dt.Id_servicio = s.Id;
+               dt.Total = (int)((int.Parse(ddlRepuesto.SelectedValue))*int.Parse(txtCantidad.Text));
+              dt.Id_repuesto  = r.Id;
+               dt.Cantidad  = int.Parse(txtCantidad.Text);
+
+
+                
+
+                if (dt.Crear())
+                {
+                    Response.Redirect("DetalleServicio.aspx");
+                } else
+                {
+                    lbMensaje.Text = "Error en detalle de servicio";
+                }
+                
+
                 
             }
             else
@@ -217,15 +240,58 @@ namespace WebRepuestos.Mecanico
         {
 
             txtNeto.Text = ddlRepuesto.SelectedValue.ToString();
-            txtIVA.Text = (int.Parse(ddlRepuesto.SelectedValue) * 0.19).ToString();
-            txtTotal.Text = ((int.Parse(ddlRepuesto.SelectedValue) * 0.19) + int.Parse(ddlRepuesto.SelectedValue)).ToString();
+            txtIVA.Text = Math.Round((int.Parse(ddlRepuesto.SelectedValue)) * 0.19).ToString();
+            txtTotal.Text = Math.Round(((int.Parse(ddlRepuesto.SelectedValue) * 0.19)) + int.Parse(ddlRepuesto.SelectedValue)).ToString();
 
         }
 
         protected void txtMano_TextChanged(object sender, EventArgs e)
         {
             double calculo = (int.Parse(ddlRepuesto.SelectedValue) * 0.19) + int.Parse(ddlRepuesto.SelectedValue);
-            txtTotal.Text = (calculo + (calculo * (double.Parse(txtMano.Text) / 100))).ToString();
+            double calculoIva = (int.Parse(ddlRepuesto.SelectedValue) * 0.19);
+            txtTotal.Text = Math.Round((calculo + (calculo * (double.Parse(txtMano.Text) / 100)))).ToString();
+            txtIVA.Text = Math.Round((calculoIva + (calculoIva * (double.Parse(txtMano.Text) / 100)))).ToString();
+        }
+
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            int totalCantidad;
+
+            totalCantidad = (int.Parse(ddlRepuesto.SelectedValue))*int.Parse((txtCantidad.Text));
+
+            txtNeto.Text = totalCantidad.ToString();
+            txtIVA.Text = Math.Round((totalCantidad * 0.19)).ToString();
+            txtTotal.Text = Math.Round(((totalCantidad * 0.19)) + totalCantidad).ToString();
+
+        }
+
+        protected void dpIngreso_SelectionChanged(object sender, EventArgs e)
+        {
+
+
+            DateTime fecha = DateTime.Today;
+
+            
+            if (dpIngreso.SelectedDate < fecha)
+            {
+                lbMensaje.Text = "selecciona una fecha mayor a la actual";
+            }
+            else
+            {
+                lbMensaje.Text = "";
+            }
+        }
+
+        protected void dpEntrega_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dpEntrega.SelectedDate < dpIngreso.SelectedDate)
+            {
+                lbMensaje.Text = "selecciona una fecha mayor a la actual";
+            }
+            else
+            {
+                lbMensaje.Text = "";
+            }
         }
     }
 }

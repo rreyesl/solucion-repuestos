@@ -85,15 +85,6 @@ namespace WebRepuestos.Mecanico {
         protected global::System.Web.UI.WebControls.TextBox txtNeto;
         
         /// <summary>
-        /// Control RangeNeto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeNeto;
-        
-        /// <summary>
         /// Control txtIVA.
         /// </summary>
         /// <remarks>
@@ -103,15 +94,6 @@ namespace WebRepuestos.Mecanico {
         protected global::System.Web.UI.WebControls.TextBox txtIVA;
         
         /// <summary>
-        /// Control RangeIVA.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeIVA;
-        
-        /// <summary>
         /// Control txtTotal.
         /// </summary>
         /// <remarks>
@@ -119,24 +101,6 @@ namespace WebRepuestos.Mecanico {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotal;
-        
-        /// <summary>
-        /// Control RangeTotal.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeTotal;
-        
-        /// <summary>
-        /// Control chbCancelado.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chbCancelado;
         
         /// <summary>
         /// Control txtMano.

@@ -61,26 +61,35 @@ namespace WebRepuestos.GestorInventario
                 
 
 
-                if (!r.Existe())
-                { 
-                   
-                    if (r.Crear())
+                if (!r.ExisteSku(txtSku.Text))
+                {
+                    if (!r.ExisteNombre(txtDescripcion.Text))
                     {
+                        if (r.Crear())
+                        {
 
-                       
-                        lbMensaje.Text = "Repuesto creado";
+
+                            lbMensaje.Text = "Repuesto creado";
+                        }
+                        else
+                        {
+                            lbMensaje.Text = "Error";
+                        }
                     }
                     else
                     {
-                        lbMensaje.Text = "Error";
+                        lbMensaje.Text = "el repuesto ya existe";
                     }
+                   
                 }
                 else
                 {
-                    lbMensaje.Text = "Repuesto ya existe";
+                    lbMensaje.Text = "sku ya existe";
                 }
 
-               // r.BuscarSku();
+                // r.BuscarSku();
+
+                r.BuscarRepuestoByNombre(txtDescripcion.Text);
 
                 s.Id_repuesto = r.Id;
                 s.Crear();

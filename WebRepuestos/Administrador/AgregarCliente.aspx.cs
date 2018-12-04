@@ -45,6 +45,7 @@ namespace WebRepuestos.Mecanico
                         //lbMensaje.Text = "Usuario creado";
                         lbMensaje.Text = 
                         rs.nuevoCliente(txtNombre.Text, txtCorreo.Text, c.Pass(txtRut.Text));
+                        Response.Redirect("AgregarAuto.aspx");
                         
 
 
