@@ -5,31 +5,80 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>Cliente</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
 
-           <a href="/LogOut.aspx" class="btn btn-default btn-flat">Sign out</a>
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="Inicio.aspx">Inicio</a></li>
+                <li><a href="Cotizacion.aspx">Cotizaciones</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/LogOut.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
-          <asp:Menu ID="Menu1" Orientation="Horizontal" runat="server" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticSubMenuIndent="10px">
-            <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
-            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-            <DynamicMenuStyle BackColor="#FFFBD6" />
-            <DynamicSelectedStyle BackColor="#FFCC66" />
-            <StaticHoverStyle BackColor="#990000" ForeColor="White" />
-            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
-            <StaticSelectedStyle BackColor="#FFCC66" />
+
+
+
+
+        <!---
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+          <asp:Menu ID="Menu2" CssClass="nav navbar-nav menu-bar" Orientation="Horizontal" runat="server">
+           
             <Items>
 <asp:MenuItem NavigateUrl="Inicio.aspx" Text="Inicio" Value="1"/>
 <asp:MenuItem NavigateUrl="Cotizacion.aspx" Text="Cotizaciones" Value="2"/>
-
               
 </Items>
         </asp:Menu>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
+        <li><a href="/LogOut.aspx" class=""><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        -->
+
+
+
+    <div>
 
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

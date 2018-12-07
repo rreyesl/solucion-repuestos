@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <script src="../assets/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -19,62 +19,111 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        
-        <asp:LoginName ID="LoginName1" runat="server" />
+    
+     <div>
+       <asp:LoginName ID="LoginName1" runat="server" />
 
-        <div class="">
-            <div class="">
-                <div class="">
-                    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#"></a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-
-
-
-      <asp:Menu ID="Menu1" CssClass="nav navbar-nav menu-bar" Orientation="Horizontal" runat="server">
-            
-            <Items>
-<asp:MenuItem NavigateUrl="Inicio.aspx" Text="Inicio" Value="1"/>
-<asp:MenuItem NavigateUrl="AgregarUsuario.aspx" Text="Agregar Usuario" Value="2"/>
-<asp:MenuItem NavigateUrl="ListarUsuario.aspx" Text="Listar Usuario" Value="3"/>   
-                <asp:MenuItem NavigateUrl="AgregarCliente.aspx" Text="Agregar Cliente" Value="4"/>
-                 <asp:MenuItem NavigateUrl="BuscarCliente.aspx" Text="Administrar Clientes" Value="5"/>
-                <asp:MenuItem NavigateUrl="AgregarAuto.aspx" Text="Agregar Auto" Value="6"/>
-                <asp:MenuItem NavigateUrl="BuscarAuto.aspx" Text="Administrar Autos" Value="7"/>
-                <asp:MenuItem NavigateUrl="AgregarServicio.aspx" Text="Agregar Servicio" Value="8"/>
-                <asp:MenuItem NavigateUrl="BuscarUsuario.aspx" Text="Administrar Usuarios" Value="9"/>
-                <asp:MenuItem NavigateUrl="Editar.aspx" Text="Editar Servicios" Value="10"/>
-               
-               
-</Items>
-        </asp:Menu>
-
-
-      <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
-        <li><a href="/LogOut.aspx" class=""><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-                </div>
+         <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="#"></a>
             </div>
-        </div>
-        
-         
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="Inicio.aspx">Inicio</a></li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="AgregarUsuario.aspx">Agregar Usuario</a></li>
+                      <li><a href="ListarUsuario.aspx">Listar Usuarios</a></li>
+                      <li><a href="BuscarUsuario.aspx">Buscar Usuario</a></li>
+                    </ul>
+                </li> 
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="AgregarCliente.aspx">Agregar Cliente</a></li>
+                      <li><a href="BuscarCliente.aspx">Buscar Cliente</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vehículos
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="AgregarAuto.aspx">Agregar Vehículo</a></li>
+                      <li><a href="BuscarAuto.aspx">Buscar Vehículo</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="AgregarServicio.aspx">Agregar Servicio</a></li>
+                      <li><a href="Editar.aspx">Editar Servicio</a></li>
+                    </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/LogOut.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
+
+
+
+
+         <!--<div class="">
+           <div class="">
+             <div class="">
+               <nav class="navbar navbar-inverse">
+                 <div class="container-fluid">
+                   <div class="navbar-header">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span> 
+                     </button>
+                     <a class="navbar-brand" href="#"></a>
+                   </div>
+                   <div class="collapse navbar-collapse" id="myNavbar">
+                     <asp:Menu ID="Menu1" CssClass="nav navbar-nav menu-bar" Orientation="Horizontal" runat="server">
+                       <Items>
+                         <asp:MenuItem NavigateUrl="Inicio.aspx" Text="Inicio" Value="1"/>
+                         
+                         <asp:MenuItem NavigateUrl="AgregarUsuario.aspx" Text="Agregar Usuario" Value="2"/>
+                         <asp:MenuItem NavigateUrl="ListarUsuario.aspx" Text="Listar Usuario" Value="3"/>   
+                         <asp:MenuItem NavigateUrl="AgregarCliente.aspx" Text="Agregar Cliente" Value="4"/>
+                         <asp:MenuItem NavigateUrl="BuscarCliente.aspx" Text="Administrar Clientes" Value="5"/>
+                         <asp:MenuItem NavigateUrl="AgregarAuto.aspx" Text="Agregar Vehículo" Value="6"/>
+                         <asp:MenuItem NavigateUrl="BuscarAuto.aspx" Text="Administrar Vehículo" Value="7"/>
+                         <asp:MenuItem NavigateUrl="AgregarServicio.aspx" Text="Agregar Servicio" Value="8"/>
+                         <asp:MenuItem NavigateUrl="BuscarUsuario.aspx" Text="Administrar Usuarios" Value="9"/>
+                         <asp:MenuItem NavigateUrl="Editar.aspx" Text="Editar Servicios" Value="10"/>
+                       </Items>
+                     </asp:Menu>
+                     <ul class="nav navbar-nav navbar-right" style="margin-top:-50px;">
+                        
+                       <li><a href="/LogOut.aspx" class=""><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                     </ul>
+                   </div>
+                 </div>
+               </nav>
+             </div>
+           </div>
+         </div> -->
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-         
+
         </asp:ContentPlaceHolder>
-    </div>
+      </div>
     </form>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <script src="../assets/jquery-3.3.1.min.js"></script>
+    <script src="../assets/js/jquery-3.3.1.min.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -20,6 +20,33 @@
 <body>
     <form id="form1" runat="server">
     <div>
+
+
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+              </button>
+              <a class="navbar-brand" href="#"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="Inicio.aspx">Inicio</a></li>
+                <li><a href="AgregarSucursal.aspx">Agregar Sucursal</a></li>
+                  <li><a href="ListarServicios.aspx">Listar Servicios</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="/LogOut.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+
+<!--
 
         <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -49,7 +76,7 @@
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         

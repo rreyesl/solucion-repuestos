@@ -85,7 +85,7 @@
     <Content Include="Administrador\Editar.aspx" />
     <Content Include="Clientee\Inicio.aspx" />
     <Content Include="GerenteGeneral\AgregarSucursal.aspx" />
-    <Content Include="GerenteGeneral\Inicio2.aspx" />
+    <Content Include="GerenteGeneral\Inicio.aspx" />
     <Content Include="GerenteGeneral\ListarServicios.aspx" />
     <Content Include="Gerente\Inicio.aspx" />
     <Content Include="Gerente\ListarAutos.aspx" />
@@ -224,12 +224,12 @@
     <Compile Include="GerenteGeneral\GerenteGeneral1.Master.designer.cs">
       <DependentUpon>GerenteGeneral1.Master</DependentUpon>
     </Compile>
-    <Compile Include="GerenteGeneral\Inicio2.aspx.cs">
-      <DependentUpon>Inicio2.aspx</DependentUpon>
+    <Compile Include="GerenteGeneral\Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GerenteGeneral\Inicio2.aspx.designer.cs">
-      <DependentUpon>Inicio2.aspx</DependentUpon>
+    <Compile Include="GerenteGeneral\Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="GerenteGeneral\ListarServicios.aspx.cs">
       <DependentUpon>ListarServicios.aspx</DependentUpon>
