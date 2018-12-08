@@ -195,8 +195,8 @@ namespace Negocio.Repuestos.Clases
                 c.km = km;
                 c.id_cliente =id_cliente;
                 c.id_modelo = id_modelo;
-                c.nro_motor = nro_motor;
-                c.nro_chasis = nro_chasis;
+                c.nro_motor = motor;
+                c.nro_chasis = chasis;
 
                 //CommonBC.Modelo.Auto.Add(c);
                 CommonBC.Modelo.SaveChanges();

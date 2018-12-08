@@ -25,7 +25,8 @@ namespace WebRepuestos.GestorInventario
                 ddlMarca.DataTextField = "Nombre";
                 ddlMarca.DataBind();
 
-
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
 
             }
         }
@@ -47,12 +48,17 @@ namespace WebRepuestos.GestorInventario
 
                 if (m.Crear())
                 {
-                   
-                    lbMensaje.Text = "Modelo creado";
+
+                    mensaje2.Visible = false;
+                    lbMensaje1.Text = "Modelo creado";
+                    mensaje1.Visible = true;
                 }
                 else
                 {
-                    lbMensaje.Text = "Error";
+                    mensaje1.Visible = false;
+                    lbMensaje2.Text = "Error";
+                    mensaje2.Visible = true;
+
                 }
             }
         }

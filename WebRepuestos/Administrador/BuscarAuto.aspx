@@ -53,6 +53,19 @@
         <tr>
             <td>
     <table style="width: 100%;">
+                 <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+
+
+          <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
         <tr>
             <td class="auto-style5"></td>
             <td class="auto-style6"></td>
@@ -61,7 +74,7 @@
         <tr>
             <td class="auto-style2">Patente:</td>
             <td class="auto-style4">
-                <asp:TextBox ID="txtPatente" runat="server" Width="117px"></asp:TextBox>
+                <asp:TextBox ID="txtPatente" runat="server" Width="117px" AutoPostBack="True" OnTextChanged="txtPatente_TextChanged"></asp:TextBox>
             </td>
             <td class="auto-style3">
                 &nbsp;</td>

@@ -14,7 +14,8 @@ namespace WebRepuestos.Mecanico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            mensaje2.Visible = false;
+            mensaje1.Visible = false;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -40,24 +41,46 @@ namespace WebRepuestos.Mecanico
 
                 if (!c.Existe())
                 {
-                    if (c.Crear())
+                    if (!c.ExisteCorreo(txtCorreo.Text))
                     {
-                        //lbMensaje.Text = "Usuario creado";
-                        lbMensaje.Text = 
-                        rs.nuevoCliente(txtNombre.Text, txtCorreo.Text, c.Pass(txtRut.Text));
-                        Response.Redirect("AgregarAuto.aspx");
-                        
+                        if (c.Crear())
+                        {
+                            //lbMensaje.Text = "Usuario creado";
+                            //lbMensaje.Text = 
+                            rs.nuevoCliente(txtNombre.Text, txtCorreo.Text, c.Pass(txtRut.Text));
+                            // rs.nuevoCliente("raul","ra.reyesl@alumnos.duoc.cl", "asd");
+                            // Response.Redirect("AgregarAuto.aspx");
 
 
+                            mensaje2.Visible = false;
+
+                            lbMensaje1.Text = "Cliente agregado";
+                            mensaje1.Visible = true;
+
+                        }
+                        else
+                        {
+                            mensaje1.Visible = false;
+
+                            lbMensaje2.Text = "Error";
+                            mensaje2.Visible = true;
+                        }
                     }
                     else
                     {
-                        lbMensaje.Text = "Error";
+                        mensaje1.Visible = false;
+                        lbMensaje2.Text = "correo ya fue registrado";
+                        mensaje2.Visible = true;
+                       
                     }
+
+                 
                 }
                 else
                 {
-                    lbMensaje.Text = "rut existe";
+                    mensaje1.Visible = false;
+                    mensaje2.Visible = true;
+                    lbMensaje2.Text = "rut existe";
                 }
 
 
@@ -73,6 +96,20 @@ namespace WebRepuestos.Mecanico
             Negocio.Repuestos.Clases.Cliente c = new Negocio.Repuestos.Clases.Cliente();
 
             txtDv.Text = c.Digito(txtRut.Text);
+
+            c.Rut = txtRut.Text;
+
+            if (c.Existe())
+            {
+                mensaje2.Visible = true;
+                lbMensaje2.Text = "El rut existe";
+            }
+            else
+            {
+                mensaje2.Visible = false;
+                lbMensaje2.Text = "";
+            }
+
         }
     }
 }

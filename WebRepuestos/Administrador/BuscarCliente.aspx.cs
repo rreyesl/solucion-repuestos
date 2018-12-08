@@ -14,6 +14,9 @@ namespace WebRepuestos.Administrador
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            mensaje1.Visible = false;
+            mensaje2.Visible = false;
+
         }
 
        
@@ -36,7 +39,10 @@ namespace WebRepuestos.Administrador
             if (c.Modificar(txtRut.Text, txtNombre.Text, txtApellido.Text, txtCorreo.Text, txtDireccion.Text, char.Parse(txtDv.Text), int.Parse(txtTelefono.Text)))
             {
 
-                lbMensaje.Text = "cliente modificado";
+
+
+                lbMensaje1.Text = "cliente modificado";
+                mensaje1.Visible = true;
 
 
 
@@ -46,7 +52,10 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje.Text = "erro";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
+
             }
 
         }
@@ -72,13 +81,19 @@ namespace WebRepuestos.Administrador
                 txtApellido.Text = c.Apellido;
                 txtCorreo.Text = c.Correo;
                 txtTelefono.Text = c.Telefono.ToString();
-                
 
+                mensaje1.Visible = true;
+                lbMensaje1.Text = "Cliente encontrado";
+                mensaje2.Visible = false;
 
             }
             else
             {
-                lbMensaje0.Text = "rut no existe";
+
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "rut no existe";
+                mensaje2.Visible = true;
+               
             }
 
 
@@ -106,7 +121,10 @@ namespace WebRepuestos.Administrador
 
             if (c.Eliminar())
             {
-                lbMensaje.Text = "Cliente eliminado!!!";
+                
+                lbMensaje1.Text = "Cliente eliminado!";
+               mensaje1.Visible = true;
+                mensaje2.Visible = false;
 
                 txtDireccion.Text = string.Empty;
                 txtNombre.Text = string.Empty; 
@@ -118,7 +136,10 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje.Text = "error";
+
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
             }
         }
     }

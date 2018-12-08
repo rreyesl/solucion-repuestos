@@ -22,6 +22,8 @@ namespace WebRepuestos.Administrador
                 ddlPerfil.DataValueField = "Id";
                 ddlPerfil.DataTextField = "Nombre";
                 ddlPerfil.DataBind();
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
 
             }
         }
@@ -31,6 +33,21 @@ namespace WebRepuestos.Administrador
             Usuario u = new Usuario();
 
             txtDv.Text = u.Digito(txtRut.Text);
+            u.Rut = int.Parse(txtRut.Text);
+
+            if (u.Existe())
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "rut existe";
+                mensaje2.Visible = true;
+            }
+            else
+            {
+                lbMensaje2.Text = "";
+                mensaje2.Visible = false;
+            }
+
+           
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -51,33 +68,48 @@ namespace WebRepuestos.Administrador
 
             if (!u.Existe())
             {
-
-                if (txtPass.Text == txtPass2.Text)
+                if (!u.ExisteCorreo(txtCorreo.Text))
                 {
-                    u.Pass = u.Hash(txtPass.Text);
+                    if (txtPass.Text == txtPass2.Text)
+                    {
+                        u.Pass = u.Hash(txtPass.Text);
 
 
+                    }
+                    else
+                    {
+                        lbMensaje.Text = "Password no coinciden";
+                    }
+
+
+                    if (u.Crear())
+                    {
+                        lbMensaje.Text = "Usuario creado";
+                        mensaje1.Visible = true;
+
+                        rs.nuevoUsuario(txtNombre.Text, txtCorreo.Text, ddlPerfil.SelectedValue, txtPass.Text);
+
+                    }
+                    else
+                    {
+                        lbMensaje2.Text = "error";
+                        mensaje2.Visible = true;
+                    }
                 }
                 else
                 {
-                    lbMensaje.Text = "Password no coinciden";
+                    mensaje1.Visible = false;
+                    lbMensaje2.Text = "Correo ya fue registrado";
+                    mensaje2.Visible = true;
                 }
 
 
-                if (u.Crear())
-                {
-                    lbMensaje.Text = "Usuario creado";
-                    rs.nuevoUsuario(txtNombre.Text, txtCorreo.Text, ddlPerfil.SelectedValue, txtPass.Text);
-                    
-                }
-                else
-                {
-                    lbMensaje.Text = "error";
-                }
+             
             }
             else
             {
-                lbMensaje.Text = "El rut ya existe";
+                lbMensaje2.Text = "El rut ya existe";
+                mensaje2.Visible = true;
             }
         }
     }

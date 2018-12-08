@@ -79,11 +79,11 @@ namespace WebRepuestos
             {
                 Response.Redirect("Administrador/Inicio.aspx");
             }
-            else if (u.Id_perfil == 3)
+            else if (u.Id_perfil == 2)
             {
                 Response.Redirect("GerenteGeneral/Inicio.aspx");
             }
-            else if (u.Id_perfil==2)
+            else if (u.Id_perfil==3)
             {
                 Response.Redirect("Gerente/Inicio.aspx");
             }

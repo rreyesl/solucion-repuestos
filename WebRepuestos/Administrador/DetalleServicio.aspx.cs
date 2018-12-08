@@ -43,6 +43,9 @@ namespace WebRepuestos.Mecanico
                  txtCantidad.Text = "1";
                 ddlServicio.SelectedIndex = indexOfLastItem;
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
 
 
 
@@ -130,15 +133,18 @@ namespace WebRepuestos.Mecanico
             if (dt.Crear())
             {
                 st.EliminarRepuestoStock(int.Parse(ddlRepuesto.SelectedValue));
-
-                lbMensaje.Text = "Detalle generado";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Detalle generado";
+                mensaje1.Visible = true;
 
 
                 GridView1.DataBind();
             }
             else
             {
-                lbMensaje.Text = "Error";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Error";
+                mensaje2.Visible = true;
             }
 
 

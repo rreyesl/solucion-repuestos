@@ -27,6 +27,8 @@ namespace WebRepuestos.GestorInventario
                 ddlModelos.DataTextField = "Nombre";
                 ddlModelos.DataBind();
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
               
 
 
@@ -48,15 +50,18 @@ namespace WebRepuestos.GestorInventario
                 ddlModelos.SelectedValue = r.Id_modelo.ToString();
                 ddlTipo.SelectedValue = r.Id_tipo.ToString();
 
+                mensaje2.Visible = false;
 
 
-
-                lbMensaje.Text = "repuesto encontrado";
+                lbMensaje1.Text = "repuesto encontrado";
+                mensaje1.Visible = true;
 
             }
             else
             {
-                lbMensaje.Text = "repuesto no exite";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "repuesto no exite";
+                mensaje2.Visible = true;
             }
 
 
@@ -69,11 +74,16 @@ namespace WebRepuestos.GestorInventario
 
             if (r.Modificar(txtSku.Text, txtDescripcion.Text, int.Parse(ddlTipo.SelectedValue), int.Parse(txtValor.Text), int.Parse(ddlModelos.SelectedValue)))
             {
-                lbMensaje.Text = "repuesto modificado";
+                mensaje2.Visible = false;
+
+                lbMensaje1.Text = "repuesto modificado";
+                mensaje1.Visible = true;
             }
             else
             {
-                lbMensaje.Text = "error";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
             }
 
 
@@ -97,11 +107,24 @@ namespace WebRepuestos.GestorInventario
             {
                 r.Eliminar(txtSku.Text);
 
-                lbMensaje.Text = "repuesto eliminado";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "repuesto eliminado";
+                mensaje1.Visible = true;
 
 
             }
+            else
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Error";
+                mensaje2.Visible = true;
+            }
 
+        }
+
+        protected void txtSku_TextChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }

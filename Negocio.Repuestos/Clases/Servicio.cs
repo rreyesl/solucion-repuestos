@@ -532,6 +532,52 @@ namespace Negocio.Repuestos.Clases
                 return null;
             }
         }
+        public bool BuscarPatente3(string patente)
+        {
+            //Servicio s = new Servicio();
+
+            try
+            {
+                var count = CommonBC.Modelo.Servicio.Count(valor => valor.Auto.patente == patente);
+                List<Clases.Servicio> listaServicio = new List<Clases.Servicio>();
+
+                var aux = CommonBC.Modelo.Servicio.First
+                                    (valor => valor.Auto.patente == patente);
+
+                //comentado
+                // Servicio s = new Servicio();
+                //for (int i = 0; i < count; i++)
+                //{
+
+                //  listaServicio.Add(aux);
+                //s.id = aux.id;
+
+
+                //aux.id = s.id;
+                //aux.descripcion = s.descripcion;
+                //aux.id_auto = s.id_auto;
+
+
+
+
+
+
+
+
+                //}
+
+
+
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
 
 
 

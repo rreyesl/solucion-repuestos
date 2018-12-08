@@ -18,6 +18,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div class="alert alert-danger" style=" display:none">
+  <strong>Congirmacion!</strong>  <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+</div>
+
      <div class="container">
          <div class="row">
              <div class="col-sm-3"></div>
@@ -25,6 +29,22 @@
 
 
                  <table style="width: 100%;">
+
+                     
+  <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+
+
+          <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
+
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style4">&nbsp;</td>
@@ -33,7 +53,7 @@
         <tr>
             <td class="auto-style2">Patente:</td>
             <td class="auto-style4">
-                <asp:TextBox ID="txtPatente" runat="server" Width="117px"></asp:TextBox>
+                <asp:TextBox ID="txtPatente" runat="server" Width="117px" AutoPostBack="True" OnTextChanged="txtPatente_TextChanged"></asp:TextBox>
             </td>
             <td class="auto-style3">
                 <asp:RequiredFieldValidator ID="RqPatente" runat="server" ControlToValidate="txtPatente" ErrorMessage="Patente Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -93,7 +113,7 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style4">
-                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+               <%-- <asp:Label ID="lbMensaje" runat="server"></asp:Label>--%>
             </td>
             <td>&nbsp;</td>
         </tr>

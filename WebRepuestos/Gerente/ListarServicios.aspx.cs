@@ -34,7 +34,7 @@ namespace WebRepuestos.Gerente
 
 
             gvServicios.DataBind();
-
+            gvTodos.Visible = false;
 
 
         }

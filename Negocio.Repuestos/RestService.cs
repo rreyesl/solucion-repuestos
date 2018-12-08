@@ -10,7 +10,7 @@ namespace Negocio.Repuestos
 {
     public class RestService
     {
-        static String URL = "https://k4rvjo8qa0.execute-api.us-east-1.amazonaws.com/dev/";
+        static String URL = "https://92u1z30gj6.execute-api.us-east-1.amazonaws.com/dev/";
 
         public string nuevoCliente(string nombre, string mail, string pass)
         {

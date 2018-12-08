@@ -29,6 +29,8 @@ namespace WebRepuestos.Mecanico
                 ddlCliente.DataBind();
 
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
 
 
 
@@ -54,19 +56,48 @@ namespace WebRepuestos.Mecanico
                 {
                     if (a.Crear())
                     {
-                        lbMensaje.Text = "Auto creado";
-                        Response.Redirect("AgregarServicio.aspx");
+
+                        mensaje2.Visible = false;
+
+                        lbMensaje1.Text = "Auto creado";
+                        mensaje1.Visible = true;
+                       // Response.Redirect("AgregarServicio.aspx");
                     }
                     else
                     {
-                        lbMensaje.Text = "Error";
+                        mensaje1.Visible = false;
+
+                        lbMensaje2.Text = "Error";
+                        mensaje2.Visible = true;
                     }
                 }
                 else
                 {
-                    lbMensaje.Text = "Patente ya existe";
+                    mensaje1.Visible = false;
+                    lbMensaje2.Text = "Patente ya existe";
+                    mensaje2.Visible = true;
                 }
 
+            }
+        }
+
+        protected void txtPatente_TextChanged(object sender, EventArgs e)
+        {
+            Auto a = new Auto();
+
+            a.Patente = txtPatente.Text;
+
+            if (a.Existe())
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Patente existe";
+                mensaje2.Visible = true;
+
+            }
+            else
+            {
+                mensaje2.Visible = false;
+                mensaje1.Visible = false;
             }
         }
     }

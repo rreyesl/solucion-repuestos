@@ -28,6 +28,8 @@ namespace WebRepuestos.Administrador
                 ddlCliente.DataTextField = "Correo";
                 ddlCliente.DataBind();
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
 
 
 
@@ -56,12 +58,16 @@ namespace WebRepuestos.Administrador
                 ddlModelo.SelectedValue = a.Id_modelo.ToString();
 
 
-
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "patente encontrado";
+                mensaje1.Visible = true;
 
             }
             else
             {
-                lbMensaje0.Text = "patente no existe";
+                
+                lbMensaje2.Text = "patente no existe";
+                mensaje2.Visible = true;
             }
 
         }
@@ -85,11 +91,16 @@ namespace WebRepuestos.Administrador
 
             if (a.Eliminar(txtPatente.Text))
             {
-                lbMensaje.Text = "Auto eliminado";
+                lbMensaje1.Text = "Auto eliminado";
+                mensaje1.Visible = true;
+                
             }
             else
             {
-                lbMensaje.Text = "error";
+                lbMensaje2.Text = "error";
+                mensaje1.Visible = false;
+                mensaje2.Visible = true;
+               
             }
         }
 
@@ -106,11 +117,12 @@ namespace WebRepuestos.Administrador
 
 
 
-            if (a.Modificar(txtPatente.Text, int.Parse(txtKm.Text), ddlCliente.SelectedIndex, ddlModelo.SelectedIndex, txtMotor.Text, txtChasis.Text))
+            if (a.Modificar(txtPatente.Text, int.Parse(txtKm.Text), int.Parse(ddlCliente.SelectedValue), int.Parse(ddlModelo.SelectedValue), txtMotor.Text, txtChasis.Text))
             {
 
-                lbMensaje.Text = "auto modificado";
 
+                lbMensaje1.Text = "auto modificado";
+                mensaje1.Visible = true;
 
 
 
@@ -119,8 +131,16 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje.Text = "error";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
+
             }
+        }
+
+        protected void txtPatente_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

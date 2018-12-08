@@ -175,7 +175,7 @@ namespace Negocio.Repuestos.Clases
 
                 this.id = aux.id;
                 this.sku = aux.sku;
-                this.descripcion = aux.sku;
+                this.descripcion = aux.descripcion;
                 this.id_tipo = aux.id_tipo;
                 this.valor_neto = aux.valor_neto;
                 this.id_modelo = aux.id_modelo;

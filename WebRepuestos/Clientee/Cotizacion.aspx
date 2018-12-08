@@ -11,6 +11,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table style="width: 100%;">
+
+          <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+
+
+          <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
+
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>

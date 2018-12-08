@@ -31,16 +31,19 @@
 
 
                  <table style="width: 100%;">
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style4"></td>
-            <td class="auto-style5"></td>
-            <td class="auto-style6"></td>
-        </tr>
+                      <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+                       <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
+
+
         <tr>
             <td class="auto-style3">Rut:</td>
             <td class="auto-style2">
@@ -101,7 +104,8 @@
         <tr>
             <td class="auto-style3">&nbsp;</td>
             <td class="auto-style2">
-                <asp:Button ID="btnAgregar" CssClass="btn btn-submit" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+                <asp:Button ID="btnAgregar" CssClass="btn btn-submit" runat="server" OnClick="btnAgregar_Click" Text="Agregar"  />
+
             </td>
             <td>&nbsp;</td>
         </tr>
@@ -112,6 +116,8 @@
             </td>
             <td>&nbsp;</td>
         </tr>
+
+
     </table>
 
 

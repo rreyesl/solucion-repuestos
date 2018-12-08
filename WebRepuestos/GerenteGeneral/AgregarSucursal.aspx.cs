@@ -13,7 +13,8 @@ namespace WebRepuestos.GerenteGeneral
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            mensaje1.Visible = false;
+            mensaje2.Visible = false;
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -28,11 +29,16 @@ namespace WebRepuestos.GerenteGeneral
 
                 if (s.Crear())
                 {
-                    lbMensaje.Text = "Sucursal Agregada";
+                    mensaje2.Visible = false;
+
+                    lbMensaje1.Text = "Sucursal Agregada";
+                    mensaje1.Visible = true;
                 }
                 else
                 {
-                    lbMensaje.Text = "Error";
+                    mensaje1.Visible = false;
+                    lbMensaje2.Text = "Error";
+                    mensaje2.Visible = true;
                 }
             }
         }

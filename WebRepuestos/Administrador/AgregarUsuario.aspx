@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+   
 
     <div class="container">
         <div class="row">
@@ -21,6 +21,19 @@
             <div class="col-sm-6 panel-g">
 
                 <table style="width: 100%;">
+
+                    <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+                    <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
+                   
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">&nbsp;</td>
@@ -33,6 +46,8 @@
                 &nbsp;<asp:TextBox ID="txtDv" runat="server" Width="16px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
+                 
+
                 <asp:RequiredFieldValidator ID="RqRut" runat="server" ControlToValidate="txtRut" ErrorMessage="Rut Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>
                 <asp:RangeValidator ID="RvRut" runat="server" ControlToValidate="txtRut" ErrorMessage="Campo Numerico" MaximumValue="99999999" MinimumValue="11111111" Type="Integer"></asp:RangeValidator>
             </td>
@@ -119,7 +134,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+                <%--<asp:Label ID="lbMensaje" runat="server"></asp:Label>--%>
             </td>
         </tr>
     </table>

@@ -22,6 +22,9 @@ namespace WebRepuestos.Administrador
                 ddlPerfil.DataTextField = "Nombre";
                 ddlPerfil.DataBind();
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
             }
         }
 
@@ -45,7 +48,9 @@ namespace WebRepuestos.Administrador
                 ddlPerfil.SelectedValue = u.Id_perfil.ToString();
                 txtDireccion.Text = u.Direccion;
 
-               
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Usuario encontrado";
+                mensaje1.Visible = true;
               
 
 
@@ -53,7 +58,10 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje0.Text = "rut no existe";
+                mensaje1.Visible = false;
+
+                lbMensaje2.Text = "rut no existe";
+                mensaje2.Visible = true;
             }
         }
 
@@ -66,8 +74,9 @@ namespace WebRepuestos.Administrador
 
             if (u.Modificar(int.Parse(txtRut.Text),int.Parse(txtTelefono.Text), int.Parse(ddlPerfil.SelectedValue), txtCorreo.Text, txtNombre.Text, txtApellido.Text, txtDireccion.Text))
             {
-
-                lbMensaje.Text = "Usuario modificado";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Usuario modificado";
+                mensaje1.Visible = true;
 
 
 
@@ -77,7 +86,9 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje.Text = "error";
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
             }
         }
 
@@ -102,7 +113,10 @@ namespace WebRepuestos.Administrador
 
             if (c.Eliminar(int.Parse(txtRut.Text)))
             {
-                lbMensaje.Text = "Usuario eliminado!!!";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Usuario eliminado!!!";
+                mensaje1.Visible = true;
+               
                 txtRut.Text = string.Empty;
                 txtCorreo.Text = string.Empty;
                 txtNombre.Text = string.Empty;
@@ -115,7 +129,10 @@ namespace WebRepuestos.Administrador
             }
             else
             {
-                lbMensaje.Text = "error";
+                mensaje1.Visible = false;
+
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
             }
         }
 

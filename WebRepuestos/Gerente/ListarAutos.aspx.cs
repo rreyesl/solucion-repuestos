@@ -13,32 +13,11 @@ namespace WebRepuestos.Gerente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SucursalCollection sc = new SucursalCollection();
-            if (!IsPostBack)
-            {
-                ddlSucursal.DataSource = sc.ReadAll();
-                ddlSucursal.DataValueField = "Id";
-                ddlSucursal.DataTextField = "Nombre";
-                ddlSucursal.DataBind();
-            }
+          
 
            
         }
 
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-         
-
-            int sucursal =
-            int.Parse(ddlSucursal.SelectedValue);
-            System.Web.HttpContext.Current.Session["sucursal"] = sucursal;
-
-
-
-
-            gvAutos.DataBind();
-
-
-        }
+       
     }
 }

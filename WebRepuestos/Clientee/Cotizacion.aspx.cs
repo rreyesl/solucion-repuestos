@@ -17,6 +17,9 @@ namespace WebRepuestos.Cliente
             lbCotizacion.Visible = false;
             btnAceptar.Visible = false;
             btnRechazar.Visible = false;
+
+            mensaje1.Visible = false;
+            mensaje2.Visible = false;
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
@@ -26,8 +29,24 @@ namespace WebRepuestos.Cliente
             Detalle_Servicio ds = new Detalle_Servicio();
 
             a.Patente = txtPatente.Text;
-            s.BuscarPatente2(a.Patente);
+            //s.BuscarPatente2(a.Patente);
             System.Web.HttpContext.Current.Session["idauto"] = s.Id_auto;
+
+            if (s.BuscarPatente3(a.Patente))
+            {
+                mensaje2.Visible = false;
+                s.BuscarPatente2(a.Patente);
+                lbMensaje1.Text = "Patente encontrada";
+                mensaje1.Visible = true;
+               
+
+            }
+            else
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "No se encontro la patente";
+                mensaje2.Visible = true;
+            }
 
 
 
@@ -48,7 +67,9 @@ namespace WebRepuestos.Cliente
 
             if (s.AceptarSolicitud(asd))
             {
-                lbMensaje.Text = "servicio aprobado";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "servicio aprobado";
+                mensaje1.Visible = true;
             }
 
 
@@ -69,7 +90,9 @@ namespace WebRepuestos.Cliente
 
             if (s.AceptarSolicitud(asd))
             {
-                lbMensaje.Text = "servicio rechazado";
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "servicio rechazado";
+                mensaje1.Visible = true;
             }
 
 

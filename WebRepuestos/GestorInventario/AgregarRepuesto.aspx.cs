@@ -37,6 +37,9 @@ namespace WebRepuestos.GestorInventario
                 ddlSucursal.DataBind();
 
 
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
             }
 
 
@@ -68,23 +71,31 @@ namespace WebRepuestos.GestorInventario
                         if (r.Crear())
                         {
 
+                            mensaje2.Visible = false;
+                            lbMensaje1.Text = "Repuesto creado";
+                            mensaje1.Visible = true;
 
-                            lbMensaje.Text = "Repuesto creado";
                         }
                         else
                         {
-                            lbMensaje.Text = "Error";
+                            mensaje1.Visible = false;
+                            lbMensaje2.Text = "Error";
+                            mensaje2.Visible = true;
                         }
                     }
                     else
                     {
-                        lbMensaje.Text = "el repuesto ya existe";
+                        mensaje1.Visible = false;
+                        lbMensaje2.Text = "el repuesto ya existe";
+                        mensaje2.Visible = true;
                     }
                    
                 }
                 else
                 {
-                    lbMensaje.Text = "sku ya existe";
+                    mensaje1.Visible = false;
+                    lbMensaje2.Text = "sku ya existe";
+                    mensaje2.Visible = true;
                 }
 
                 // r.BuscarSku();
@@ -95,6 +106,24 @@ namespace WebRepuestos.GestorInventario
                 s.Crear();
 
             }
+        }
+
+        protected void txtSku_TextChanged(object sender, EventArgs e)
+        {
+            Repuesto r = new Repuesto();
+
+
+            if (r.ExisteSku(txtSku.Text))
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Sku ya existe";
+                mensaje2.Visible = true;
+            }
+            else
+            {
+                mensaje2.Visible = false;
+            }
+
         }
     }
 }

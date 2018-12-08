@@ -484,6 +484,26 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public bool ExisteCorreo(string correo)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Usuario.First
+                    (valor => valor.correo == correo);
+
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+
+
 
     }
 }
