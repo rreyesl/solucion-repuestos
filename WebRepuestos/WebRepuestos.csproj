@@ -65,6 +65,8 @@
     <Content Include="Administrador\EditarServicio.aspx" />
     <Content Include="Administrador\Inicio.aspx" />
     <Content Include="Administrador\Inicio2.aspx" />
+    <Content Include="Administrador\ListarAuto.aspx" />
+    <Content Include="Administrador\ListarCliente.aspx" />
     <Content Include="Administrador\ListarUsuario.aspx" />
     <Content Include="Administrador\WebForm1.aspx" />
     <Content Include="assets\css\bootstrap-theme.css" />
@@ -98,6 +100,7 @@
     <Content Include="GestorInventario\AgregarModelo.aspx" />
     <Content Include="GestorInventario\AgregarRepuesto.aspx" />
     <Content Include="GestorInventario\Inicio.aspx" />
+    <Content Include="GestorInventario\ListarRepuestos.aspx" />
     <Content Include="GestorInventario\Stock.aspx" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
@@ -107,6 +110,7 @@
     <Content Include="Administrador\AgregarCliente.aspx" />
     <Content Include="Administrador\AgregarServicio.aspx" />
     <Content Include="Administrador\DetalleServicio.aspx" />
+    <Content Include="LogOutCliente.aspx" />
     <Content Include="Mecanico\Inicio.aspx" />
     <Content Include="Mecanico\ListaAutos.aspx" />
     <Content Include="Web.config" />
@@ -167,6 +171,20 @@
     </Compile>
     <Compile Include="Administrador\Inicio2.aspx.designer.cs">
       <DependentUpon>Inicio2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ListarAuto.aspx.cs">
+      <DependentUpon>ListarAuto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ListarAuto.aspx.designer.cs">
+      <DependentUpon>ListarAuto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ListarCliente.aspx.cs">
+      <DependentUpon>ListarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ListarCliente.aspx.designer.cs">
+      <DependentUpon>ListarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ListarUsuario.aspx.cs">
       <DependentUpon>ListarUsuario.aspx</DependentUpon>
@@ -329,6 +347,13 @@
     <Compile Include="GestorInventario\Inventario1.Master.designer.cs">
       <DependentUpon>Inventario1.Master</DependentUpon>
     </Compile>
+    <Compile Include="GestorInventario\ListarRepuestos.aspx.cs">
+      <DependentUpon>ListarRepuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GestorInventario\ListarRepuestos.aspx.designer.cs">
+      <DependentUpon>ListarRepuestos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="GestorInventario\Stock.aspx.cs">
       <DependentUpon>Stock.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +416,13 @@
     </Compile>
     <Compile Include="Administrador\DetalleServicio.aspx.designer.cs">
       <DependentUpon>DetalleServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LogOutCliente.aspx.cs">
+      <DependentUpon>LogOutCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LogOutCliente.aspx.designer.cs">
+      <DependentUpon>LogOutCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mecanico\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

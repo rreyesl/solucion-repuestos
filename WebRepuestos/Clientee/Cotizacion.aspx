@@ -39,7 +39,7 @@
         <tr>
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
-                <asp:GridView ID="gvServicios" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvServicios_SelectedIndexChanged">
+                <asp:GridView ID="gvServicios" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvServicios_SelectedIndexChanged" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />

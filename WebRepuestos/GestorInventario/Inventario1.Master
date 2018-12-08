@@ -41,6 +41,8 @@
                       <li><a href="AgregarRepuesto.aspx">Agregar Repuesto</a></li>
                       <li><a href="Stock.aspx">Stock Repuesto</a></li>
                       <li><a href="AdministrarRepuestos.aspx">Administrar Repuesto</a></li>
+                        <li><a href="ListarRepuestos.aspx">Listar Repuestos</a></li>
+
                     </ul>
                 </li> 
                 <li class="dropdown">

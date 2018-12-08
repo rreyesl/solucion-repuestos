@@ -36,7 +36,7 @@
                 <li><a href="Cotizacion.aspx">Cotizaciones</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="/LogOut.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                <li><a href="/LogOutCliente.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
               </ul>
             </div>
           </div>
