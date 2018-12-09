@@ -85,6 +85,7 @@
     <Content Include="assets\js\npm.js" />
     <Content Include="Clientee\Cotizacion.aspx" />
     <Content Include="Administrador\Editar.aspx" />
+    <Content Include="Clientee\Cotizaciones.aspx" />
     <Content Include="Clientee\Inicio.aspx" />
     <Content Include="GerenteGeneral\AgregarSucursal.aspx" />
     <Content Include="GerenteGeneral\Inicio.aspx" />
@@ -220,6 +221,13 @@
     </Compile>
     <Compile Include="Administrador\Editar.aspx.designer.cs">
       <DependentUpon>Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Clientee\Cotizaciones.aspx.cs">
+      <DependentUpon>Cotizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientee\Cotizaciones.aspx.designer.cs">
+      <DependentUpon>Cotizaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clientee\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

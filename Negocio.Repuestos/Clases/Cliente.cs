@@ -370,5 +370,27 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public int BuscarIdbyRut(string rut)
+        {
+            try
+            {
+
+                int id;
+                var aux = CommonBC.Modelo.Cliente.First
+                    (valor => valor.rut == rut);
+
+                id = aux.id;
+
+                return id;
+
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
+
     }
 }

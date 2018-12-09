@@ -68,6 +68,7 @@ namespace WebRepuestos.Administrador
                 
                 lbMensaje2.Text = "patente no existe";
                 mensaje2.Visible = true;
+                mensaje1.Visible = false;
             }
 
         }
@@ -93,6 +94,7 @@ namespace WebRepuestos.Administrador
             {
                 lbMensaje1.Text = "Auto eliminado";
                 mensaje1.Visible = true;
+                mensaje2.Visible = false;
                 
             }
             else
@@ -123,6 +125,7 @@ namespace WebRepuestos.Administrador
 
                 lbMensaje1.Text = "auto modificado";
                 mensaje1.Visible = true;
+                mensaje2.Visible = false;
 
 
 

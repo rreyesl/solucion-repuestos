@@ -24,7 +24,11 @@ namespace WebRepuestos
 
             if (c.ValidarUsuario(Login1.UserName, Login1.Password))
             {
+
+                System.Web.HttpContext.Current.Session["rut"] = Login1.UserName;
                 Response.Redirect("Clientee/Inicio.aspx");
+
+
             }
 
 

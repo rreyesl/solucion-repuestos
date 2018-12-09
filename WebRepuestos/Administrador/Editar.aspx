@@ -37,6 +37,12 @@
             width: 516px;
             height: 20px;
         }
+        .auto-style24 {
+            height: 20px;
+        }
+        .auto-style25 {
+            height: 171px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -48,6 +54,21 @@
 
 
                 <table style="width: 100%;">
+
+
+                      <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+
+
+          <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
         <tr>
             <td class="auto-style1">Patente:</td>
             <td class="auto-style2">
@@ -69,44 +90,7 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Valor Neto: </td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True" OnTextChanged="txtNeto_TextChanged"></asp:TextBox>
-            </td>
             <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style18">Valor IVA:</td>
-            <td class="auto-style19">
-                <asp:TextBox ID="txtIVA" runat="server" ReadOnly="True"></asp:TextBox>
-            </td>
-            <td class="auto-style20">
-                </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Valor Total:</td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtTotal" runat="server" ReadOnly="True"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style21"></td>
-            <td class="auto-style22">
                 <asp:GridView ID="gvCotizaciones" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
@@ -139,7 +123,129 @@
                     </UpdateParameters>
                 </asp:SqlDataSource>
             </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style25"></td>
+            <td class="auto-style25">
+                <asp:GridView ID="gvRepuestos" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource2" OnSelectedIndexChanged="gvRepuestos_SelectedIndexChanged" PageSize="5">
+                    <Columns>
+                        <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
+                        <asp:BoundField DataField="cantidad" HeaderText="cantidad" SortExpression="cantidad" />
+                        <asp:BoundField DataField="total" HeaderText="total" SortExpression="total" />
+                        <asp:BoundField DataField="descripcion" HeaderText="descripcion" SortExpression="descripcion" />
+                        <asp:CommandField SelectText="Eliminar" ShowSelectButton="True" />
+                    </Columns>
+                </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString19 %>" SelectCommand="select t1.id, t1.cantidad, t1.total, t2.descripcion
+from Detalle_Servicio as t1 inner join Repuesto as t2 on t1.id_repuesto = t2.id 
+where t1.id_servicio = @idservicio">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="idservicio" SessionField="idservicio" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </td>
+            <td class="auto-style25"></td>
+        </tr>
+        <tr>
+            <td class="auto-style21">&nbsp;</td>
+            <td class="auto-style22">
+                &nbsp;</td>
+            <td class="auto-style24">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style21">Repuestos:</td>
+            <td class="auto-style22">
+                <asp:DropDownList ID="ddlRepuestos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRepuestos_SelectedIndexChanged">
+                </asp:DropDownList>
+            </td>
+            <td class="auto-style24"></td>
+        </tr>
+        <tr>
+            <td class="auto-style21">Cantidad:</td>
+            <td class="auto-style22">
+                <asp:TextBox ID="txtCantidad" runat="server" AutoPostBack="True" OnTextChanged="txtCantidad_TextChanged"></asp:TextBox>
+            </td>
+            <td class="auto-style24"></td>
+        </tr>
+        <tr>
+            <td>Valor Unitario:</td>
+            <td>
+                <asp:TextBox ID="txtValor" runat="server" AutoPostBack="True" OnTextChanged="txtValor_TextChanged" ReadOnly="True"></asp:TextBox>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Valor Total:</td>
+            <td>
+                <asp:TextBox ID="txtTotalRepuesto" runat="server" AutoPostBack="True" OnTextChanged="txtValor_TextChanged" ReadOnly="True"></asp:TextBox>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style18">Valor Neto: </td>
+            <td class="auto-style19">
+                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True" OnTextChanged="txtNeto_TextChanged"></asp:TextBox>
+            </td>
+            <td class="auto-style20">
+                </td>
+        </tr>
+        <tr>
+            <td class="auto-style18">Valor IVA:</td>
+            <td class="auto-style19">
+                <asp:TextBox ID="txtIVA" runat="server" ReadOnly="True"></asp:TextBox>
+            </td>
+            <td class="auto-style20">
+                </td>
+        </tr>
+        <tr>
+            <td class="auto-style3">Valor Total:</td>
+            <td class="auto-style8">
+                <asp:TextBox ID="txtTotal" runat="server" ReadOnly="True"></asp:TextBox>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style21"></td>
+            <td class="auto-style22">
+                &nbsp;</td>
             <td class="auto-style23"></td>
+        </tr>
+        <tr>
+            <td class="auto-style21">&nbsp;</td>
+            <td class="auto-style22">
+                &nbsp;</td>
+            <td class="auto-style23"></td>
+        </tr>
+        <tr>
+            <td class="auto-style21">&nbsp;</td>
+            <td class="auto-style22">
+                &nbsp;</td>
+            <td class="auto-style23">&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style21"></td>
@@ -150,7 +256,7 @@
         <tr>
             <td class="auto-style3">&nbsp;</td>
             <td class="auto-style8">
-                <asp:Button ID="btnAgregar" CssClass="btn btn-submit" runat="server" Text="Editar" OnClick="btnAgregar_Click" />
+                <%--<asp:Button ID="btnAgregar" CssClass="btn btn-submit" runat="server" Text="Editar" OnClick="btnAgregar_Click" />--%>
             </td>
             <td>&nbsp;</td>
         </tr>

@@ -264,6 +264,31 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public bool Eliminar(int id)
+        {
+            try
+            {
+              
+
+
+                    var c = CommonBC.Modelo.Detalle_Servicio.First
+                    (valor => valor.id == id);
+
+                    CommonBC.Modelo.Detalle_Servicio.Remove(c);
+                    CommonBC.Modelo.SaveChanges();
+
+                
+        
+                return true;
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
 
 
     }

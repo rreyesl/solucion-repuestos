@@ -734,6 +734,31 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public int BuscarServicio(int id)
+        {
+            try
+            {
+                int id_final;
+                var aux = CommonBC.Modelo.Servicio.First
+                    (valor => valor.id == id);
+
+                id_final = aux.id_estado;
+                
+
+
+
+        
+                return id_final;
+
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
+
 
     }
 }

@@ -61,10 +61,11 @@
                         <asp:BoundField DataField="fecha_entrega" HeaderText="Fecha Entrega" SortExpression="fecha_entrega" DataFormatString="{0:dd/MM/yyyy}" />
                         <asp:BoundField DataField="valor_total" HeaderText="Valor Total" SortExpression="valor_total" DataFormatString="${0:N0}" />
                         <asp:BoundField DataField="repuesto" HeaderText="Repuesto" SortExpression="repuesto" />
+                        <asp:BoundField DataField="nombre" HeaderText="Estado" SortExpression="estado" />
                         <asp:CommandField ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString2 %>" SelectCommand="SELECT [id], [descripcion], [fecha_entrega], [valor_total], [repuesto] FROM [Servicio] WHERE ([id_auto] = @id_auto)">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString2 %>" SelectCommand="SELECT t1.[id], t1.[descripcion], t1.[fecha_entrega], t1.[valor_total], t1.[repuesto], t2.[nombre] FROM [Servicio] as t1 inner join Estado_Servicio as t2 on t1.id_estado = t2.id WHERE (t1.[id_auto] = @id_auto)">
                     <SelectParameters>
                         <asp:SessionParameter Name="id_auto" SessionField="idauto" Type="Int32" />
                     </SelectParameters>
@@ -101,6 +102,13 @@
             <td class="auto-style1">&nbsp;</td>
             <td class="auto-style2">
                 <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+            </td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style1">&nbsp;</td>
+            <td class="auto-style2">
+                <asp:Label ID="lbId" runat="server" Visible="False"></asp:Label>
             </td>
             <td>&nbsp;</td>
         </tr>

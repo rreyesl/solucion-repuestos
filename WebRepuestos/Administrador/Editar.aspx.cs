@@ -14,8 +14,27 @@ namespace WebRepuestos.Clientee
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-         
+            if (!IsPostBack)
+            {
+                RepuestoCollection rc = new RepuestoCollection();
+
+                ddlRepuestos.DataSource = rc.ReadAll();
+                ddlRepuestos.DataValueField = "Id";
+                ddlRepuestos.DataTextField = "Descripcion";
+                ddlRepuestos.DataBind();
+
+
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
+
+                Repuesto r = new Repuesto();
+                decimal valor = 0;
+
+                valor = r.buscarPrecio(int.Parse(ddlRepuestos.SelectedValue));
+
+                txtValor.Text = valor.ToString(); 
+            }
 
         }
 
@@ -36,12 +55,12 @@ namespace WebRepuestos.Clientee
 
             //txtNeto.Text = s.Valor_neto.ToString();
             //txtTotal.Text = s.Valor_total.ToString();
-           /// ddlAuto.SelectedIndex = s.Id_auto;
+            /// ddlAuto.SelectedIndex = s.Id_auto;
 
             //txtCantidad.Text = ds.Cantidad.ToString();
 
 
-
+            //gvCotizaciones.DataBind();
 
 
 
@@ -80,12 +99,12 @@ namespace WebRepuestos.Clientee
 
             if (estado == 4)
             {
-                btnAgregar.Enabled = false;
+              //  btnAgregar.Enabled = false;
                 lbMensaje.Text = "Este servicio ya fue editado";
             }
             else
             {
-                btnAgregar.Enabled = true;
+                //btnAgregar.Enabled = true;
             }
 
         }
@@ -109,6 +128,70 @@ namespace WebRepuestos.Clientee
             }
 
            
+        }
+
+        protected void gvRepuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow gr = gvRepuestos.SelectedRow;
+
+            Detalle_Servicio dt = new Detalle_Servicio();
+
+            //System.Web.HttpContext.Current.Session["iddetalle"] = gr.Cells[1].Text;
+
+           
+            if (dt.Eliminar(int.Parse(gr.Cells[0].Text)))
+            {
+                mensaje1.Visible = true;
+                lbMensaje1.Text = "Repuesto Eliminado";
+                mensaje2.Visible = false;
+                gvRepuestos.DataBind();
+
+            }
+            else
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
+            }
+
+
+
+
+
+
+
+        }
+
+        protected void txtValor_TextChanged(object sender, EventArgs e)
+        {
+           
+
+
+        }
+
+        protected void ddlRepuestos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Repuesto r = new Repuesto();
+            decimal valor = 0;
+           
+            valor = r.buscarPrecio(int.Parse(ddlRepuestos.SelectedValue));
+
+            txtValor.Text = valor.ToString();
+        }
+
+        protected void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+            int total = 0;
+
+            decimal valor = int.Parse(txtValor.Text);
+            int cantidad = int.Parse(txtCantidad.Text);
+
+
+            total =(int)(valor *cantidad);
+
+            txtTotalRepuesto.Text = total.ToString();
+
+
         }
     }
 }

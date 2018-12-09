@@ -103,11 +103,13 @@ namespace WebRepuestos.Mecanico
             {
                 mensaje2.Visible = true;
                 lbMensaje2.Text = "El rut existe";
+                mensaje1.Visible = false;
             }
             else
             {
                 mensaje2.Visible = false;
                 lbMensaje2.Text = "";
+                mensaje1.Visible = false;
             }
 
         }

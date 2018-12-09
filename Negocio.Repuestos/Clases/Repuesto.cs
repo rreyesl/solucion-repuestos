@@ -259,6 +259,26 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public decimal buscarPrecio(int id)
+        {
+            try
+            {
+                var aux = CommonBC.Modelo.Repuesto.First
+                    (valor => valor.id == id);
+
+
+                decimal valor2 = aux.valor_neto;
+
+                return valor2;
+
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
 
 
     }

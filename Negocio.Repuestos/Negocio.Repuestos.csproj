@@ -57,6 +57,7 @@
     <Compile Include="Clases\Modelo.cs" />
     <Compile Include="Clases\Perfil.cs" />
     <Compile Include="Clases\Reporte.cs" />
+    <Compile Include="Clases\Reporteria.cs" />
     <Compile Include="Clases\Repuesto.cs" />
     <Compile Include="Clases\Repuesto_Modelo.cs" />
     <Compile Include="Clases\Servicio.cs" />

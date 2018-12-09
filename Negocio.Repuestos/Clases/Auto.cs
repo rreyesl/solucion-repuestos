@@ -269,7 +269,36 @@ namespace Negocio.Repuestos.Clases
         }
 
 
-       
+
+        public List<Clases.Auto> ListaAutos(List<DALC.Repuestos.Auto> atuoDALC)
+        {
+            List<Clases.Auto> listaAuto = new List<Clases.Auto>();
+
+            foreach (DALC.Repuestos.Auto item in CommonBC.Modelo.Auto)
+            {
+                Clases.Auto a = new Clases.Auto();
+                a.Id = item.id;
+                a.Patente = item.patente;
+                a.Km = item.km;
+                a.Nro_motor = item.nro_motor;
+                a.Id_modelo = item.id_modelo;
+                a.Nro_chasis = item.nro_chasis;
+                a.Id_cliente = item.id_cliente;
+
+                listaAuto.Add(a);
+
+            }
+            return listaAuto;
+        }
+        //public List<Clases.Auto> ReadAllbyCliente(int id)
+        //{
+
+
+
+        //    var autos = CommonBC.Modelo.Auto.Select(x => x.id_cliente == id);
+        //    return ListaAutos(autos.ToList());
+        //}
+
 
     }
 }

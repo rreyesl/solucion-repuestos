@@ -44,7 +44,7 @@ namespace WebRepuestos.Administrador
                 lbMensaje1.Text = "cliente modificado";
                 mensaje1.Visible = true;
 
-
+                mensaje2.Visible = false;
 
 
 

@@ -45,6 +45,7 @@ namespace WebRepuestos.Administrador
             {
                 lbMensaje2.Text = "";
                 mensaje2.Visible = false;
+                mensaje1.Visible = false;
             }
 
            
@@ -110,6 +111,7 @@ namespace WebRepuestos.Administrador
             {
                 lbMensaje2.Text = "El rut ya existe";
                 mensaje2.Visible = true;
+                mensaje1.Visible = false;
             }
         }
     }
