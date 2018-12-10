@@ -8,14 +8,14 @@ namespace Negocio.Repuestos
 {
     public class CommonBC
     {
-        public static DALC.Repuestos.Repuestos2Entities4 _modelo;
-        public static Repuestos2Entities4 Modelo
+        public static DALC.Repuestos.repuestoEntities _modelo;
+        public static repuestoEntities Modelo
         {
             get
             {
                 if (_modelo == null)
                 {
-                    _modelo = new Repuestos2Entities4();
+                    _modelo = new repuestoEntities();
                 }
                 return _modelo;
             }

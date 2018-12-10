@@ -65,7 +65,7 @@
                         <asp:CommandField ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString2 %>" SelectCommand="SELECT t1.[id], t1.[descripcion], t1.[fecha_entrega], t1.[valor_total], t1.[repuesto], t2.[nombre] FROM [Servicio] as t1 inner join Estado_Servicio as t2 on t1.id_estado = t2.id WHERE (t1.[id_auto] = @id_auto)">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT t1.[id], t1.[descripcion], t1.[fecha_entrega], t1.[valor_total], t1.[repuesto], t2.[nombre] FROM [Servicio] as t1 inner join Estado_Servicio as t2 on t1.id_estado = t2.id WHERE (t1.[id_auto] = @id_auto)">
                     <SelectParameters>
                         <asp:SessionParameter Name="id_auto" SessionField="idauto" Type="Int32" />
                     </SelectParameters>

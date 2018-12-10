@@ -48,7 +48,7 @@
                                     <asp:BoundField DataField="nro_chasis" HeaderText="nro_chasis" SortExpression="nro_chasis" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString14 %>" SelectCommand="select distinct(t1.id), t1.patente, t1.km, t1.nro_motor, t1.id_modelo, t1.nro_chasis from Auto as t1 
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select distinct(t1.id), t1.patente, t1.km, t1.nro_motor, t1.id_modelo, t1.nro_chasis from Auto as t1 
 "></asp:SqlDataSource>
                         </td>
                         <td>&nbsp;</td>

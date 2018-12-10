@@ -163,7 +163,7 @@
                         <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString8 %>" SelectCommand="select t2.descripcion as Repuesto, t1.total as Total, t1.cantidad as Cantidad  from Detalle_Servicio as t1
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select t2.descripcion as Repuesto, t1.total as Total, t1.cantidad as Cantidad  from Detalle_Servicio as t1
 inner join Repuesto as t2 on t1.id_repuesto = t2.id WHERE ([id_servicio] = @id_servicio)">
                     <SelectParameters>
                         <asp:ControlParameter ControlID="ddlServicio" Name="id_servicio" PropertyName="SelectedValue" Type="Int32" />

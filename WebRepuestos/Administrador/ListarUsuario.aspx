@@ -11,7 +11,7 @@
                 <div class="col-sm-8 panel-g">
 
 
-                    <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
+                    <asp:GridView ID="GridView1"  runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource2">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                 <asp:BoundField DataField="rut" HeaderText="rut" SortExpression="rut" />
@@ -20,9 +20,12 @@
                 <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" ReadOnly="True" />
                 <asp:BoundField DataField="telefono" HeaderText="telefono" SortExpression="telefono" />
                 <asp:BoundField DataField="direccion" HeaderText="direccion" SortExpression="direccion" />
-                <asp:BoundField DataField="Perfil" HeaderText="Perfil" SortExpression="Perfil" />
+                <asp:BoundField DataField="perfil" HeaderText="perfil" SortExpression="perfil" />
             </Columns>
         </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT u.[id], u.[rut], u.[dv], u.[correo], u.[nombre] + ' ' + u.[apellido] as nombre,
+ u.[telefono], u.[direccion], p.nombre as perfil  FROM [Usuario] u 
+ join Perfil p on u.id_perfil = p.id"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"  ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString6 %>" DeleteCommand="DELETE FROM [Usuario] WHERE [id] = @id" InsertCommand="INSERT INTO [Usuario] ([rut], [dv], [correo], [nombre], [apellido], [telefono], [id_perfil], [direccion], [pass]) VALUES (@rut, @dv, @correo, @nombre, @apellido, @telefono, @id_perfil, @direccion, @pass)" SelectCommand="SELECT u.[id], u.[rut], u.[dv], u.[correo], u.[nombre] + ' ' + u.[apellido] as nombre,
  u.[telefono], u.[direccion], p.nombre &quot;Perfil&quot; FROM [Usuario] u 
  join Perfil p on u.id_perfil = p.id;" UpdateCommand="UPDATE [Usuario] SET [rut] = @rut, [dv] = @dv, [correo] = @correo, [nombre] = @nombre, [apellido] = @apellido, [telefono] = @telefono, [id_perfil] = @id_perfil, [direccion] = @direccion, [pass] = @pass WHERE [id] = @id">

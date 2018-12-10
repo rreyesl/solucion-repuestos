@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Repuestos2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="repuestoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="Auto">
           <Key>
             <PropertyRef Name="id" />
@@ -390,7 +390,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Repuestos2ModelStoreContainer">
+        <EntityContainer Name="repuestoModelStoreContainer">
           <EntitySet Name="Auto" EntityType="Self.Auto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Detalle_Servicio" EntityType="Self.Detalle_Servicio" Schema="dbo" store:Type="Tables" />
@@ -485,7 +485,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Repuestos2Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <Schema Namespace="repuestoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityType Name="Auto">
           <Key>
             <PropertyRef Name="id" />
@@ -907,7 +907,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Repuestos2Entities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="repuestoEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Auto" EntityType="Self.Auto" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="Detalle_Servicio" EntityType="Self.Detalle_Servicio" />
@@ -1003,9 +1003,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Repuestos2ModelStoreContainer" CdmEntityContainer="Repuestos2Entities4">
+        <EntityContainerMapping StorageEntityContainer="repuestoModelStoreContainer" CdmEntityContainer="repuestoEntities">
           <EntitySetMapping Name="Auto">
-            <EntityTypeMapping TypeName="Repuestos2Model.Auto">
+            <EntityTypeMapping TypeName="repuestoModel.Auto">
               <MappingFragment StoreEntitySet="Auto">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="patente" ColumnName="patente" />
@@ -1018,7 +1018,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="Repuestos2Model.Cliente">
+            <EntityTypeMapping TypeName="repuestoModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="rut" ColumnName="rut" />
@@ -1032,7 +1032,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Detalle_Servicio">
-            <EntityTypeMapping TypeName="Repuestos2Model.Detalle_Servicio">
+            <EntityTypeMapping TypeName="repuestoModel.Detalle_Servicio">
               <MappingFragment StoreEntitySet="Detalle_Servicio">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
@@ -1043,7 +1043,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Estado_Servicio">
-            <EntityTypeMapping TypeName="Repuestos2Model.Estado_Servicio">
+            <EntityTypeMapping TypeName="repuestoModel.Estado_Servicio">
               <MappingFragment StoreEntitySet="Estado_Servicio">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1051,7 +1051,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="img_reporte">
-            <EntityTypeMapping TypeName="Repuestos2Model.img_reporte">
+            <EntityTypeMapping TypeName="repuestoModel.img_reporte">
               <MappingFragment StoreEntitySet="img_reporte">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_reporte" ColumnName="id_reporte" />
@@ -1060,7 +1060,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Logs">
-            <EntityTypeMapping TypeName="Repuestos2Model.Logs">
+            <EntityTypeMapping TypeName="repuestoModel.Logs">
               <MappingFragment StoreEntitySet="Logs">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -1069,7 +1069,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Marca">
-            <EntityTypeMapping TypeName="Repuestos2Model.Marca">
+            <EntityTypeMapping TypeName="repuestoModel.Marca">
               <MappingFragment StoreEntitySet="Marca">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1077,7 +1077,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Modelo">
-            <EntityTypeMapping TypeName="Repuestos2Model.Modelo">
+            <EntityTypeMapping TypeName="repuestoModel.Modelo">
               <MappingFragment StoreEntitySet="Modelo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1088,7 +1088,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Perfil">
-            <EntityTypeMapping TypeName="Repuestos2Model.Perfil">
+            <EntityTypeMapping TypeName="repuestoModel.Perfil">
               <MappingFragment StoreEntitySet="Perfil">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1097,7 +1097,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reporte">
-            <EntityTypeMapping TypeName="Repuestos2Model.Reporte">
+            <EntityTypeMapping TypeName="repuestoModel.Reporte">
               <MappingFragment StoreEntitySet="Reporte">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
@@ -1106,7 +1106,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Repuesto">
-            <EntityTypeMapping TypeName="Repuestos2Model.Repuesto">
+            <EntityTypeMapping TypeName="repuestoModel.Repuesto">
               <MappingFragment StoreEntitySet="Repuesto">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="sku" ColumnName="sku" />
@@ -1118,7 +1118,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Repuesto_Modelo">
-            <EntityTypeMapping TypeName="Repuestos2Model.Repuesto_Modelo">
+            <EntityTypeMapping TypeName="repuestoModel.Repuesto_Modelo">
               <MappingFragment StoreEntitySet="Repuesto_Modelo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_repuesto" ColumnName="id_repuesto" />
@@ -1127,7 +1127,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servicio">
-            <EntityTypeMapping TypeName="Repuestos2Model.Servicio">
+            <EntityTypeMapping TypeName="repuestoModel.Servicio">
               <MappingFragment StoreEntitySet="Servicio">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -1147,7 +1147,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stock">
-            <EntityTypeMapping TypeName="Repuestos2Model.Stock">
+            <EntityTypeMapping TypeName="repuestoModel.Stock">
               <MappingFragment StoreEntitySet="Stock">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -1157,7 +1157,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sucursal">
-            <EntityTypeMapping TypeName="Repuestos2Model.Sucursal">
+            <EntityTypeMapping TypeName="repuestoModel.Sucursal">
               <MappingFragment StoreEntitySet="Sucursal">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1166,7 +1166,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tipo">
-            <EntityTypeMapping TypeName="Repuestos2Model.Tipo">
+            <EntityTypeMapping TypeName="repuestoModel.Tipo">
               <MappingFragment StoreEntitySet="Tipo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
@@ -1175,7 +1175,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="Repuestos2Model.Usuario">
+            <EntityTypeMapping TypeName="repuestoModel.Usuario">
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="rut" ColumnName="rut" />

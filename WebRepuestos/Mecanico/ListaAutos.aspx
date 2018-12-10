@@ -9,7 +9,7 @@
             <div class="col-sm-6 text-center panel-g">
 
 
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
+                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="patente" HeaderText="patente" SortExpression="patente" />
@@ -19,7 +19,7 @@
             <asp:BoundField DataField="Dueño" HeaderText="Dueño" SortExpression="Dueño" ReadOnly="True" />
         </Columns>
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString7 %>" SelectCommand="
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="
 SELECT a.[id], a.[patente], a.[km], a.[nro_motor],
  a.[nro_chasis], c.nombre+' '+ c.apellido &quot;Dueño&quot;  FROM [Auto] a 
  join cliente c on a.id_cliente = c.id;

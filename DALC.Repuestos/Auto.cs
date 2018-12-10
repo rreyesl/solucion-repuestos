@@ -30,10 +30,5 @@ namespace DALC.Repuestos
         public virtual Cliente Cliente { get; set; }
         public virtual Modelo Modelo { get; set; }
         public virtual ICollection<Servicio> Servicio { get; set; }
-
-        //public virtual List<Auto> ToList
-        //{
-        //    get; set;
-        //}
     }
 }

@@ -19,7 +19,7 @@
             <asp:BoundField DataField="valor_neto" HeaderText="valor_neto" SortExpression="valor_neto" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString4 %>" SelectCommand="SELECT r.[id], r.[sku], r.[descripcion], m.nombre &quot;Modelo&quot;, t.nombre &quot;Tipo&quot;, r.[valor_neto] FROM [Repuesto] r join Modelo m on r.id_modelo = m.id
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT r.[id], r.[sku], r.[descripcion], m.nombre &quot;Modelo&quot;, t.nombre &quot;Tipo&quot;, r.[valor_neto] FROM [Repuesto] r join Modelo m on r.id_modelo = m.id
 join Tipo t on r.id_tipo = t.id; "></asp:SqlDataSource>
 
 

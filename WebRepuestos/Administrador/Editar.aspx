@@ -101,7 +101,7 @@
                         <asp:BoundField DataField="fecha_ingreso" HeaderText="fecha_ingreso" SortExpression="fecha_ingreso" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=localhost;Initial Catalog=Repuestos2;Integrated Security=True" DeleteCommand="DELETE FROM [Servicio] WHERE [id] = @id" InsertCommand="INSERT INTO [Servicio] ([valor_neto], [valor_iva], [valor_total], [fecha_ingreso]) VALUES (@valor_neto, @valor_iva, @valor_total, @fecha_ingreso)" ProviderName="System.Data.SqlClient" SelectCommand="SELECT [id], [valor_neto], [valor_iva], [valor_total], [fecha_ingreso] FROM [Servicio] WHERE ([id_auto] = @id_auto)" UpdateCommand="UPDATE [Servicio] SET [valor_neto] = @valor_neto, [valor_iva] = @valor_iva, [valor_total] = @valor_total, [fecha_ingreso] = @fecha_ingreso WHERE [id] = @id">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" DeleteCommand="DELETE FROM [Servicio] WHERE [id] = @id" InsertCommand="INSERT INTO [Servicio] ([valor_neto], [valor_iva], [valor_total], [fecha_ingreso]) VALUES (@valor_neto, @valor_iva, @valor_total, @fecha_ingreso)" SelectCommand="SELECT [id], [valor_neto], [valor_iva], [valor_total], [fecha_ingreso] FROM [Servicio] WHERE ([id_auto] = @id_auto)" UpdateCommand="UPDATE [Servicio] SET [valor_neto] = @valor_neto, [valor_iva] = @valor_iva, [valor_total] = @valor_total, [fecha_ingreso] = @fecha_ingreso WHERE [id] = @id">
                     <DeleteParameters>
                         <asp:Parameter Name="id" Type="Int32" />
                     </DeleteParameters>
@@ -142,7 +142,7 @@
                         <asp:CommandField SelectText="Eliminar" ShowSelectButton="True" />
                     </Columns>
                 </asp:GridView>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString19 %>" SelectCommand="select t1.id, t1.cantidad, t1.total, t2.descripcion
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select t1.id, t1.cantidad, t1.total, t2.descripcion
 from Detalle_Servicio as t1 inner join Repuesto as t2 on t1.id_repuesto = t2.id 
 where t1.id_servicio = @idservicio">
                     <SelectParameters>

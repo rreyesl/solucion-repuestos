@@ -38,7 +38,7 @@
                                     <asp:BoundField DataField="rut" HeaderText="rut" ReadOnly="True" SortExpression="rut" />
                                 </Columns>
                             </asp:GridView>
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString15 %>" SelectCommand="select distinct(t4.id), t4.correo, concat(t4.nombre, ' ', t4.apellido)as Nombre,t4.telefono, t4.direccion, concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut from Cliente as t4"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select distinct(t4.id), t4.correo, concat(t4.nombre, ' ', t4.apellido)as Nombre,t4.telefono, t4.direccion, concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut from Cliente as t4"></asp:SqlDataSource>
                         </td>
                         <td>&nbsp;</td>
                     </tr>

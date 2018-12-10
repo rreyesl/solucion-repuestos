@@ -17,7 +17,7 @@
             <asp:BoundField DataField="Marca" HeaderText="Marca" SortExpression="Marca" />
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString5 %>" SelectCommand="SELECT mo.[id], mo.[nombre], mo.[descripcion], mo.[anio] &quot;Año&quot;, ma.nombre &quot;Marca&quot; FROM [Modelo] mo join marca ma on mo.id_marca = ma.id;"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT mo.[id], mo.[nombre], mo.[descripcion], mo.[anio] &quot;Año&quot;, ma.nombre &quot;Marca&quot; FROM [Modelo] mo join marca ma on mo.id_marca = ma.id;"></asp:SqlDataSource>
 
             </div>
         </div>

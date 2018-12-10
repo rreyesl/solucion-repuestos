@@ -20,7 +20,7 @@
         <asp:BoundField DataField="Ingreso" HeaderText="Ingreso" ReadOnly="True" SortExpression="Ingreso" />
     </Columns>
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString5 %>" SelectCommand="select t3.nombre + ' ' +  t3.apellido as Nombre, t2.patente as Patente, t4.observacion as Observación,
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select t3.nombre + ' ' +  t3.apellido as Nombre, t2.patente as Patente, t4.observacion as Observación,
   convert(varchar(10), t1.fecha_ingreso, 103) as Ingreso  from Servicio as t1 
 inner join Auto as t2 on t1.id_auto = t2.id 
 inner join Cliente as t3 on t2.id_cliente = t3.id 

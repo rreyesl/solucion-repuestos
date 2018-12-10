@@ -13,10 +13,10 @@ namespace DALC.Repuestos
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Repuestos2Entities4 : DbContext
+    public partial class repuestoEntities : DbContext
     {
-        public Repuestos2Entities4()
-            : base("name=Repuestos2Entities4")
+        public repuestoEntities()
+            : base("name=repuestoEntities")
         {
         }
     

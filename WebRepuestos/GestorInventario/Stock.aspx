@@ -17,7 +17,7 @@
         <asp:BoundField DataField="cantidad" HeaderText="cantidad" SortExpression="cantidad" />
     </Columns>
 </asp:GridView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString2 %>" SelectCommand="select t1.id as id , t2.descripcion as repuesto, t3.nombre as sucursal ,t1.cantidad  from stock as t1
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select t1.id as id , t2.descripcion as repuesto, t3.nombre as sucursal ,t1.cantidad  from stock as t1
 inner join Repuesto as t2 on t1.id_repuesto = t2.id
 inner join Sucursal as t3 on t1.id_sucursal = t3.id;"></asp:SqlDataSource>
 
