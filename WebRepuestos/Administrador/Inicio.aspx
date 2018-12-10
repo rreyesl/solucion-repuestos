@@ -36,6 +36,27 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
 
     <br />
 
+    <asp:DropDownList ID="ddlMeses" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlMeses_SelectedIndexChanged"   >
+        <asp:ListItem Text="Enero" Value="1" />
+        <asp:ListItem Text="Febrero" Value="2" />
+        <asp:ListItem Text="Marzo" Value="3" />
+        <asp:ListItem Text="Abril" Value="4" />
+        <asp:ListItem Text="Mayo" Value="5" />
+        <asp:ListItem Text="Junio" Value="6" />
+        <asp:ListItem Text="Julio" Value="7" />
+        <asp:ListItem Text="Agosto" Value="8" />
+        <asp:ListItem Text="Septiembre" Value="9" />
+        <asp:ListItem Text="Octubre" Value="10" />
+        <asp:ListItem Text="Noviembre" Value="11" />
+        <asp:ListItem Text="Diciembre" Value="12" />
+    </asp:DropDownList>
+
+    <asp:DropDownList ID="ddlAnio" runat="server" Width="150px" AutoPostBack="true"   >
+        <asp:ListItem Text="2016" Value="2016" />
+        <asp:ListItem Text="2017" Value="2017" />
+        <asp:ListItem Text="2018" Value="2018" />
+    </asp:DropDownList>
+
     <br />
 
 
@@ -43,32 +64,40 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
     <br />
-    <%--<textarea id="txtArea" runat="server" cols="20" rows="2">--%>
-    <%-- <%:Session["repuestoMes"] %>--%>
-        
-   <%-- </textarea>--%>
+    
 
     
 <script>
     var arrayDias = [];
-    var arrayValores = [];
     var datos = "<%: Session["repuestoMes"] %>";
-    var data = jQuery.parseJSON(datos.replace(/\&#39;/g, "\""));
+    console.log(datos);
+
+    if (datos != "{&#39;repuestos&#39;: ]}") {
+        var data = jQuery.parseJSON(datos.replace(/\&#39;/g, "\""));
+    } else {
+        var data = '{"repuestos":[]}';
+        data = jQuery.parseJSON(data);
+    }
     
-    $(document).ready(function () {
-        var dias = getDaysInMonth(11, 2018);
-        createGrafico(dias, arrayValores)
-    })
+    
+    var mes = "<%: Session["sMonth"] %>";
+    var year = "<%: Session["sYear"] %>";
+
+    var dias = getDaysInMonth(mes, year);
+    console.log(data)
+    createGrafico(dias, mes)
 
     console.log(arrayDias);
-    console.log(dias);
+    console.log("dias: "+dias);
     console.log(data.repuestos);
 
     function getDaysInMonth(m, y) {
+        console.log("mes: "+m+" - año: "+y)
         return new Date(y, m, 0).getDate();
     }
   
-    function createGrafico(dias, valores) {
+    function createGrafico(dias, mes) {
+        var arrayValores = [];
 
         console.log("repuestos: " + data.repuestos.length)
         console.log("dias: "+dias)
@@ -77,7 +106,8 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
             aux = false;
             for (var j = 0; j < data.repuestos.length; j++) {
                 dia = (data.repuestos[j].fecha).substring(0, 2);
-                if (i == dia) {
+                m = (data.repuestos[j].fecha).substring(3, 5);
+                if (i == dia && m == mes) {
                     arrayValores.push(data.repuestos[j].cantidad);
                     aux = true;
                 } 
@@ -115,6 +145,8 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
                 }
             }
         });
+
+        myChart.update();
     }
    
 

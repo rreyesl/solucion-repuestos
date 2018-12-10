@@ -17,41 +17,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-      <%--<table style="width:100%;">
-            <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">Mail:</td>
-                <td>
-                    <asp:TextBox ID="txtMail" runat="server"></asp:TextBox>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">Contraseña:</td>
-                <td>
-                    <asp:TextBox ID="txtPass" runat="server" TextMode="Password"></asp:TextBox>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td>
-                    <asp:Button ID="btnIngresar" runat="server" OnClick="btnIngresar_Click" Text="Ingresar" />
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style1">&nbsp;</td>
-                <td>
-                    <asp:Label ID="lbMensaje" runat="server"></asp:Label>
-                </td>
-                <td>&nbsp;</td>
-            </tr>
-        </table>--%>
+     
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4"></div>
