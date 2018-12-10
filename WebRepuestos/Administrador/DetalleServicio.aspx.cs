@@ -13,6 +13,7 @@ namespace WebRepuestos.Mecanico
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
 
@@ -50,22 +51,21 @@ namespace WebRepuestos.Mecanico
 
 
             }
-            Detalle_Servicio dt = new Detalle_Servicio();
-            Negocio.Repuestos.RestService rs = new Negocio.Repuestos.RestService();
+            //Detalle_Servicio dt = new Detalle_Servicio();
+            //Negocio.Repuestos.RestService rs = new Negocio.Repuestos.RestService();
 
 
-            dt.Cantidad = int.Parse(txtCantidad.Text);
-            dt.Total = int.Parse(txtTotal.Text);
-            dt.Id_servicio = int.Parse(ddlServicio.SelectedValue);
-            dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
-
+            //dt.Cantidad = int.Parse(txtCantidad.Text);
+            //dt.Total = int.Parse(txtTotal.Text);
+            //dt.Id_servicio = int.Parse(ddlServicio.SelectedValue);
+            //dt.Id_repuesto = int.Parse(ddlRepuesto.SelectedValue);
 
 
             //if (dt.Crear())
             //{
             //    lbMensaje.Text = "Detalle generado";
 
-                
+
 
             //}
             //else
@@ -88,7 +88,7 @@ namespace WebRepuestos.Mecanico
 
                 
 
-                Response.Redirect("Incio.aspx");
+                Response.Redirect("Inicio.aspx");
 
 
            
@@ -137,7 +137,21 @@ namespace WebRepuestos.Mecanico
                 lbMensaje1.Text = "Detalle generado";
                 mensaje1.Visible = true;
 
+                Servicio s = new Servicio();
 
+                int idServicio = dt.Id_servicio;
+                decimal valorNetoRep = dt.ValorNetoTotal(idServicio);
+                decimal iva = (int)(Math.Round((double)valorNetoRep * 0.19));
+                decimal totalServicio = valorNetoRep + iva;
+
+                if (s.Modificar(totalServicio, iva, valorNetoRep, idServicio))
+                {
+
+                }
+                else
+                {
+                    lbMensaje2.Text = "error";
+                }
                 GridView1.DataBind();
             }
             else
@@ -147,7 +161,7 @@ namespace WebRepuestos.Mecanico
                 mensaje2.Visible = true;
             }
 
-
+            
 
 
 

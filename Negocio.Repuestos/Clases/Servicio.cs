@@ -414,10 +414,30 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+        public int GetLastID()
+        {
+            try
+            {
+                id = 0;
+                var aux = CommonBC.Modelo.Servicio.OrderByDescending(s => s.id).Select(s => s.id).First();
+
+                id = aux;
+                return id;
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
+
         public Servicio BuscarPatente(string descripcion)
         {
             try
             {
+               
+                
                 var aux = CommonBC.Modelo.Servicio.First
                     (valor => valor.descripcion == descripcion);
                 this.id = aux.id;

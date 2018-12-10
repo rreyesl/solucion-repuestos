@@ -99,7 +99,7 @@
         <tr>
             <td class="auto-style3">Cantidad:</td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="True"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Cantidad Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>

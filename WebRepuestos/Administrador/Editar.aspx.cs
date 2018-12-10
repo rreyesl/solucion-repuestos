@@ -138,13 +138,15 @@ namespace WebRepuestos.Clientee
 
             //System.Web.HttpContext.Current.Session["iddetalle"] = gr.Cells[1].Text;
 
-           
+            int id = int.Parse(System.Web.HttpContext.Current.Session["idservicio"] as String);
+
             if (dt.Eliminar(int.Parse(gr.Cells[0].Text)))
             {
                 mensaje1.Visible = true;
                 lbMensaje1.Text = "Repuesto Eliminado";
                 mensaje2.Visible = false;
                 gvRepuestos.DataBind();
+                
 
             }
             else
@@ -154,10 +156,22 @@ namespace WebRepuestos.Clientee
                 mensaje2.Visible = true;
             }
 
+            Servicio s = new Servicio();
 
+            decimal valorNetoRep = dt.ValorNetoTotal(id);
+            decimal iva = (int)(Math.Round((double)valorNetoRep * 0.19));
+            decimal total = valorNetoRep + iva;
 
-
-
+            if (s.Modificar(total,iva,valorNetoRep,id))
+            {
+                txtNeto.Text = valorNetoRep.ToString();
+                txtIVA.Text = iva.ToString();
+                txtTotal.Text = total.ToString();
+                gvCotizaciones.DataBind();
+            } else
+            {
+                lbMensaje2.Text = "error";
+            }
 
 
         }
@@ -190,6 +204,52 @@ namespace WebRepuestos.Clientee
             total =(int)(valor *cantidad);
 
             txtTotalRepuesto.Text = total.ToString();
+
+
+        }
+
+        protected void btnAgregar0_Click(object sender, EventArgs e)
+        {
+            Servicio s = new Servicio();
+            Detalle_Servicio dt = new Detalle_Servicio();
+
+            int id = int.Parse(System.Web.HttpContext.Current.Session["idservicio"] as String);
+
+
+            dt.Id_servicio = id;
+            dt.Cantidad = int.Parse(txtCantidad.Text);
+            dt.Total = int.Parse(txtTotalRepuesto.Text);
+            dt.Id_repuesto = int.Parse(ddlRepuestos.SelectedValue);
+
+            if (dt.Crear())
+            {
+                decimal valorNetoRep = dt.ValorNetoTotal(id);
+                decimal iva = (int)(Math.Round((double)valorNetoRep * 0.19));
+                decimal total = valorNetoRep + iva;
+
+                if (s.Modificar(total, iva, valorNetoRep, id))
+                {
+                    txtNeto.Text = valorNetoRep.ToString();
+                    txtIVA.Text = iva.ToString();
+                    txtTotal.Text = total.ToString();
+                    gvRepuestos.DataBind();
+                    gvCotizaciones.DataBind();
+
+                }
+                else
+                {
+                    lbMensaje2.Text = "error al calcular total";
+                }
+            }
+            else
+            {
+                lbMensaje2.Text = "error al agregar repuesto";
+            }
+
+
+
+
+
 
 
         }

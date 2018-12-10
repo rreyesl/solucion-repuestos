@@ -109,7 +109,7 @@ namespace WebRepuestos.Mecanico
                 //s.Valor_iva = decimal.Parse(txtIVA.Text);
                 s.Valor_total = decimal.Parse(txtTotal.Text);
                 s.Cancelado = false;
-                s.Mano_obra = decimal.Parse(txtMano.Text);
+                s.Mano_obra = 0;
                 s.Id_sucursal = int.Parse(ddlSucursal.SelectedValue);
                 s.Id_usuario = int.Parse(ddlUsuario.SelectedValue);
                 s.Id_auto = int.Parse(ddlAuto.SelectedValue);
@@ -196,7 +196,7 @@ namespace WebRepuestos.Mecanico
 
                 r.BuscarRepuestoByNombre(ddlRepuesto.SelectedItem.ToString());
 
-                dt.Id_servicio = s.Id;
+                dt.Id_servicio = s.GetLastID();
                dt.Total = (int)((int.Parse(ddlRepuesto.SelectedValue))*int.Parse(txtCantidad.Text));
               dt.Id_repuesto  = r.Id;
                dt.Cantidad  = int.Parse(txtCantidad.Text);
@@ -249,8 +249,8 @@ namespace WebRepuestos.Mecanico
         {
             double calculo = (int.Parse(ddlRepuesto.SelectedValue) * 0.19) + int.Parse(ddlRepuesto.SelectedValue);
             double calculoIva = (int.Parse(ddlRepuesto.SelectedValue) * 0.19);
-            txtTotal.Text = Math.Round((calculo + (calculo * (double.Parse(txtMano.Text) / 100)))).ToString();
-            txtIVA.Text = Math.Round((calculoIva + (calculoIva * (double.Parse(txtMano.Text) / 100)))).ToString();
+            txtTotal.Text = Math.Round((calculo)).ToString();
+            txtIVA.Text = Math.Round((calculoIva)).ToString();
         }
 
         protected void txtCantidad_TextChanged(object sender, EventArgs e)

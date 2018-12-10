@@ -268,9 +268,7 @@ namespace Negocio.Repuestos.Clases
         {
             try
             {
-              
-
-
+             
                     var c = CommonBC.Modelo.Detalle_Servicio.First
                     (valor => valor.id == id);
 
@@ -287,6 +285,25 @@ namespace Negocio.Repuestos.Clases
 
                 return false;
             }
+        }
+
+        public decimal ValorNetoTotal(int id)
+        {
+            decimal total = 0;
+
+
+            try
+            {
+                var v = CommonBC.Modelo.Detalle_Servicio.Where(aux => aux.id_servicio == id).Sum(aux => aux.total);
+                total = v;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+            return total;
         }
 
 

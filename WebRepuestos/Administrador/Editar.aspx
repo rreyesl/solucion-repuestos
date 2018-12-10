@@ -189,7 +189,9 @@ where t1.id_servicio = @idservicio">
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td>
+                <asp:Button ID="btnAgregar0" CssClass="btn btn-submit" runat="server" Text="Agregar" OnClick="btnAgregar0_Click" />
+            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -205,7 +207,7 @@ where t1.id_servicio = @idservicio">
         <tr>
             <td class="auto-style18">Valor Neto: </td>
             <td class="auto-style19">
-                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True" OnTextChanged="txtNeto_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True" OnTextChanged="txtNeto_TextChanged" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style20">
                 </td>
