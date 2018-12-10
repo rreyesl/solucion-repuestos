@@ -40,7 +40,7 @@
         <tr>
             <td class="auto-style1">Rut:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtRut" runat="server" AutoPostBack="True" OnTextChanged="txtRut_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtRut" runat="server" AutoPostBack="True" OnTextChanged="txtRut_TextChanged" TextMode="Number"></asp:TextBox>
                 &nbsp;<asp:TextBox ID="txtDv" runat="server" Width="16px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
@@ -81,16 +81,16 @@
         </tr>
         <tr>
             <td class="auto-style1">Apellido:</td>
-            <td class="auto-style2">
+            <td class="auto-style3">
                 <asp:TextBox ID="txtApellido" runat="server"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
+            <td class="auto-style1">
+                </td>
         </tr>
         <tr>
             <td class="auto-style1">Telefono:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 &nbsp;</td>
@@ -141,17 +141,17 @@
         </tr>
         <tr>
             <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
+            <td class="auto-style3"></td>
             <td class="auto-style1"></td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style2">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>

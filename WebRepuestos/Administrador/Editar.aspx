@@ -169,7 +169,7 @@ where t1.id_servicio = @idservicio">
         <tr>
             <td class="auto-style21">Cantidad:</td>
             <td class="auto-style22">
-                <asp:TextBox ID="txtCantidad" runat="server" AutoPostBack="True" OnTextChanged="txtCantidad_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" AutoPostBack="True" OnTextChanged="txtCantidad_TextChanged" TextMode="Number"></asp:TextBox>
             </td>
             <td class="auto-style24"></td>
         </tr>

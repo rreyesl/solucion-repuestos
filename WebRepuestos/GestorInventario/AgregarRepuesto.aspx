@@ -117,7 +117,7 @@
         <tr>
             <td class="auto-style1">Valor Neto:</td>
             <td class="auto-style4">
-                <asp:TextBox ID="txtValor" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtValor" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqValor" runat="server" ControlToValidate="txtValor" ErrorMessage="Valor Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -135,9 +135,11 @@
         <tr>
             <td class="auto-style8">Cantidad:</td>
             <td class="auto-style9">
-                <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" TextMode="Number"></asp:TextBox>
             </td>
-            <td class="auto-style10">&nbsp;</td>
+            <td class="auto-style10">
+                <asp:RequiredFieldValidator ID="RqValor0" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Valor Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                </td>
         </tr>
         <tr>
             <td class="auto-style8">Sucursal:</td>

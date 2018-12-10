@@ -31,9 +31,22 @@ namespace WebRepuestos.Administrador
         protected void txtRut_TextChanged(object sender, EventArgs e)
         {
             Usuario u = new Usuario();
+            int i = 0;
+           
 
-            txtDv.Text = u.Digito(txtRut.Text);
-            u.Rut = int.Parse(txtRut.Text);
+            if (int.TryParse(txtRut.Text, out i ))
+            {
+                txtDv.Text = u.Digito(txtRut.Text);
+                u.Rut = int.Parse(txtRut.Text);
+            }
+            else
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Ingrese formato de rut";
+                mensaje2.Visible = true;
+            }
+
+
 
             if (u.Existe())
             {

@@ -102,7 +102,7 @@
         <tr>
             <td class="auto-style2">Cantidad:</td>
             <td class="auto-style5">
-                <asp:TextBox ID="txtCantidad" runat="server" AutoPostBack="True" OnTextChanged="txtCantidad_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" AutoPostBack="True" OnTextChanged="txtCantidad_TextChanged" TextMode="Number"></asp:TextBox>
             </td>
             <td class="auto-style3">
                 &nbsp;</td>
@@ -110,7 +110,7 @@
         <tr>
             <td class="auto-style2">Valor Neto:</td>
             <td class="auto-style5">
-                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtNeto" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style3">
                 </td>
@@ -118,7 +118,7 @@
         <tr>
             <td class="auto-style2">Valor IVA:</td>
             <td class="auto-style5">
-                <asp:TextBox ID="txtIva" runat="server" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtIva" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style3">
                 &nbsp;</td>
@@ -126,7 +126,7 @@
         <tr>
             <td class="auto-style12">Total:</td>
             <td class="auto-style13">
-                <asp:TextBox ID="txtTotal" runat="server" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtTotal" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td class="auto-style14"></td>
         </tr>

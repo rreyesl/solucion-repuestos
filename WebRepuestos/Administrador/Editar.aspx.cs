@@ -42,14 +42,34 @@ namespace WebRepuestos.Clientee
         {
             Servicio s = new Servicio();
             Auto a = new Auto();
-           //etalle_Servicio ds = new Detalle_Servicio();
+            //etalle_Servicio ds = new Detalle_Servicio();
+
+            
+
 
             a.Patente = txtPatente.Text;
 
-            s.BuscarPatente2(a.Patente);
+            if (s.BuscarPatenteconservicio(a.Patente))
+            {
+                s.BuscarPatente2(a.Patente);
+                System.Web.HttpContext.Current.Session["idauto"] = s.Id_auto;
+
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Patente encontrada";
+                mensaje1.Visible = true;
+            }
+            else
+            {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Esta patente no tiene cotizacion asociada";
+                mensaje2.Visible = true;
+            }
+
+
+            
             //ds.BuscarPatente(a.Patente);
 
-            System.Web.HttpContext.Current.Session["idauto"] = s.Id_auto;
+            
 
             //txtIVA.Text = s.Valor_iva.ToString();
 
@@ -60,9 +80,9 @@ namespace WebRepuestos.Clientee
             //txtCantidad.Text = ds.Cantidad.ToString();
 
 
-            //gvCotizaciones.DataBind();
+           // gvCotizaciones.DataBind();
 
-
+          //  gvCotizaciones.Visible = true;
 
 
 
@@ -170,7 +190,9 @@ namespace WebRepuestos.Clientee
                 gvCotizaciones.DataBind();
             } else
             {
+                mensaje1.Visible = false;
                 lbMensaje2.Text = "error";
+                mensaje2.Visible = true;
             }
 
 
@@ -235,15 +257,24 @@ namespace WebRepuestos.Clientee
                     gvRepuestos.DataBind();
                     gvCotizaciones.DataBind();
 
+                    mensaje2.Visible = false;
+                    lbMensaje1.Text = "Repuesto agregado";
+                    mensaje1.Visible = true;
+
                 }
                 else
                 {
-                    lbMensaje2.Text = "error al calcular total";
+                    mensaje1.Visible = false;
+                   lbMensaje2.Text = "error al calcular total";
+                    mensaje2.Visible = true;
                 }
             }
             else
             {
-                lbMensaje2.Text = "error al agregar repuesto";
+                mensaje1.Visible = false;
+               lbMensaje2.Text = "error al agregar repuesto";
+                mensaje2.Visible = true;
+
             }
 
 

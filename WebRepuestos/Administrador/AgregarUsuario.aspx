@@ -42,14 +42,14 @@
         <tr>
             <td class="auto-style1">Rut:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtRut" runat="server" OnTextChanged="txtRut_TextChanged" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtRut" runat="server" OnTextChanged="txtRut_TextChanged" AutoPostBack="True" TextMode="Number"></asp:TextBox>
                 &nbsp;<asp:TextBox ID="txtDv" runat="server" Width="16px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
                  
 
                 <asp:RequiredFieldValidator ID="RqRut" runat="server" ControlToValidate="txtRut" ErrorMessage="Rut Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                <asp:RangeValidator ID="RvRut" runat="server" ControlToValidate="txtRut" ErrorMessage="Campo Numerico" MaximumValue="99999999" MinimumValue="11111111" Type="Integer"></asp:RangeValidator>
+                <asp:RangeValidator ID="RvRut" runat="server" ControlToValidate="txtRut" ErrorMessage="Campo Numerico" MaximumValue="99999999" MinimumValue="1111111" Type="Integer"></asp:RangeValidator>
             </td>
         </tr>
         <tr>
@@ -82,7 +82,7 @@
         <tr>
             <td class="auto-style1">Telefono:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Telefono Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>

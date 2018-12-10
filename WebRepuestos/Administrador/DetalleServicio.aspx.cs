@@ -146,11 +146,15 @@ namespace WebRepuestos.Mecanico
 
                 if (s.Modificar(totalServicio, iva, valorNetoRep, idServicio))
                 {
-
+                    mensaje2.Visible = false;
+                    lbMensaje1.Text = "Total modificado";
+                    mensaje1.Visible = true;
                 }
                 else
                 {
+                    mensaje1.Visible = false;
                     lbMensaje2.Text = "error";
+                    mensaje2.Visible = true;
                 }
                 GridView1.DataBind();
             }

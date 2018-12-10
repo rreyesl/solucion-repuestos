@@ -14,55 +14,21 @@ namespace WebRepuestos.GerenteGeneral
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //////int dias = DateTime.DaysInMonth(2018, 11);
-            //////System.Web.HttpContext.Current.Session["dias"] = dias;
-            //////var asd = System.Configuration.ConfigurationManager.ConnectionStrings["Repuestos2Entities4"].ConnectionString;
-            //////SqlConnection sqlcon = new SqlConnection("Server=localhost;Database=Repuestos2;Trusted_Connection=True;");
-            //////SqlCommand cmd = new SqlCommand();
-            //////SqlDataReader rd;
+            if (!IsPostBack)
+            {
+                Negocio.Repuestos.Clases.Reporteria rp = new Negocio.Repuestos.Clases.Reporteria();
 
-            //////cmd.CommandText = "select t1.id_repuesto as ID, COUNT(t1.id_repuesto) as cantidad, t2.descripcion as Repuesto, CONVERT(varchar(10), t3.fecha_ingreso, 103) as Fecha from Detalle_Servicio as t1 inner join Repuesto as t2 on t1.id_repuesto = t2.id inner join Servicio as t3 on t1.id_servicio = t3.id where t3.id_estado = 1 group by t1.id_repuesto, t2.descripcion, t3.fecha_ingreso; ";
-            //////cmd.CommandType = System.Data.CommandType.Text;
-            //////cmd.Connection = sqlcon;
+                string sMonth = DateTime.Now.ToString("MM");
+                string sYear = DateTime.Now.ToString("yyyy");
+                string data = rp.getRepuestosByMonth(int.Parse(sMonth), int.Parse(sYear));
+                System.Web.HttpContext.Current.Session["repuestosMes"] = data;
+                Session["repuestoMes"] = data;
+                Session["sMonth"] = sMonth;
+                Session["sYear"] = sYear;
 
-            ////sqlcon.Open();
-            //////  string[] datos;
-
-            //////            List<string> listapulenta = new List<string>();
-            //////ClassName[] allRecords = null;
-            ////rd = cmd.ExecuteReader();
-            ////int aux = 0;
-            ////Negocio.Repuestos.Reporte1[] datos = null;
-            ////string data = "{'repuestos': [";
-
-            ////if (rd.HasRows)
-            ////{
-
-            ////    var list = new List<Negocio.Repuestos.Reporte1>();
-
-            ////    while (rd.Read())
-            ////    {
-
-            ////        list.Add(new Negocio.Repuestos.Reporte1 { Id = rd.GetInt32(0) });
-            ////        data += "{'id': '" + rd.GetInt32(0) + "', 'cantidad':'" + rd.GetInt32(1) + "','repuesto':'" + rd.GetString(2) + "','fecha':'" + rd.GetString(3) + "'},";
-            ////    }
-
-            ////    datos = list.ToArray();
-            ////}
-            ////data = data.Remove(data.Length - 1);
-            ////data += "]}";
-
-
-            ////sqlcon.Close();
-
-            ////// string[] data = listapulenta.ToArray();
-            ////System.Web.HttpContext.Current.Session["repuestosMes"] = data;
-            ////Session["repuestoMes"] = data;
-
-
-            //System.Web.HttpContext.Current.Session["repuestosMes"] as String;
-            // txtArea.InnerText =  (datos[0].Id).ToString();
-            string data = "";
+                ddlMeses.SelectedValue = sMonth;
+                ddlAnio.SelectedValue = sYear;
+            }
 
 
         }
@@ -90,9 +56,20 @@ namespace WebRepuestos.GerenteGeneral
         }
 
         public override void
-   VerifyRenderingInServerForm(Control control)
+         VerifyRenderingInServerForm(Control control)
         {
             return;
+        }
+
+        protected void ddlMeses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Negocio.Repuestos.Clases.Reporteria rp = new Negocio.Repuestos.Clases.Reporteria();
+
+            Session["sMonth"] = ddlMeses.SelectedValue;
+            Session["sYear"] = ddlAnio.SelectedValue;
+            string data = rp.getRepuestosByMonth(int.Parse(ddlMeses.SelectedValue), int.Parse(ddlAnio.SelectedValue));
+            Session["repuestoMes"] = data;
+
         }
     }
 }

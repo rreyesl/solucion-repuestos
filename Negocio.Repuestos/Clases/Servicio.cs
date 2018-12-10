@@ -780,5 +780,65 @@ namespace Negocio.Repuestos.Clases
         }
 
 
+        public bool BuscarPatenteconservicio(string patente)
+        {
+            //Servicio s = new Servicio();
+
+            try
+            {
+                var count = CommonBC.Modelo.Servicio.Count(valor => valor.Auto.patente == patente);
+                List<Clases.Servicio> listaServicio = new List<Clases.Servicio>();
+
+                var aux = CommonBC.Modelo.Servicio.First
+                                    (valor => valor.Auto.patente == patente);
+
+                //comentado
+                // Servicio s = new Servicio();
+                //for (int i = 0; i < count; i++)
+                //{
+
+                //  listaServicio.Add(aux);
+                //s.id = aux.id;
+                this.Fecha_ingreso = aux.fecha_ingreso;
+                this.fecha_entrega = aux.fecha_entrega;
+                this.valor_neto = aux.valor_neto;
+                this.valor_iva = aux.valor_iva;
+                this.Valor_total = aux.valor_total;
+                this.cancelado = aux.cancelado;
+                this.id_sucursal = aux.id_sucursal;
+                this.id_usuario = aux.id_usuario;
+                this.id_auto = aux.id_auto;
+                this.mano_obra = aux.mano_obra;
+                this.repuesto = aux.repuesto;
+                this.id_estado = aux.id_estado;
+                this.descripcion = aux.descripcion;
+
+                //aux.id = s.id;
+                //aux.descripcion = s.descripcion;
+                //aux.id_auto = s.id_auto;
+
+
+
+
+
+
+
+
+                //}
+
+
+
+                return true;
+
+
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+
     }
 }

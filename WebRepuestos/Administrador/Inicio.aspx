@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Administrador1.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="WebRepuestos.Administrador.GenerarReporte" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Administrador/Administrador1.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="WebRepuestos.Administrador.GenerarReporte" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style1 {

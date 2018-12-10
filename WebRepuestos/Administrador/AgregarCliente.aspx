@@ -47,7 +47,7 @@
         <tr>
             <td class="auto-style3">Rut:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtRut" runat="server" AutoPostBack="True" OnTextChanged="txtRut_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="txtRut" runat="server" AutoPostBack="True" OnTextChanged="txtRut_TextChanged" TextMode="Number"></asp:TextBox>
                 <asp:TextBox ID="txtDv" runat="server" Width="16px" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
             </td>
             <td>
@@ -85,7 +85,7 @@
         <tr>
             <td class="auto-style3">Telefono:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtTelefono" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqTelefono" runat="server" ControlToValidate="txtTelefono" ErrorMessage="Telefono Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>

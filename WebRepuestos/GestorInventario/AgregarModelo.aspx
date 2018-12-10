@@ -70,7 +70,7 @@
         <tr>
             <td class="auto-style1">Año:</td>
             <td class="auto-style4">
-                <asp:TextBox ID="txtAnio" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtAnio" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqAnio" runat="server" ControlToValidate="txtAnio" EnableTheming="True" ErrorMessage="Año Obligatorio!" SetFocusOnError="True"></asp:RequiredFieldValidator>

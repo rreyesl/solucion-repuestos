@@ -29,7 +29,9 @@ namespace WebRepuestos.GestorInventario
 
                 mensaje1.Visible = false;
                 mensaje2.Visible = false;
-              
+
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
 
 
             }
@@ -39,8 +41,14 @@ namespace WebRepuestos.GestorInventario
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
             Repuesto r = new Repuesto();
-        
-          
+
+
+            //stock
+            Stock s = new Stock();
+
+            //stock
+
+
 
                 if (r.ExisteSku(txtSku.Text))
             {
@@ -55,6 +63,9 @@ namespace WebRepuestos.GestorInventario
 
                 lbMensaje1.Text = "repuesto encontrado";
                 mensaje1.Visible = true;
+
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
 
             }
             else

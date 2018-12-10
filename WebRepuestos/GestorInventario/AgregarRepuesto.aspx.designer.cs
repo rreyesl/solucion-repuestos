@@ -139,6 +139,15 @@ namespace WebRepuestos.GestorInventario {
         protected global::System.Web.UI.WebControls.TextBox txtCantidad;
         
         /// <summary>
+        /// Control RqValor0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RqValor0;
+        
+        /// <summary>
         /// Control ddlSucursal.
         /// </summary>
         /// <remarks>

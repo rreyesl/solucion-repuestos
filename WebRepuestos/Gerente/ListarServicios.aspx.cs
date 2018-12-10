@@ -20,6 +20,7 @@ namespace WebRepuestos.Gerente
                 ddlSucursal.DataValueField = "Id";
                 ddlSucursal.DataTextField = "Nombre";
                 ddlSucursal.DataBind();
+                gvServicios.Visible = false;
             }
 
         }
@@ -35,6 +36,7 @@ namespace WebRepuestos.Gerente
 
             gvServicios.DataBind();
             gvTodos.Visible = false;
+            gvServicios.Visible = true;
 
 
         }
