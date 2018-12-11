@@ -7,54 +7,54 @@
     .auto-style2 {
         width: 164px;
     }
+
 </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table style="width: 100%;">
-
-          <asp:Panel ID="mensaje1" runat="server">
-        <div class="alert alert-success"> 
-  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
-</div>
-    </asp:Panel>
 
 
-          <asp:Panel ID="mensaje2" runat="server">
-                         <div class="alert alert-danger">
-  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
-</div>
 
-                    </asp:Panel>
+    <div class="container container-bg">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <asp:Panel ID="mensaje1" runat="server">
+                <div class="alert alert-success"> 
+                    <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
+            <asp:Panel ID="mensaje2" runat="server">
+                <div class="alert alert-danger">
+                    <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="col-sm-12">
+                <asp:TextBox CssClass="form-control text-center" ID="txtPatente" runat="server" placeholder="Ingrese Patente"></asp:TextBox>
+            </div>
+            <div class="col-sm-12">
+                <asp:Button CssClass="btn btn-block btn-submit" ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
 
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Patente:</td>
-            <td class="auto-style2">
-                <asp:TextBox ID="txtPatente" runat="server"></asp:TextBox>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                &nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                <asp:GridView ID="gvServicios" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvServicios_SelectedIndexChanged" AllowPaging="True" PageSize="5">
+    <div class="row">
+        <div class="col-sm-12">
+            <br><br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div class="table-responsive">
+                <asp:GridView CssClass="table" ID="gvServicios" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="gvServicios_SelectedIndexChanged" AllowPaging="True" PageSize="5">
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                         <asp:BoundField DataField="descripcion" HeaderText="Descripción" SortExpression="descripcion" />
@@ -70,47 +70,36 @@
                         <asp:SessionParameter Name="id_auto" SessionField="idauto" Type="Int32" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">
-                <asp:Label ID="lbC" runat="server" Text="Cotizacion:"></asp:Label>
-            </td>
-            <td class="auto-style2">
-                <asp:Label ID="lbCotizacion" runat="server"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">
-                &nbsp;</td>
-            <td class="auto-style2">
-                &nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                <asp:Button ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
-            </td>
-            <td>
-                <asp:Button ID="btnRechazar" runat="server" OnClick="btnRechazar_Click" Text="Recharzar" />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">
-                <asp:Label ID="lbId" runat="server" Visible="False"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
+            </div>
+            
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="col-sm-12">
+                <p><asp:Label ID="lbC" runat="server" Text="Cotizacion:"></asp:Label> <asp:Label ID="lbCotizacion" runat="server"></asp:Label></p>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    <asp:Button CssClass="btn btn-submit" ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button CssClass="btn btn-submit" ID="btnRechazar" runat="server" OnClick="btnRechazar_Click" Text="Recharzar" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4"></div>
+    </div>
+        </div>
+    <table style="width: 100%;">
+       <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+        <asp:Label ID="lbId" runat="server" Visible="False"></asp:Label>
+        
         </table>
+
+
 </asp:Content>

@@ -30,7 +30,7 @@ body {
 }
 
 .form-control {
-    border: none;
+   /*border: none;*/
     border-radius: 25px;
     font-size: 1em;
 }
@@ -63,4 +63,24 @@ body {
     background-color: #f1f1f1;
     padding-bottom: 50px;
     border-radius: 25px;
+}
+
+.table-responsive {
+    background-color: #fff;
+}
+
+.table > tbody > tr > td > a {
+    background-color: #572364;
+    padding: 3px 6px;
+    color: #fff;
+    border-radius: 12px;
+    text-decoration: none;
+}
+
+.container-bg {
+    background-color: #f1f1f1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 25px;
+    min-height: 450px;
 }

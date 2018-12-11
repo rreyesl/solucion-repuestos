@@ -11,6 +11,19 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="col-sm-12">
+                <asp:TextBox ID="txtPatente" runat="server"></asp:TextBox>
+            </div>
+            <div class="col-sm-12">
+                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
     <table style="width: 100%;">
         <tr>
             <td class="auto-style1">&nbsp;</td>
@@ -20,10 +33,10 @@
         <tr>
             <td class="auto-style1">Patente:</td>
             <td class="auto-style2">
-                <asp:TextBox ID="txtPatente" runat="server"></asp:TextBox>
+                
             </td>
             <td>
-                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+                
             </td>
         </tr>
         <tr>
