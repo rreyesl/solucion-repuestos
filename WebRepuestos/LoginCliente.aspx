@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4" style="margin-top: 10%; padding-left: 70px; padding-right: 70px; padding-top: 30px; padding-bottom: 30px; border-radius: 25px; background-color:#f1f1f1">
-                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate">
+                    <asp:Login ID="Login1" runat="server" OnAuthenticate="Login1_Authenticate" DisplayRememberMe="False">
         </asp:Login>
                 </div>
                 <div class="col-sm-4"></div>
