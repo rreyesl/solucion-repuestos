@@ -77,7 +77,7 @@ namespace WebRepuestos
             }
             else if (u.Id_perfil == 1)
             {
-                Response.Redirect("Administrador/Inicio.aspx");
+                Response.Redirect("Administrador/AgregarCliente.aspx");
             }
             else if (u.Id_perfil == 2)
             {

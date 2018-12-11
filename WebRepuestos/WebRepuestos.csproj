@@ -68,6 +68,7 @@
     <Content Include="Administrador\Inicio2.aspx" />
     <Content Include="Administrador\ListarAuto.aspx" />
     <Content Include="Administrador\ListarCliente.aspx" />
+    <Content Include="Administrador\ListarServicios.aspx" />
     <Content Include="Administrador\ListarUsuario.aspx" />
     <Content Include="Administrador\WebForm1.aspx" />
     <Content Include="assets\css\bootstrap-theme.css" />
@@ -187,6 +188,13 @@
     </Compile>
     <Compile Include="Administrador\ListarCliente.aspx.designer.cs">
       <DependentUpon>ListarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\ListarServicios.aspx.cs">
+      <DependentUpon>ListarServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\ListarServicios.aspx.designer.cs">
+      <DependentUpon>ListarServicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrador\ListarUsuario.aspx.cs">
       <DependentUpon>ListarUsuario.aspx</DependentUpon>

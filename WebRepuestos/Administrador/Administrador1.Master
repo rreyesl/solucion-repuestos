@@ -70,6 +70,7 @@
                     <ul class="dropdown-menu">
                       <li><a href="AgregarServicio.aspx">Agregar Servicio</a></li>
                       <li><a href="Editar.aspx">Editar Servicio</a></li>
+                         <li><a href="ListarServicios.aspx">Listar Servicios</a></li>
                     </ul>
                 </li>
               </ul>
