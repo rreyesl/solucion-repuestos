@@ -166,7 +166,17 @@ namespace WebRepuestos.Clientee
                 lbMensaje1.Text = "Repuesto Eliminado";
                 mensaje2.Visible = false;
                 gvRepuestos.DataBind();
-                
+
+                ////restar stock
+                //Stock st = new Stock();
+                //st.EliminarRepuestoStock(int.Parse(gr.Cells[0].Text), int.Parse(txtCantidad.Text));
+                ////restar stock
+                ///
+                Repuesto r = new Repuesto();
+                Stock st = new Stock();
+                st.DevolverRepuestoStock(r.BuscarRepuestoByNombreId((gr.Cells[3].Text).ToString()), int.Parse(gr.Cells[1].Text));
+
+
 
             }
             else
@@ -245,6 +255,12 @@ namespace WebRepuestos.Clientee
 
             if (dt.Crear())
             {
+                //restar stock
+                Stock st = new Stock();
+
+
+                st.EliminarRepuestoStock(int.Parse(ddlRepuestos.SelectedValue), int.Parse(txtCantidad.Text));
+                //restar stock
                 decimal valorNetoRep = dt.ValorNetoTotal(id);
                 decimal iva = (int)(Math.Round((double)valorNetoRep * 0.19));
                 decimal total = valorNetoRep + iva;

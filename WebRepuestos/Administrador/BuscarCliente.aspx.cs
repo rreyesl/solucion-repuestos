@@ -112,10 +112,15 @@ namespace WebRepuestos.Administrador
 
             c.Rut = txtRut.Text;
             ir.EliminarReporteIMG(c.Rut);
+
             r.EliminarServicioReporte(c.Rut);
+
             dt.EliminarAutoCliente(c.Rut);
+
             s.EliminarServicioAuto(c.Rut);
+
             a.EliminarAutoCliente(c.Rut);
+
 
           
 

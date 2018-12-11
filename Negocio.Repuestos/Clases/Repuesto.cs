@@ -281,5 +281,33 @@ namespace Negocio.Repuestos.Clases
         }
 
 
+
+
+        //metodo nuevo
+
+        public int BuscarRepuestoByNombreId(string descripcion)
+        {
+            try
+            {
+
+                int id = 0;
+                var aux = CommonBC.Modelo.Repuesto.First
+                    (valor => valor.descripcion == descripcion);
+                id = aux.id;
+             
+
+
+
+
+                return id;
+
+
+            }
+            catch (Exception)
+            {
+
+                return 0;
+            }
+        }
     }
 }

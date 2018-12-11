@@ -35,6 +35,9 @@ namespace WebRepuestos.Mecanico
         {
             if (!IsPostBack)
             {
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
                 SucursalCollection sc = new SucursalCollection();
                 UsuarioCollection uc = new UsuarioCollection();
                 //ClienteCollection uc = new ClienteCollection();
@@ -171,8 +174,16 @@ namespace WebRepuestos.Mecanico
             if (s.Crear())
             {
 
-               
+                //restar repuesto
+                Stock st = new Stock();
+                Repuesto re = new Repuesto();
 
+                
+
+
+
+                st.EliminarRepuestoStock(re.BuscarRepuestoByNombreId(ddlRepuesto.SelectedItem.ToString()),int.Parse(txtCantidad.Text));
+//restar repuesto
                 Auto a = new Auto();
 
                 Negocio.Repuestos.Clases.Cliente c = new Negocio.Repuestos.Clases.Cliente();
@@ -274,11 +285,17 @@ namespace WebRepuestos.Mecanico
             
             if (dpIngreso.SelectedDate < fecha)
             {
-                lbMensaje.Text = "selecciona una fecha mayor a la actual";
+                mensaje1.Visible = false;
+
+                lbMensaje2.Text = "selecciona una fecha mayor a la actual";
+                mensaje2.Visible = true;
             }
             else
             {
-                lbMensaje.Text = "";
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+
+                lbMensaje2.Text = "";
             }
         }
 
@@ -286,11 +303,16 @@ namespace WebRepuestos.Mecanico
         {
             if (dpEntrega.SelectedDate < dpIngreso.SelectedDate)
             {
-                lbMensaje.Text = "selecciona una fecha mayor a la actual";
+                mensaje1.Visible = false;
+
+                lbMensaje2.Text = "selecciona una fecha mayor a la actual";
+                mensaje2.Visible = true;
             }
             else
             {
-                lbMensaje.Text = "";
+                mensaje1.Visible = false;
+                mensaje2.Visible = false;
+                lbMensaje2.Text = "";
             }
         }
     }

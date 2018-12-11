@@ -125,7 +125,7 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
-        public bool EliminarRepuestoStock(int id_repuesto)
+        public bool EliminarRepuestoStock(int id_repuesto, int cantidad)
         {
             try
             {
@@ -139,7 +139,7 @@ namespace Negocio.Repuestos.Clases
                 var c = CommonBC.Modelo.Stock.First
                     (valor => valor.id_repuesto == id_repuesto);
 
-                c.cantidad = c.cantidad - 1;
+                c.cantidad = c.cantidad - cantidad;
 
                 //CommonBC.Modelo.Stock.Remove(c);
                 CommonBC.Modelo.SaveChanges();
@@ -154,7 +154,40 @@ namespace Negocio.Repuestos.Clases
 
                 return false;
             }
-        } 
+        }
+
+
+        public bool DevolverRepuestoStock(int id_repuesto, int cantidad)
+        {
+            try
+            {
+
+                //var count = CommonBC.Modelo.Stock.Count(valor => valor.id_repuesto == id_repuesto);
+
+
+                //for (int i = 0; i < count; i++)
+                //{
+
+                var c = CommonBC.Modelo.Stock.First
+                    (valor => valor.id_repuesto == id_repuesto);
+
+                c.cantidad = c.cantidad + cantidad;
+
+                //CommonBC.Modelo.Stock.Remove(c);
+                CommonBC.Modelo.SaveChanges();
+
+
+
+                //}
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
 
 
 

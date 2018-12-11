@@ -71,10 +71,10 @@ namespace Negocio.Repuestos.Clases
                 for (int i = 0; i < count; i++)
                 {
 
-                    var c = CommonBC.Modelo.Reporte.First
-                    (valor => valor.Servicio.Auto.Cliente.rut == rut);
+                    var c = CommonBC.Modelo.img_reporte.First
+                    (valor => valor.Reporte.Servicio.Auto.Cliente.rut == rut);
 
-                    CommonBC.Modelo.Reporte.Remove(c);
+                    CommonBC.Modelo.img_reporte.Remove(c);
                     CommonBC.Modelo.SaveChanges();
 
                 }

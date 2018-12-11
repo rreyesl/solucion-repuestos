@@ -173,6 +173,8 @@ namespace Negocio.Repuestos.Clases
             }
         }
 
+
+
         public bool EliminarUsuario(int rut)
         {
             try
@@ -300,7 +302,7 @@ namespace Negocio.Repuestos.Clases
             catch (Exception)
             {
 
-                throw;
+                return total;
             }
 
             return total;

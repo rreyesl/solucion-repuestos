@@ -74,6 +74,21 @@
 
 
                  <table style="width: 100%;">
+
+                      <table style="width: 100%;">
+                      <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success"> 
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+                       <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger">
+  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+</div>
+
+                    </asp:Panel>
+
+
         <tr>
             <td class="auto-style2"></td>
             <td class="auto-style8"></td>
@@ -99,7 +114,7 @@
         <tr>
             <td class="auto-style3">Cantidad:</td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="True"></asp:TextBox>
+                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="True" TextMode="Number"></asp:TextBox>
             </td>
             <td>
                 <asp:RequiredFieldValidator ID="RqCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Cantidad Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
@@ -144,13 +159,11 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style13">Mano Obra %:</td>
+            <td class="auto-style13">&nbsp;</td>
             <td class="auto-style9">
-                <asp:TextBox ID="txtMano" runat="server" AutoPostBack="True" OnTextChanged="txtMano_TextChanged"></asp:TextBox>
-            </td>
+                &nbsp;</td>
             <td class="auto-style14">
-                <asp:RangeValidator ID="RangeMano" runat="server" ControlToValidate="txtMano" ErrorMessage="Ingrese Valor Valido!" MinimumValue="1" SetFocusOnError="True" Type="Double" MaximumValue="9999999999999999"></asp:RangeValidator>
-            </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style6">Sucursal:</td>

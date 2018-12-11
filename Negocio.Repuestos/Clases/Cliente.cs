@@ -304,7 +304,7 @@ namespace Negocio.Repuestos.Clases
 
 
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 return false;

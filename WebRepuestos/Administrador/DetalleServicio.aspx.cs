@@ -132,7 +132,13 @@ namespace WebRepuestos.Mecanico
 
             if (dt.Crear())
             {
-                st.EliminarRepuestoStock(int.Parse(ddlRepuesto.SelectedValue));
+
+
+
+                //stock
+                st.EliminarRepuestoStock(int.Parse(ddlRepuesto.SelectedValue), int.Parse(txtCantidad.Text));
+                //stock
+
                 mensaje2.Visible = false;
                 lbMensaje1.Text = "Detalle generado";
                 mensaje1.Visible = true;
