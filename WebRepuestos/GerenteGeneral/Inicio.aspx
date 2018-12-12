@@ -2,14 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    Inicio Gerente General pinochet
+    
 
        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
-    
-    
+
+    <div class="container container-bg">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="col-sm-12">
+                    <asp:Button ID="btnExportar" CssClass="btn btn-purple" runat="server" OnClick="btnExportar_Click" Text="Exportar" />
+                    <br /><br />
+                </div>
+
+                <div class="col-sm-12">
+
+                    <div class="table-responsive">
+
+                    <asp:GridView ID="GridView1" CssClass="table table-hover table-condensed" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
     <Columns>
         <asp:BoundField DataField="Nombre" HeaderText="Nombre" ReadOnly="True" SortExpression="Nombre" />
         <asp:BoundField DataField="Patente" HeaderText="Patente" SortExpression="Patente" />
@@ -24,16 +35,13 @@ inner join Cliente as t3 on t2.id_cliente = t3.id
 inner join Reporte as t4 on t1.id = t4.id_servicio
 order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
 
+                    </div>
+                </div>
+            </div>
 
-    <br />
-
-    
-
-       <asp:Button ID="btnExportar" runat="server" OnClick="btnExportar_Click" Text="Exportar" />
-
-    <br />
-
-    <asp:DropDownList ID="ddlMeses" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlMeses_SelectedIndexChanged"   >
+            <div class="col-sm-6">
+                <div class="col-sm-4">
+                     <asp:DropDownList ID="ddlMeses" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlMeses_SelectedIndexChanged"   >
         <asp:ListItem Text="Enero" Value="1" />
         <asp:ListItem Text="Febrero" Value="2" />
         <asp:ListItem Text="Marzo" Value="3" />
@@ -47,6 +55,32 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
         <asp:ListItem Text="Noviembre" Value="11" />
         <asp:ListItem Text="Diciembre" Value="12" />
     </asp:DropDownList>
+                </div>
+                <div class="col-sm-4">
+
+                </div>
+                <div class="col-sm-4"></div>
+
+                <div class="col-sm-12">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <br />
+
+    
+
+       
+
+    <br />
+
+   
 
     <asp:DropDownList ID="ddlAnio" runat="server" Width="150px" AutoPostBack="true"   >
         <asp:ListItem Text="2016" Value="2016" />

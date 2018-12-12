@@ -40,167 +40,113 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6 panel-g">
-                <table style="width: 100%;">
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>
-    <table style="width: 100%;">
-                 <asp:Panel ID="mensaje1" runat="server">
-        <div class="alert alert-success"> 
-  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
-</div>
-    </asp:Panel>
-
-
-          <asp:Panel ID="mensaje2" runat="server">
-                         <div class="alert alert-danger">
+    <div class="row">
+        <div class="col-sm-12">
+            <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger alert-dismissible">
+                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
 </div>
 
                     </asp:Panel>
-        <tr>
-            <td class="auto-style5"></td>
-            <td class="auto-style6"></td>
-            <td class="auto-style7"></td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Patente:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtPatente" runat="server" Width="117px" AutoPostBack="True" OnTextChanged="txtPatente_TextChanged"></asp:TextBox>
-            </td>
-            <td class="auto-style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
-            </td>
-            <td class="auto-style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:Label ID="lbMensaje0" runat="server"></asp:Label>
-            </td>
-            <td class="auto-style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style4">
-                &nbsp;</td>
-            <td class="auto-style3">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">KM:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtKm" runat="server"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Numero Motor:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtMotor" runat="server"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style8">Modelo:</td>
-            <td class="auto-style9">
-                <asp:DropDownList ID="ddlModelo" runat="server">
-                </asp:DropDownList>
-            </td>
-            <td class="auto-style10"></td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Numero Chasis:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="txtChasis" runat="server"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">Cliente:</td>
-            <td class="auto-style4">
-                <asp:DropDownList ID="ddlCliente" runat="server">
-                </asp:DropDownList>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:Button ID="btnModificar" CssClass="btn btn-submit" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
-            </td>
-            <td>
-                <asp:Button ID="btnEliminar" CssClass="btn btn-submit" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style4">
-                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
-            </td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+        </div>
+        <div class="col-sm-12">
+            <asp:Panel ID="mensaje1" runat="server">
+        <div class="alert alert-success alert-dismissible"> 
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+</div>
+    </asp:Panel>
+        </div>
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 panel-g">
 
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Patente:</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <asp:TextBox ID="txtPatente" CssClass="form-control" runat="server" AutoPostBack="True" OnTextChanged="txtPatente_TextChanged"></asp:TextBox>
+                    </div>
+                    <div class="col-sm-4">
+                        <asp:Button ID="btnBuscar" CssClass="btn btn-purple" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+                    </div>
+                    <div class="col-sm-12">
+                        <asp:Label ID="lbMensaje0" runat="server"></asp:Label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <br />
+                        <p>KM:</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <asp:TextBox ID="txtKm" CssClass="form-control" runat="server"></asp:TextBox>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Nro de Motor:</p>
+                    </div>
+                    <div class="col-sm-12">
+                         <asp:TextBox ID="txtMotor" CssClass="form-control" runat="server"></asp:TextBox>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Modelo:</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <asp:DropDownList ID="ddlModelo" CssClass="form-control" runat="server">
+                </asp:DropDownList>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Nro de Chasis:</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <asp:TextBox ID="txtChasis" CssClass="form-control" runat="server"></asp:TextBox>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <p>Cliente:</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <asp:DropDownList ID="ddlCliente" CssClass="form-control" runat="server">
+                </asp:DropDownList>
+                        <br />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4">
+                        <asp:Button ID="btnModificar" CssClass="btn btn-submit" runat="server" OnClick="btnModificar_Click" Text="Modificar" />
+                        <br />
+                    </div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <asp:Button ID="btnEliminar" CssClass="btn btn-purple" runat="server" OnClick="btnEliminar_Click" Text="Eliminar" />
+            
+                    </div>
+                    <div class="col-sm-12">
+                         <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+                    </div>
+                </div>
 
             </div>
             <div class="col-sm-3"></div>

@@ -67,15 +67,6 @@ namespace WebRepuestos.Administrador {
         protected global::System.Web.UI.WebControls.TextBox txtDv;
         
         /// <summary>
-        /// Control rqRut.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqRut;
-        
-        /// <summary>
         /// Control btnBuscar.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace WebRepuestos.Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
+        
+        /// <summary>
+        /// Control rqRut.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqRut;
         
         /// <summary>
         /// Control lbMensaje0.
