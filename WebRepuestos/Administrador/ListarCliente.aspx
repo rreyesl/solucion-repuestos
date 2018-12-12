@@ -7,20 +7,9 @@
         <div class="row">
             <div class="col-sm-1"></div>
             <div class="col-sm-10 text-center panel-g">
-
-
-                <table style="width:100%;">
-                    <tr>
-                        <td class="auto-style1">&nbsp;</td>
-                        <td class="auto-style2">
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">&nbsp;</td>
-                        <td class="auto-style2">
-                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource3">
+                 
+                <div class="table-responsive">
+                    <asp:GridView ID="GridView1" CssClass="table table-hover table-condensed" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource3">
                                 <Columns>
                                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                                     <asp:BoundField DataField="correo" HeaderText="correo" SortExpression="correo" />
@@ -33,6 +22,20 @@
                             <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select distinct(t4.id), t4.correo, concat(t4.nombre, ' ', t4.apellido)as Nombre,t4.telefono, t4.direccion, concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut from Cliente as t4"></asp:SqlDataSource>
                             <asp:SqlDataSource ID="SqlDataSource2" runat="server"></asp:SqlDataSource>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Repuestos2ConnectionString12 %>" SelectCommand="select distinct(t4.id), t4.correo, concat(t4.nombre, ' ', t4.apellido)as Nombre,t4.telefono, t4.direccion, concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut from Cliente as t4"></asp:SqlDataSource>
+                </div>
+
+                <table style="width:100%;">
+                    <tr>
+                        <td class="auto-style1">&nbsp;</td>
+                        <td class="auto-style2">
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">&nbsp;</td>
+                        <td class="auto-style2">
+                            
                         </td>
                         <td>&nbsp;</td>
                     </tr>

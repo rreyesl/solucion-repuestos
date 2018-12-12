@@ -9,17 +9,9 @@
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10 panel-g">
-    
-    <table style="width: 100%;">
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
+
+                    <div class="table-responsive">
+                        <asp:GridView ID="GridView1" CssClass="table table-hover table-condensed" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
                     <Columns>
                         <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                         <asp:BoundField DataField="Nombre" HeaderText="Nombre" ReadOnly="True" SortExpression="Nombre" />
@@ -40,15 +32,9 @@ concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut 
 inner join Sucursal as t3 on t2.id_sucursal = t3.id
 inner join Cliente as t4 on t1.id_cliente = t4.id
 inner join Estado_Servicio as t5 on t2.id_estado = t5.id "></asp:SqlDataSource>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+                    </div>
+    
+    
 
                     
                 </div>

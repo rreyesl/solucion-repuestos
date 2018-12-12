@@ -11,25 +11,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-8 text-center panel-g">
-
-
-                <table style="width:100%;">
-                    <tr>
-                        <td class="auto-style1">Sucursal:</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:DropDownList ID="ddlSucursal" runat="server">
-                            </asp:DropDownList>
-                            <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style1">&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td>
-                            <asp:GridView ID="gvTodos" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource2" AllowPaging="True" PageSize="5">
+            <div class="col-sm-"></div>
+            <div class="col-sm-12 text-center panel-g">
+                <div class="table-responsive">
+                    <asp:GridView ID="gvTodos" CssClass="table table-hover table-condensed" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource2" AllowPaging="True" PageSize="5">
                                 <Columns>
                                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" ReadOnly="True" SortExpression="Nombre" />
@@ -52,6 +37,23 @@ concat(parsename(convert(varchar,cast(t4.rut as money),1),2), '-',t4.dv) as rut 
 inner join Sucursal as t3 on t2.id_sucursal = t3.id
 inner join Cliente as t4 on t1.id_cliente = t4.id
 inner join Estado_Servicio as t5 on t2.id_estado = t5.id "></asp:SqlDataSource>
+                </div>
+               
+                <table style="width:100%;display:none">
+                    <tr>
+                        <td class="auto-style1">Sucursal:</td>
+                        <td>&nbsp;</td>
+                        <td>
+                            <asp:DropDownList ID="ddlSucursal" runat="server">
+                            </asp:DropDownList>
+                            <asp:Button ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" Text="Buscar" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="auto-style1">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>
+                            
                         </td>
                     </tr>
                     <tr>
@@ -98,7 +100,7 @@ inner join Estado_Servicio as t5 on t2.id_estado = t5.id
 
 
             </div>
-            <div class="col-sm-1"></div>
+            <div class="col-sm-"></div>
         </div>
     </div>
 

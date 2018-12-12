@@ -8,7 +8,8 @@
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 text-center panel-g">
-                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" AllowPaging="True" PageSize="5">
+                <div class="table-responsive">
+                     <asp:GridView ID="GridView1" CssClass="table table-hover table-condensed" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" AllowPaging="True" PageSize="5">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
             <asp:BoundField DataField="nombre" HeaderText="nombre" SortExpression="nombre" />
@@ -18,6 +19,9 @@
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT mo.[id], mo.[nombre], mo.[descripcion], mo.[anio] &quot;Año&quot;, ma.nombre &quot;Marca&quot; FROM [Modelo] mo join marca ma on mo.id_marca = ma.id;"></asp:SqlDataSource>
+                </div>
+
+               
 
             </div>
         </div>

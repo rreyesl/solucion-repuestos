@@ -26,19 +26,8 @@
         <div class="row">
             <div class="col-sm-2"></div>
             <div class="col-sm-8 text-center panel-g">
-
-                <table class="nav-justified">
-                    <tr>
-                        <td class="auto-style2">&nbsp;</td>
-                        <td class="auto-style4">
-                            &nbsp;</td>
-                        <td class="auto-style1">
-                            &nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style3">&nbsp;</td>
-                        <td class="auto-style5">
-                            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" PageSize="5">
+                <div class="table-responsive">
+                    <asp:GridView ID="GridView1" CssClass="table table-hover table-condensed" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" PageSize="5">
                                 <Columns>
                                     <asp:BoundField DataField="id" HeaderText="id" InsertVisible="False" ReadOnly="True" SortExpression="id" />
                                     <asp:BoundField DataField="patente" HeaderText="patente" SortExpression="patente" />
@@ -50,17 +39,8 @@
                             </asp:GridView>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="select distinct(t1.id), t1.patente, t1.km, t1.nro_motor, t1.id_modelo, t1.nro_chasis from Auto as t1 
 "></asp:SqlDataSource>
-                        </td>
-                        <td>&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td class="auto-style3">&nbsp;</td>
-                        <td class="auto-style5">
-
-                            &nbsp;</td>
-                        <td>&nbsp;</td>
-                    </tr>
-                </table>
+                </div>
+                
 
             </div>
             <div class="col-sm-2"></div>
