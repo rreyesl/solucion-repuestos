@@ -41,7 +41,7 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
 
             <div class="col-sm-6">
                 <div class="col-sm-4">
-                     <asp:DropDownList ID="ddlMeses" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlMeses_SelectedIndexChanged"   >
+                     <asp:DropDownList ID="ddlMeses" CssClass="form-control" runat="server" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlMeses_SelectedIndexChanged"   >
         <asp:ListItem Text="Enero" Value="1" />
         <asp:ListItem Text="Febrero" Value="2" />
         <asp:ListItem Text="Marzo" Value="3" />
@@ -57,45 +57,23 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
     </asp:DropDownList>
                 </div>
                 <div class="col-sm-4">
-
+                     <asp:DropDownList ID="ddlAnio" CssClass="form-control" runat="server" Width="150px" AutoPostBack="true"   >
+        <asp:ListItem Text="2016" Value="2016" />
+        <asp:ListItem Text="2017" Value="2017" />
+        <asp:ListItem Text="2018" Value="2018" />
+    </asp:DropDownList>
                 </div>
                 <div class="col-sm-4"></div>
 
                 <div class="col-sm-12">
-
+                    <div class="" style="background-color:#fff; max-width:600px;">
+        <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
                 </div>
             </div>
 
         </div>
     </div>
-
-
-
-
-    <br />
-
-    
-
-       
-
-    <br />
-
-   
-
-    <asp:DropDownList ID="ddlAnio" runat="server" Width="150px" AutoPostBack="true"   >
-        <asp:ListItem Text="2016" Value="2016" />
-        <asp:ListItem Text="2017" Value="2017" />
-        <asp:ListItem Text="2018" Value="2018" />
-    </asp:DropDownList>
-
-    <br />
-
-
-    <div class="" style="background-color:#fff; max-width:600px;">
-        <canvas id="myChart" width="400" height="400"></canvas>
-    </div>
-    <br />
-    
 
     
 <script>
