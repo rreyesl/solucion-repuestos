@@ -66,159 +66,155 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="container">
-         <div class="row">
-             <div class="col-sm-3"></div>
-             <div class="col-sm-6 panel-g">
 
-
-
-                 <table style="width: 100%;">
-
-                      <table style="width: 100%;">
-                      <asp:Panel ID="mensaje1" runat="server">
-        <div class="alert alert-success"> 
-  <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
-</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <asp:Panel ID="mensaje1" runat="server">
+                    <div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
+            </div>
     </asp:Panel>
-                       <asp:Panel ID="mensaje2" runat="server">
-                         <div class="alert alert-danger">
+        </div>
+        <div class="col-sm-12">
+            <asp:Panel ID="mensaje2" runat="server">
+                         <div class="alert alert-danger alert-dismissible">
+                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
 </div>
 
                     </asp:Panel>
+        </div>
+    </div>
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-4"></div>
+             <div class="col-sm-4 panel-g">
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Descripción:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:TextBox ID="txtDescripcion" CssClass="form-control" runat="server"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RqDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Descripcion Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                     </div>
+                 </div>
 
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Repuesto:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:DropDownList ID="ddlRepuesto" CssClass="form-control"  runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRepuesto_SelectedIndexChanged">
+                </asp:DropDownList>
+                         <br>
+                     </div>
+                 </div>
 
-        <tr>
-            <td class="auto-style2"></td>
-            <td class="auto-style8"></td>
-            <td class="auto-style1"></td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Descripcion:</td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RqDescripcion" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Descripcion Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Repuesto:</td>
-            <td class="auto-style8">
-                <asp:DropDownList ID="ddlRepuesto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlRepuesto_SelectedIndexChanged">
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Cantidad:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:TextBox ID="txtCantidad" CssClass="form-control" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="True" TextMode="Number"></asp:TextBox>
+                         <asp:RequiredFieldValidator ID="RqCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Cantidad Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Fecha de Ingreso:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:Calendar ID="dpIngreso" runat="server" OnSelectionChanged="dpIngreso_SelectionChanged"></asp:Calendar>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Fecha de Entrega:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:Calendar ID="dpEntrega" runat="server" OnSelectionChanged="dpEntrega_SelectionChanged"></asp:Calendar>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Valor Neto:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:TextBox ID="txtNeto" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Valor IVA:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:TextBox ID="txtIVA" CssClass="form-control" runat="server" ReadOnly="True"></asp:TextBox>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Valor Total:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:TextBox ID="txtTotal" CssClass="form-control" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Sucursal:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:DropDownList ID="ddlSucursal" CssClass="form-control" runat="server">
                 </asp:DropDownList>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Cantidad:</td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtCantidad" runat="server" OnTextChanged="txtCantidad_TextChanged" AutoPostBack="True" TextMode="Number"></asp:TextBox>
-            </td>
-            <td>
-                <asp:RequiredFieldValidator ID="RqCantidad" runat="server" ControlToValidate="txtCantidad" ErrorMessage="Cantidad Obligatoria!" SetFocusOnError="True"></asp:RequiredFieldValidator>
-            </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Fecha Ingreso:</td>
-            <td class="auto-style8">
-                <asp:Calendar ID="dpIngreso" runat="server" OnSelectionChanged="dpIngreso_SelectionChanged"></asp:Calendar>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">Fecha Entrega:</td>
-            <td class="auto-style8">
-                <asp:Calendar ID="dpEntrega" runat="server" OnSelectionChanged="dpEntrega_SelectionChanged"></asp:Calendar>
-            </td>
-            <td class="auto-style1"></td>
-        </tr>
-        <tr>
-            <td class="auto-style15">Valor Neto: </td>
-            <td class="auto-style16">
-                <asp:TextBox ID="txtNeto" runat="server" ReadOnly="True"></asp:TextBox>
-            </td>
-            <td class="auto-style17">
-                </td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Valor IVA:</td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtIVA" runat="server" ReadOnly="True"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3">Valor Total:</td>
-            <td class="auto-style8">
-                <asp:TextBox ID="txtTotal" runat="server" AutoPostBack="True" ReadOnly="True"></asp:TextBox>
-            </td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style13">&nbsp;</td>
-            <td class="auto-style9">
-                &nbsp;</td>
-            <td class="auto-style14">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style6">Sucursal:</td>
-            <td class="auto-style9">
-                <asp:DropDownList ID="ddlSucursal" runat="server">
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Vehículo:</p>
+                     </div>
+                     <div class="col-sm-12">
+                         <asp:DropDownList ID="ddlAuto" CssClass="form-control" runat="server">
                 </asp:DropDownList>
-            </td>
-            <td class="auto-style7"></td>
-        </tr>
-        <tr>
-            <td class="auto-style10">Auto:</td>
-            <td class="auto-style11">
-                <asp:DropDownList ID="ddlAuto" runat="server">
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <p>Mecánico:</p>
+                     </div>
+                     <div class="col-sm-12"> 
+                         <asp:DropDownList ID="ddlUsuario" CssClass="form-control" runat="server">
                 </asp:DropDownList>
-            </td>
-            <td class="auto-style12"></td>
-        </tr>
-        <tr>
-            <td class="auto-style4">Mecanico:</td>
-            <td class="auto-style9">
-                <asp:DropDownList ID="ddlUsuario" runat="server">
-                </asp:DropDownList>
-            </td>
-            <td class="auto-style5"></td>
-        </tr>
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td class="auto-style8">
-                &nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style2">&nbsp;</td>
-            <td class="auto-style8">
-            </td>
-            <td class="auto-style1"></td>
-        </tr>
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td class="auto-style8">
-                <asp:Button ID="btnAgregar" CssClass="btn btn-submit" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style3">&nbsp;</td>
-            <td class="auto-style8">
-                <asp:Label ID="lbMensaje" runat="server"></asp:Label>
-            </td>
-            <td>&nbsp;</td>
-        </tr>
-    </table>
+                         <br>
+                     </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-sm-12">
+                         <asp:Button ID="btnAgregar" CssClass="btn btn-block btn-submit" runat="server" OnClick="btnAgregar_Click" Text="Agregar" />
+                     </div>
+                     <div class="col-sm-12">
+                          <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+                     </div>
+                 </div>
 
              </div>
-             <div class="col-sm-3"></div>
+             <div class="col-sm-4"></div>
          </div>
     
     </div>

@@ -26,7 +26,7 @@ namespace WebRepuestos
             {
 
                 System.Web.HttpContext.Current.Session["rut"] = Login1.UserName;
-                Response.Redirect("Clientee/Inicio.aspx");
+                Response.Redirect("Clientee/Cotizacion.aspx");
 
 
             }

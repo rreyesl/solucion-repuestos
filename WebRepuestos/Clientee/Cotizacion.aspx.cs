@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocio.Repuestos.Clases;
 using Negocio.Repuestos.Colecciones;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WebRepuestos.Cliente
 {
@@ -17,7 +19,7 @@ namespace WebRepuestos.Cliente
             lbCotizacion.Visible = false;
             btnAceptar.Visible = false;
             btnRechazar.Visible = false;
-
+            btnReporte.Visible = false;
             mensaje1.Visible = false;
             mensaje2.Visible = false;
         }
@@ -178,23 +180,56 @@ namespace WebRepuestos.Cliente
 
         }
 
+        protected void btnReporte_Click(object sender, EventArgs e)
+        {
+            string id = Session["id_servicio"] as string;
+            Negocio.Repuestos.RestService rs = new Negocio.Repuestos.RestService();
+            
+            string json = rs.getReporteCliente(id);
+            
+            JObject o = JObject.Parse(json);
+
+            string error =  (string)o["error"];
+
+
+            if (error == "False") {
+                mensaje2.Visible = false;
+                lbMensaje1.Text = "Descargando PDF";
+                mensaje1.Visible = true;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "OpenWindow", "window.open('" + (string)o["url"] + "','_newtab');", true);
+
+            }
+            else {
+                mensaje1.Visible = false;
+                lbMensaje2.Text = "Error al generar pdf";
+                mensaje2.Visible = true;
+            }
+
+            
+        }
+
         protected void gvServicios_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbC.Visible = true;
             lbCotizacion.Visible = true;
-           // lbCotizacion.Visible = false;
+            btnReporte.Visible = true;
+            // lbCotizacion.Visible = false;
             btnAceptar.Visible = true;
             btnRechazar.Visible = true;
 
             GridViewRow gr = gvServicios.SelectedRow;
             lbCotizacion.Text = gr.Cells[2].Text;
-      
 
+            Session["id_servicio"] = gr.Cells[0].Text;
             System.Web.HttpContext.Current.Session["idservicio"] = gr.Cells[1].Text;
             System.Web.HttpContext.Current.Session["idservici2"] = gr.Cells[0].Text;
 
 
 
         }
+
+        
+        
+
     }
 }

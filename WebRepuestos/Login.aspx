@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4"></div>
-                <div class="col-sm-4" style="margin-top: 20%; padding-left: 70px; padding-right: 70px;">
+                <div class="col-sm-4" style="margin-top: 10%; padding-left: 70px; padding-right: 70px;">
                     
                     <div class="panel-login text-center">
                         <div class="row">

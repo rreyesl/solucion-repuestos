@@ -1,12 +1,44 @@
-﻿html {
+﻿
+@font-face{
+    font-family: Geo;
+    src: url('../fonts/GeosansLight.ttf');
+}
+
+@font-face {
+    font-family: Comfortaa;
+    src: url('../fonts/Comfortaa-Regular.ttf');
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f3f3f3;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #572364;
+    border-radius: 10px;
+}
+
+
+html {
     height: 100%;
+    font-family: Comfortaa;
 }
 body {
+    font-family: Comfortaa;
     background-image: url('../img/bg_1.jpg');
     height: 100%;
-    background-position:center;
-    background-repeat:no-repeat;
-    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
 }
 
 .panel-login > table {
@@ -31,11 +63,11 @@ body {
 
 .form-control {
    /*border: none;*/
-    border-radius: 25px;
+    border-radius: 15px;
     font-size: 1em;
 }
 
-.btn-submit {
+.btn-submit, .btn-submit:hover, .btn-submit:focus {
     margin-top: 10px;
     color: #fff;
     background-color: #ff8900;
@@ -62,7 +94,14 @@ body {
     padding-top: 15px;
     background-color: #f1f1f1;
     padding-bottom: 50px;
-    border-radius: 25px;
+    border-radius: 15px;
+    max-height:550px;
+    overflow-y: auto
+}
+
+.panel-g > .row > .col-sm-12 > p {
+    margin-bottom: 0px;
+    color: #555;
 }
 
 .table-responsive {
@@ -83,4 +122,39 @@ body {
     padding-bottom: 20px;
     border-radius: 25px;
     min-height: 450px;
+}
+
+.alert {
+    position: fixed;
+    z-index: 99;
+    right: 15px;
+    top: 17px;
+}
+
+.login-cliente {
+    margin: 0 auto;
+}
+
+
+.btn-purple, .btn-purple:hover, .btn-purple:focus {
+    margin-top: 10px;
+    color: #fff;
+    background-color: #572364;
+    padding: 6px 12px;
+    border-radius: 25px;
+    border: none;
+}
+
+.form-control-dv {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 2px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 }

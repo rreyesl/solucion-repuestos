@@ -19,12 +19,14 @@
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <asp:Panel ID="mensaje1" runat="server">
-                <div class="alert alert-success"> 
+                <div class="alert alert-success alert-dismissible">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Correcto!</strong> <asp:Label ID="lbMensaje1" runat="server"></asp:Label>
                 </div>
             </asp:Panel>
             <asp:Panel ID="mensaje2" runat="server">
-                <div class="alert alert-danger">
+                <div class="alert alert-danger alert-dismissible">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
                 </div>
             </asp:Panel>
@@ -63,6 +65,7 @@
                         <asp:BoundField DataField="repuesto" HeaderText="Repuesto" SortExpression="repuesto" />
                         <asp:BoundField DataField="nombre" HeaderText="Estado" SortExpression="estado" />
                         <asp:CommandField ShowSelectButton="True" />
+                        
                     </Columns>
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:repuestoConnectionString %>" SelectCommand="SELECT t1.[id], t1.[descripcion], t1.[fecha_entrega], t1.[valor_total], t1.[repuesto], t2.[nombre] FROM [Servicio] as t1 inner join Estado_Servicio as t2 on t1.id_estado = t2.id WHERE (t1.[id_auto] = @id_auto)">
@@ -83,11 +86,14 @@
                 <p><asp:Label ID="lbC" runat="server" Text="Cotizacion:"></asp:Label> <asp:Label ID="lbCotizacion" runat="server"></asp:Label></p>
             </div>
             <div class="col-sm-12">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <asp:Button CssClass="btn btn-submit" ID="btnAceptar" runat="server" OnClick="btnAceptar_Click" Text="Aceptar" />
                 </div>
-                <div class="col-sm-6">
-                    <asp:Button CssClass="btn btn-submit" ID="btnRechazar" runat="server" OnClick="btnRechazar_Click" Text="Recharzar" />
+                <div class="col-sm-4">
+                    <asp:Button CssClass="btn btn-submit" ID="btnRechazar" runat="server" OnClick="btnRechazar_Click" Text="Rechazar" />
+                </div>
+                <div class="col-sm-4">
+                    <asp:Button CssClass="btn btn-purple" ID="btnReporte" runat="server" OnClick="btnReporte_Click" Text="Reporte" />
                 </div>
             </div>
         </div>

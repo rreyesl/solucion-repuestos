@@ -58,15 +58,6 @@ namespace WebRepuestos.Mecanico {
         protected global::System.Web.UI.WebControls.TextBox txtRut;
         
         /// <summary>
-        /// Control txtDv.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDv;
-        
-        /// <summary>
         /// Control RqRut.
         /// </summary>
         /// <remarks>
@@ -83,6 +74,15 @@ namespace WebRepuestos.Mecanico {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RangeValidator RvRut;
+        
+        /// <summary>
+        /// Control txtDv.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDv;
         
         /// <summary>
         /// Control txtCorreo.

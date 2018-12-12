@@ -12,33 +12,39 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
 
-   
+    <div class="row">
+        <div class="col-sm-12">
+            <asp:Panel ID="mensaje1" runat="server">
+                <div class="alert alert-success alert-dismissible"> 
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Correcto!</strong> <asp:Label ID="lbMensaje" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
+            <asp:Panel ID="mensaje2" runat="server">
+                <div class="alert alert-danger alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
+                </div>
+            </asp:Panel>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col-sm-3"></div>
             <div class="col-sm-6 panel-g">
+                <div class="col-sm-12">
+                </div>
+
 
                 <table style="width: 100%;">
 
-                    <asp:Panel ID="mensaje1" runat="server">
-        <div class="alert alert-success"> 
-  <strong>Correcto!</strong> <asp:Label ID="lbMensaje" runat="server"></asp:Label>
-</div>
-    </asp:Panel>
-                    <asp:Panel ID="mensaje2" runat="server">
-                         <div class="alert alert-danger">
-  <strong>Error!</strong>  <asp:Label ID="lbMensaje2" runat="server"></asp:Label>
-</div>
-
-                    </asp:Panel>
+                    
+                    
                    
-        <tr>
-            <td class="auto-style1">&nbsp;</td>
-            <td class="auto-style2">&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
+        
         <tr>
             <td class="auto-style1">Rut:</td>
             <td class="auto-style2">

@@ -5,7 +5,6 @@ using System.Text;
 using RestSharp;
 
 
-
 namespace Negocio.Repuestos
 {
     public class RestService
@@ -30,6 +29,7 @@ namespace Negocio.Repuestos
             return content;
 
         }
+
         public string nuevoUsuario(string nombre, string mail, string rol ,string pass)
         {
             String ROUTE = "send";
@@ -48,6 +48,7 @@ namespace Negocio.Repuestos
             return content;
 
         }
+
         public string nuevoPresupuesto(string nombre, string mail, string presupuesto)
         {
             String ROUTE = "send";
@@ -82,6 +83,18 @@ namespace Negocio.Repuestos
             var content = response.Content;
 
             return content;
+
+        }
+
+        public string getReporteCliente(string id_servicio)
+        {
+            string url_ = "https://nameless-eyrie-17794.herokuapp.com/getServicio/";
+            var rep = new RestClient(url_);
+            var request = new RestRequest(id_servicio, Method.GET);
+            IRestResponse response = rep.Execute(request);
+            var content = response.Content;
+            string cont = content;
+            return cont;
 
         }
 
