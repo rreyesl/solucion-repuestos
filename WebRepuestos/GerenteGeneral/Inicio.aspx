@@ -66,6 +66,7 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
                 <div class="col-sm-4"></div>
 
                 <div class="col-sm-12">
+                    <br />
                     <div class="" style="background-color:#fff; max-width:600px;">
         <canvas id="myChart" width="400" height="400"></canvas>
     </div>
@@ -113,17 +114,19 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
         for (var i = 1; i <= dias; i++) {
             arrayDias.push(i);
             aux = false;
+             cantidad = 0;
             for (var j = 0; j < data.repuestos.length; j++) {
                 dia = (data.repuestos[j].fecha).substring(0, 2);
                 m = (data.repuestos[j].fecha).substring(3, 5);
+               
                 if (i == dia && m == mes) {
-                    arrayValores.push(data.repuestos[j].cantidad);
-                    aux = true;
+                    cantidad = parseInt(parseInt(cantidad) + parseInt(data.repuestos[j].cantidad));
+                    //arrayValores.push(data.repuestos[j].cantidad);
+                    //aux = true;
                 } 
             }
-            if (!aux) {
-                arrayValores.push(0);
-            }
+            arrayValores.push(cantidad);
+            
 
         }
 
@@ -135,12 +138,12 @@ order by t1.fecha_ingreso desc;"></asp:SqlDataSource>
             data: {
                 labels: arrayDias,
                 datasets: [{
-                    label: 'Repuestos Vendidos Mes Actual',
+                    label: 'Repuestos Vendidos',
                     data: arrayValores,
                     backgroundColor: 
-                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(87, 35, 100, 0.2)',
                     borderColor: 
-                        'rgba(255,99,132,1)',
+                        'rgba(87, 35, 100, 1)',
                     borderWidth: 1
                 }]
             },

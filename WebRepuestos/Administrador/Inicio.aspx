@@ -119,6 +119,7 @@
     console.log(arrayDias);
     console.log("dias: "+dias);
     console.log(data.repuestos);
+    console.log(arrayValores);
 
     function getDaysInMonth(m, y) {
         console.log("mes: "+m+" - año: "+y)
@@ -133,17 +134,22 @@
         for (var i = 1; i <= dias; i++) {
             arrayDias.push(i);
             aux = false;
+            
+            cantidad = 0;
+
             for (var j = 0; j < data.repuestos.length; j++) {
                 dia = (data.repuestos[j].fecha).substring(0, 2);
                 m = (data.repuestos[j].fecha).substring(3, 5);
+                
                 if (i == dia && m == mes) {
-                    arrayValores.push(data.repuestos[j].cantidad);
-                    aux = true;
+                    cantidad = parseInt(parseInt(cantidad) + parseInt(data.repuestos[j].cantidad));
+                    //arrayValores.push(data.repuestos[j].cantidad);
+                   
                 } 
             }
-            if (!aux) {
-                arrayValores.push(0);
-            }
+            
+             arrayValores.push(cantidad);
+            
 
         }
 
@@ -155,7 +161,7 @@
             data: {
                 labels: arrayDias,
                 datasets: [{
-                    label: 'Repuestos Vendidos Mes Actual',
+                    label: 'Repuestos Vendidos',
                     data: arrayValores,
                     backgroundColor: 
                         'rgba(87, 35, 100, 0.2)',
